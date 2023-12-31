@@ -85,7 +85,7 @@ class XLButton(Button):
     def _package_command(self, command, start_desc, yes_end_desc, no_end_desc):
         self.button_start(start_desc)
 
-        _back = command()
+        _back = command(self)
         if yes_end_desc != "" and _back:
             self.button_yes_end(start_desc)
 
