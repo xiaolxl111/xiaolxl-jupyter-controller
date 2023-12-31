@@ -104,7 +104,8 @@ def getUi(data,cmd_run,controllers):
 
         download_button = XLButton(
             description='下载文件',
-            button_style='success'
+            button_style='success', 
+            layout=Layout(width='150px', height='auto')
         )
         def download_click(self):
             with rootOut:
