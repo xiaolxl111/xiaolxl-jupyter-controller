@@ -803,7 +803,7 @@ def getUi(data,cmd_run,controllers):
                         print("如果需要学术加速，请打开右侧网址，找到对应加速命令提前运行即可：https://www.autodl.com/docs/network_turbo/")
                     else:
                         print("如果之前开启过学术加速需要解除，请打开右侧网址，找到对应接触命令提前运行即可：https://www.autodl.com/docs/network_turbo/")
-        sd_start_button.on_click(sd_start_fun)
+        sd_start_button.on_click_with_style(sd_start_fun,"正在运行...")
         ui_constructor.add_component(sd_start_button)
 
         # CommandBuilder使用示例
