@@ -83,20 +83,20 @@ class XLButton(Button):
         self.icon = self.initial_icon
 
     def _package_command(self, command, start_desc, yes_end_desc, no_end_desc):
-        self.button_start(self, start_desc)
+        self.button_start(start_desc)
 
         _back = command()
         if yes_end_desc != "" and _back:
-            self.button_yes_end(self, start_desc)
+            self.button_yes_end(start_desc)
 
         if no_end_desc != "" and not _back:
-            self.button_yes_end(self, start_desc)
+            self.button_yes_end(start_desc)
 
         if yes_end_desc == "" and no_end_desc == "":
-            self.reset_button(self)
+            self.reset_button()
 
     def on_click_with_style(self,command, start_desc, yes_end_desc="", no_end_desc=""):
-        package_command = self._package_command(self,command, start_desc, yes_end_desc, no_end_desc)
+        package_command = self._package_command(command, start_desc, yes_end_desc, no_end_desc)
         self.on_click(package_command)
 
 def get_Dropdown_name_by_key(dropdown,_value):
