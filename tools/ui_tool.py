@@ -96,7 +96,8 @@ class XLButton(Button):
             self.reset_button()
 
     def on_click_with_style(self,command, start_desc, yes_end_desc="", no_end_desc=""):
-        package_command = self._package_command(command, start_desc, yes_end_desc, no_end_desc)
+        def package_command(self):
+            self._package_command(command, start_desc, yes_end_desc, no_end_desc)
         self.on_click(package_command)
 
 def get_Dropdown_name_by_key(dropdown,_value):
