@@ -102,7 +102,7 @@ def getUi(data,cmd_run,controllers):
         )
         custom_download_constructor.add_component(custom_download_path_input)
 
-        download_button = widgets.Button(
+        download_button = XLButton(
             description='下载文件',
             button_style='success'
         )
@@ -118,7 +118,7 @@ def getUi(data,cmd_run,controllers):
                     cmd_run(get_download_command(download_link_input.value,download_path,output_filename_input.value,download_method_dropdown.value))
                 else:
                     cmd_run(get_download_command(download_link_input.value,"/root/" + custom_download_path_input.value,output_filename_input.value,download_method_dropdown.value))
-        download_button.on_click(download_click)
+        download_button.on_click_with_style(download_click,"正在下载")
         custom_download_constructor.add_component(download_button)
 
 
