@@ -1,0 +1,48 @@
+{
+    "runConfigIndex":"xiaolxlDefault",
+    "runConfigs":{
+        "xiaolxlDefault": {
+            "name": "默认启动配置",
+            "ckpt_dir": "/root/autodl-tmp/models/checkpoint",
+            "embeddings_dir": "/root/autodl-tmp/models/embeddings",
+            "hypernetwork_dir": "/root/autodl-tmp/models/hypernetwork",
+            "lora_dir": "/root/autodl-tmp/models/lora",
+            "vae_dir": "/root/autodl-tmp/models/vae",
+            "controlnet_dir": "/root/autodl-tmp/models/controlnet",
+            "controlnet_annotator_models_path": "/root/autodl-tmp/models/controlnet_annotator",
+            "temp_dir": "/root/autodl-tmp",
+            "sdWebUi_dir": "/root/stable-diffusion-webui",
+            "sdWebUiExtensions_dir":"/root/stable-diffusion-webui/extensions",
+            "SdWebUi_port":"6006",
+
+            "login_name":"",
+            "login_pass":"",
+            "open_login":"auto",
+
+            "custom_launch_arguments":"",
+            "custom_environment_variables":"",
+
+            "sd_webui_start_method":"normal",
+            "sd_webui_theme":"auto",
+            "gradio_share":false,
+            "xformers":true,
+            "disable_safe_unpickle":true,
+            "enable_insecure_extension_access":true,
+            "disable_gradio_queue":false,
+            "disable_half_vae":true,
+            "disable_nan_check":true,
+            "start_ui_without_loading_models":false,
+            "skip_version_check":false,
+            "skip_python_version_check":false,
+            "close_tensorflow_warn":false,
+            "max_batch_count":"16",
+
+            "enable_web_ui_api":false,
+            "enable_api_log":false,
+            "only_start_api":false,
+            "cors_allow_origins":"",
+
+            "enable_hf_network":true
+        }
+    }
+}

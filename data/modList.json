@@ -1,0 +1,33 @@
+{
+    "ts" : [
+        {
+            "title":"主流模型",
+            "mods":[
+                {
+                    "modName":"Momoko_e",
+                    "modChildren":[
+                        {
+                            "downloadType":"url",
+                            "url":"https://hf-mirror.com/xiaolxl/Stable-diffusion-models/resolve/main/momoko-e.ckpt",
+                            "parentPath":"ckpt_dir",
+                            "sonPath":"/",
+                            "fileName":"momoko-e.ckpt"
+                        }
+                    ]
+                },
+                {
+                    "modName":"res101",
+                    "modChildren":[
+                        {
+                            "downloadType":"cg",
+                            "url":"tzwm/StableDiffusion-others/res101.pth",
+                            "parentPath":"ckpt_dir",
+                            "sonPath":"/",
+                            "fileName":"res101.pth"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
