@@ -93,6 +93,12 @@ def getUi(data,cmd_run,controllers):
         )
         custom_download_constructor.add_component(HBox([installation_location_dropdown, download_method_dropdown]))
 
+        is_hf_speed = widgets.Checkbox(
+            value=True,
+            description="是否开启抱脸链接加速",
+        )
+        custom_download_constructor.add_component(is_hf_speed)
+
         custom_download_path_input = widgets.Text(
             value='',
             placeholder='请输入自定义下载路径(可选,填后上方安装位置选择无效,请勿添加/root/)[填写例子:stable-diffusion-webui/scripts]',
@@ -107,18 +113,25 @@ def getUi(data,cmd_run,controllers):
             button_style='success', 
             layout=Layout(width='150px', height='auto')
         )
+        def replace_url_prefix(url):  
+            if url.startswith("https://huggingface.co"):  
+                return url.replace("https://huggingface.co", "https://hf-mirror.com", 1)  
+            return url
         def download_click(self):
             with rootOut:
                 ui_constructor.clear_output()
+                download_url = download_link_input.value
                 if output_filename_input.value=='':
                     logOut.exp("请输入文件名!")
                 if download_link_input.value=='':
                     logOut.exp("请输入文件地址!")
+                if is_hf_speed.value == True:
+                    download_url = replace_url_prefix(download_link_input.value)
                 if custom_download_path_input.value=="":
                     download_path = get_config_path(uiConfig, installation_location_dropdown.value)
-                    cmd_run(get_download_command(download_link_input.value,download_path,output_filename_input.value,download_method_dropdown.value))
+                    cmd_run(get_download_command(download_url,download_path,output_filename_input.value,download_method_dropdown.value))
                 else:
-                    cmd_run(get_download_command(download_link_input.value,"/root/" + custom_download_path_input.value,output_filename_input.value,download_method_dropdown.value))
+                    cmd_run(get_download_command(download_url,"/root/" + custom_download_path_input.value,output_filename_input.value,download_method_dropdown.value))
         download_button.on_click_with_style(download_click,"正在下载")
         custom_download_constructor.add_component(download_button)
 
