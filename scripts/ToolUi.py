@@ -155,6 +155,66 @@ def getUi(data,cmd_run,controllers):
         #===========
 
 
+        autodl_cg_upload_ui = UIConstructor()
+
+        autodl_cg_upload_ui.add_component(
+            widgets.HTML(value="<font size='2' color='red'>如果你不清楚AutoDL-CG(cg upload)是什么，请勿使用</font>")
+        )
+
+        cg_upload_folder_path_input = widgets.Text(
+            value='',
+            placeholder='(例如: autodl-tmp/models)',
+            style={'description_width': 'initial'},
+            layout=Layout(width='800px', height='auto'),
+            description='请输入要上传的文件目录(会自动扫描目录下全部文件，路径不用加/root/):',
+            disabled=False
+        )
+        autodl_cg_upload_ui.add_component(cg_upload_folder_path_input)
+
+        temp_token_input = widgets.Text(
+            value='',
+            placeholder='',
+            style={'description_width': 'initial'},
+            layout=Layout(width='800px', height='auto'),
+            description='请输入临时Token',
+            disabled=False
+        )
+        autodl_cg_upload_ui.add_component(temp_token_input)
+
+        cg_upload_button = XLButton(description="开始上传", button_style='info', layout=Layout(width='150px', height='auto'))
+        autodl_cg_upload_ui.add_component(cg_upload_button)
+
+        def cg_upload_run(self):
+            ui_constructor.clear_output()
+            with rootOut:
+                folder_path = "/root/" + cg_upload_folder_path_input.value
+                temp_token = temp_token_input.value
+                
+                total_files = sum(len(files) for _, _, files in os.walk(folder_path))  
+                file_count = 0  # 用于跟踪当前文件的索引  
+                
+                for root, _, files in os.walk(folder_path):
+                    for file in files:  
+                        file_count += 1  # 增加文件计数器  
+                        
+                        # 构造完整的本地文件路径  
+                        local_file_path = os.path.join(root, file)  
+                        
+                        # 打印当前上传的文件信息  
+                        print(f"正在上传 {file_count} 个文件中的第 {total_files} 个文件: {local_file_path}")  
+                        
+                        # 构造要执行的命令  
+                        command = f'cg upload {local_file_path} --token {temp_token}'  
+                        
+                        # 执行命令  
+                        cmd_run(command)
+        
+        cg_upload_button.on_click_with_style(cg_upload_run,"正在上传..")
+
+
+        #===========
+
+
         other_ui = UIConstructor()
 
         clear_buttom = widgets.Button(
@@ -178,11 +238,12 @@ def getUi(data,cmd_run,controllers):
         #===========
 
     
-        accordion = widgets.Accordion(children=[official_help,extensions_install_ui.get_ui_no_out(),del_ui.get_ui_no_out(),other_ui.get_ui_no_out()])
+        accordion = widgets.Accordion(children=[official_help,extensions_install_ui.get_ui_no_out(),del_ui.get_ui_no_out(),autodl_cg_upload_ui.get_ui_no_out(),other_ui.get_ui_no_out()])
         accordion.set_title(0, '官方帮助文档')
         accordion.set_title(1, '扩展/插件安装')
         accordion.set_title(2, '文件/目录删除')
-        accordion.set_title(3, '其它工具')
+        accordion.set_title(3, 'AutoDL模型文件上传器')
+        accordion.set_title(4, '其它工具')
         accordion.selected_index = None
         ui_constructor.add_component(accordion)
 
