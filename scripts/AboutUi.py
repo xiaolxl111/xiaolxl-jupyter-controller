@@ -18,6 +18,20 @@ def getUi(data,cmd_run,controllers):
     )
 
     ui_constructor.add_component(
+        widgets.HTML(value="AIGC交流QQ群: 741821455")
+    )
+
+    file = open(get_xiaolxl_jupyter_controller_path() + "/img/qq.jpg", "rb")
+    image = file.read()
+    qq_img = widgets.Image(
+        value=image,
+        format='jpg',
+        width="auto",
+        height="auto"
+    )
+    ui_constructor.add_component(qq_img)
+
+    ui_constructor.add_component(
         widgets.HTML(value="整合版1.0镜像介绍页：<font color='#0fa3ff'><a target='_blank' href='https://www.codewithgpu.com/i/AUTOMATIC1111/stable-diffusion-webui/NovelAI-Consolidation-Package'>点我访问</a></font>",)
     )
     
@@ -37,4 +51,4 @@ def getUi(data,cmd_run,controllers):
         widgets.HTML(value="启动器开源地址：<font color='#0fa3ff'><a target='_blank' href='https://jihulab.com/xiaolxl_pub/xiaolxl-jupyter-controller'>点我访问</a></font>",)
     )
     
-    return ui_constructor.get_ui()
+    return ui_constructor.get_ui_no_out()
