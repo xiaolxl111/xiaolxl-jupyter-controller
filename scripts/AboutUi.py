@@ -27,7 +27,7 @@ def getUi(data,cmd_run,controllers):
     qq_img = widgets.Image(
         value=image,
         format='jpg',
-        width="auto",
+        width="20%",
         height="auto"
     )
     ui_constructor.add_component(qq_img)
