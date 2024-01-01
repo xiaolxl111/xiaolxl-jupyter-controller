@@ -95,7 +95,8 @@ def getUi(data,cmd_run,controllers):
 
         is_hf_speed = widgets.Checkbox(
             value=True,
-            description="是否开启抱脸链接加速",
+            description="是否开启抱脸链接加速(加速状态下可能第一次会报错,再次下载即可)",
+            style={'description_width': 'initial'},
         )
         custom_download_constructor.add_component(is_hf_speed)
 
