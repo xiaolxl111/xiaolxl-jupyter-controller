@@ -97,6 +97,7 @@ def getUi(data,cmd_run,controllers):
             value=True,
             description="是否开启抱脸链接加速(加速状态下可能第一次会报错,再次下载即可)",
             style={'description_width': 'initial'},
+            layout=Layout(width='650px', height='auto')
         )
         custom_download_constructor.add_component(is_hf_speed)
 
