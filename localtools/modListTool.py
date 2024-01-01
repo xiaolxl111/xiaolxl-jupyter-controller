@@ -24,26 +24,20 @@ class JSONManager:
                 return
         raise ValueError("未找到标题")
 
-    def add_mod_child(self, title, modName, modChild):
-        """向特定标题的特定模型添加一个模型子项。"""
-        for title_entry in self.data["ts"]:
-            if title_entry["title"] == title:
-                for mod in title_entry["mods"]:
-                    if mod["modName"] == modName:
-                        mod["modChildren"].append(modChild)
-                        return
-                raise ValueError("未找到模型")
-        raise ValueError("未找到标题")
-
     def add_mod_childs(self, title, modName, modChildren):
         """向特定标题的特定模型添加多个模型子项。"""
+        mod_exists = False
         for title_entry in self.data["ts"]:
             if title_entry["title"] == title:
                 for mod in title_entry["mods"]:
                     if mod["modName"] == modName:
+                        mod_exists = True
                         mod["modChildren"].extend(modChildren)
                         return
-                raise ValueError("未找到模型")
+                if not mod_exists:
+                    self.add_mod(title, modName)
+                    self.add_mod_childs(title, modName, modChildren)
+                    return
         raise ValueError("未找到标题")
 
     def get_json(self):
@@ -52,7 +46,7 @@ class JSONManager:
 
 manager = JSONManager()
 manager.add_title("主流模型")
-manager.add_mod("主流模型", "Momoko_e")
+
 manager.add_mod_childs("主流模型", "Momoko_e", [{
     "downloadType": "url",
     "url": "https://hf-mirror.com/xiaolxl/Stable-diffusion-models/resolve/main/momoko-e.ckpt",
@@ -60,7 +54,7 @@ manager.add_mod_childs("主流模型", "Momoko_e", [{
     "sonPath": "/",
     "fileName": "momoko-e.ckpt"
 }])
-manager.add_mod("主流模型", "res101")
+
 manager.add_mod_childs("主流模型", "res101", [
 {
     "downloadType": "cg",
@@ -77,4 +71,5 @@ manager.add_mod_childs("主流模型", "res101", [
     "fileName": "res102.pth"
 }
 ])
+
 print(manager.get_json())
