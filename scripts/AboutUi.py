@@ -27,10 +27,14 @@ def getUi(data,cmd_run,controllers):
     qq_img = widgets.Image(
         value=image,
         format='jpg',
-        width="20%",
+        width="25%",
         height="auto"
     )
     ui_constructor.add_component(qq_img)
+
+    ui_constructor.add_component(
+        widgets.HTML(value="<hr>",)
+    )
 
     ui_constructor.add_component(
         widgets.HTML(value="整合版1.0镜像介绍页：<font color='#0fa3ff'><a target='_blank' href='https://www.codewithgpu.com/i/AUTOMATIC1111/stable-diffusion-webui/NovelAI-Consolidation-Package'>点我访问</a></font>",)
@@ -46,6 +50,10 @@ def getUi(data,cmd_run,controllers):
 
     ui_constructor.add_component(
         widgets.HTML(value="【推荐】整合版4.0镜像(3.1-V15)介绍视频：<font color='#0fa3ff'><a target='_blank' href=''>暂未发布</a></font>",)
+    )
+
+    ui_constructor.add_component(
+        widgets.HTML(value="<hr>",)
     )
     
     ui_constructor.add_component(
