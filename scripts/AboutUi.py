@@ -1,6 +1,7 @@
 import ipywidgets as widgets
 
 from ui_tool import * 
+from config_tool import * 
 
 def getUi(data,cmd_run,controllers):
     ui_constructor = UIConstructor()
