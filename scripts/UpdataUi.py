@@ -22,6 +22,8 @@ def getUi(data,cmd_run,controllers):
             self.force_update = force_update
             self.can_delete = can_delete
 
+            self.is_refreshed = False  # 新增属性来跟踪刷新状态
+
             # UI 组件
             self.refresh_button = self._create_button(f'{name} (点我刷新)', 'info', self._on_refresh)
 
@@ -105,7 +107,14 @@ def getUi(data,cmd_run,controllers):
                 self._update_button(self.set_version_button, f'设置插件版本', "success")
             self._update_button(self.refresh_button, f'{self.name} (点我刷新)', "info")
 
+            self.is_refreshed = True  # 标记刷新已完成
+
         def _on_set_version(self, b):
+            if not self.is_refreshed:
+                with rootOut:
+                    print("请先刷新!")
+                return
+            
             self._update_button(self.set_version_button, "正在更新...", "warning")
 
             # 获取所选分支和SHA
