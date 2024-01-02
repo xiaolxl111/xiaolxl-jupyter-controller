@@ -5,8 +5,14 @@ import os
 
 from ui_tool import * 
 from speed_tool import * 
+from print_tool import * 
 
 def show(data,cmd_run,controllers):
+    network_version_json, is_from_network = controllers['jsonFetcher'].fetch_json("https://jihulab.com/xiaolxl_pub/xiaolxl-jupyter-controller/-/raw/main/data/xiaolxl_jupyter_controller_version.json", "../data/xiaolxl_jupyter_controller_version.json")
+    versionController = controllers['versionController']
+    is_allow_network = data['jsonFetcherNetwork']
+
+    network_version = versionController.get_version_from_json(network_version_json)
 
     # 加速按钮
     speed = XLButton(description='点我自动学术加速', button_style='info', icon='close')
@@ -36,4 +42,17 @@ def show(data,cmd_run,controllers):
         
     speed.on_click(autospeed)
 
-    display(speed)
+    # ============================================
+
+    version_ui = widgets.HTML(value="")
+    is_version_lower = versionController.is_version_lower(network_version)
+    if is_version_lower and is_from_network:
+        version_ui.value = html_red_text("启动器检测到新版本, 请及时更新", single_line=False)
+    if not is_allow_network:
+        version_ui.value = html_blue_text("你已关闭启动器更新检测，请记得手动检查更新", single_line=False)
+    if is_allow_network and not is_from_network:
+        version_ui.value = html_blue_text("自动检测启动器新版本失败，请记得手动检查更新", single_line=False)
+
+    # ============================================
+
+    display(speed,version_ui)

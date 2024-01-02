@@ -16,8 +16,9 @@ def show(data,cmd_run):
     
     logOut = logOut = LogController(enable_output=data['debug']) # 调试输出类
     jsonFetcher = JsonFetcher(timeout=data['jsonFetcherTimeout'],fetch_from_network=data['jsonFetcherNetwork'],debug=data['debug']) # JSON获取类
+    versionController = VersionController(debug=data['debug']) # 启动器版本类
 
-    controllers = {'uiRegistry': uiRegistry, 'uiConfig': uiConfig, 'logOut': logOut, 'jsonFetcher': jsonFetcher}
+    controllers = {'uiRegistry': uiRegistry, 'uiConfig': uiConfig, 'logOut': logOut, 'jsonFetcher': jsonFetcher, 'versionController': versionController}
 
     tab_titles = ['下载器','更新管理','工具箱','关于启动器','启动SD-WebUi']
     children = [DownloadUi.getUi(data,cmd_run,controllers),UpdataUi.getUi(data,cmd_run,controllers),ToolUi.getUi(data,cmd_run,controllers),AboutUi.getUi(data,cmd_run,controllers),StartUi.getUi(data,cmd_run,controllers)]

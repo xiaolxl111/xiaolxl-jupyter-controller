@@ -38,37 +38,40 @@ class JsonFetcher:
 
     def fetch_json(self, url, relative_path):
         """
-        从远程 URL 或本地路径获取 JSON 数据。
+        从远程 URL 或本地路径获取 JSON 数据，并返回一个元组，
+        其中包含 JSON 数据和一个布尔值（指示数据是否来自网络）。
 
         :param url: 远程 URL 地址。
         :param relative_path: 本地文件的相对路径。
-        :return: JSON 数据。
+        :return: 一个元组，包含 JSON 数据和一个布尔值。
         """
+        fetched_from_network = False
+        data = {}
+
         if self.fetch_from_network:
             self.log(f"尝试从 URL 获取 JSON 数据: {url}")
             try:
-                # 尝试从远程 URL 获取数据，使用设置的超时时间
                 response = requests.get(url, timeout=self.timeout)
                 response.raise_for_status()
+                data = response.json()
+                fetched_from_network = True
                 self.log("成功从远程 URL 获取 JSON 数据。")
-                return response.json()
             except requests.RequestException as e:
                 self.log(f"从 URL 获取数据失败，错误信息: {e}")
 
-        # 如果远程请求失败或 fetch_from_network 为 False，则尝试从本地路径获取数据
-        local_path = self.get_abs_path(relative_path)
-        self.log(f"尝试从本地路径获取 JSON 数据: {local_path}")
-        try:
-            if os.path.exists(local_path):
-                with open(local_path, 'r') as file:
-                    data = json.load(file)
-                    self.log("成功从本地文件获取 JSON 数据。")
-                    return data
-        except Exception as e:
-            self.log(f"从本地文件获取数据失败，错误信息: {e}")
-            # 如果本地文件读取失败或不存在，则返回空 JSON
-            return {}
+        if not fetched_from_network:
+            local_path = self.get_abs_path(relative_path)
+            self.log(f"尝试从本地路径获取 JSON 数据: {local_path}")
+            try:
+                if os.path.exists(local_path):
+                    with open(local_path, 'r') as file:
+                        data = json.load(file)
+                        self.log("成功从本地文件获取 JSON 数据。")
+            except Exception as e:
+                self.log(f"从本地文件获取数据失败，错误信息: {e}")
+
+        return data, fetched_from_network
 
 # 使用示例
 # fetcher = JsonFetcher(timeout=5, debug=True, fetch_from_network=False)
-# data = fetcher.fetch_json("https://example.com/data.json", "../data/local_data.json")
+# data, _  = fetcher.fetch_json("https://example.com/data.json", "../data/local_data.json")

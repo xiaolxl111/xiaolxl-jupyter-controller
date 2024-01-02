@@ -4,10 +4,12 @@ from ui_tool import *
 from config_tool import * 
 
 def getUi(data,cmd_run,controllers):
+    versionController = controllers['versionController']
+
     ui_constructor = UIConstructor()
 
     ui_constructor.add_component(
-        widgets.HTML(value="<h3><font color='#A52A2A'>启动器版本：" + "3.0.0 - 2023/12/31" + "</font></h3>",)
+        widgets.HTML(value="<h3><font color='#A52A2A'>启动器版本：" + versionController.get_version() + " - " + versionController.get_update_time() + "</font></h3>",)
     )
     
     ui_constructor.add_component(
