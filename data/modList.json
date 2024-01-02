@@ -1028,6 +1028,32 @@
                             "fileName": "thibaud_xl_openpose_256lora.safetensors"
                         }
                     ]
+                },
+                {
+                    "modName": "AnimateDiff模型",
+                    "modChildren": [
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/AnimateDiff-A1111/mm_sd15_v2.safetensors",
+                            "parentPath": "animatediff_dir",
+                            "sonPath": "/",
+                            "fileName": "mm_sd15_v2.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/AnimateDiff-A1111/mm_sd15_v3.safetensors",
+                            "parentPath": "animatediff_dir",
+                            "sonPath": "/",
+                            "fileName": "mm_sd15_v3.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/AnimateDiff-A1111/mm_sdxl_v10_beta.safetensors",
+                            "parentPath": "animatediff_dir",
+                            "sonPath": "/",
+                            "fileName": "mm_sdxl_v10_beta.safetensors"
+                        }
+                    ]
                 }
             ]
         }
