@@ -153,11 +153,16 @@ def getUi(data,cmd_run,controllers):
                     self.button_yes_end('已下载')
 
             def check_all_downloaded(self):
-                for mod_child in self.mod_children:
-                    download_path = get_config_path(uiConfig, mod_child['parentPath']) + mod_child['sonPath']
-                    filename = mod_child['fileName']
-                    if not check_downloaded(filename, download_path):
-                        return False
+                try:
+                    for mod_child in self.mod_children:
+                        download_path = get_config_path(uiConfig, mod_child['parentPath']) + mod_child['sonPath']
+                        filename = mod_child['fileName']
+                        if not check_downloaded(filename, download_path):
+                            return False
+                except TypeError:
+                    with rootOut:
+                        print(red_text("检测到未知配置项,将会影响模型/依赖下载！请立即更新启动器！"))
+                    return False
                 return True
 
             def download_file(self,mod_child, index, total):
