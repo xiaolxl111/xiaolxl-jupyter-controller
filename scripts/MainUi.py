@@ -2,6 +2,7 @@ from component_registry import *
 from json_config_manager import * 
 from print_tool import * 
 from json_fetcher import * 
+from xiaolxl_jupyter_controller_version import * 
 
 import ipywidgets as widgets
 import os
