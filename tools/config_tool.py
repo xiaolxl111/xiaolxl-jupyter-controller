@@ -66,6 +66,7 @@ def get_config_dirs(ui_config):
         "vae_dir": "VAE目录",
         "controlnet_dir": "ControlNet模型目录",
         "controlnet_annotator_models_path": "ControlNet Annotator预处理模型目录",
+        "animatediff_dir": "animatediff模型目录",
         "temp_dir": "数据盘目录",
     }
 
