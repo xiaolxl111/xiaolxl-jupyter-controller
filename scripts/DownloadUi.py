@@ -196,7 +196,7 @@ def getUi(data,cmd_run,controllers):
 
             for mod in item['mods']:
                 # 创建并添加标签
-                file_temp = widgets.HTML(value=f"下载 {mod['modName']}")
+                file_temp = widgets.HTML(value=f"{mod['modName']}")
 
                 # 创建并添加按钮
                 button = ModButton("点我下载", mod['modChildren'])
