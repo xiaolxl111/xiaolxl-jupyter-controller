@@ -18,7 +18,7 @@ def getUi(data,cmd_run,controllers):
     with rootOut:
 
         ui_constructor.add_component(
-            widgets.HTML(value="<font size='2' color='red'>1.下载前记得安装下载器,有问题的情况下可以尝试开启学术加速</font><br><font size='2' color='red'>2.下载前记得检查空间是否足够</font><br><font size='2' color='red'>3.模型请根据自己需要下载，不是全部需要下载</font>")
+            widgets.HTML(value="<font size='2' color='red'>1.下载前记得安装下载器,有问题的情况下可以尝试开启学术加速</font><br><font size='2' color='red'>2.下载前记得检查空间是否足够</font><br><font size='2' color='red'>3.模型请根据自己需要下载，不是全部需要下载</font><br><font size='2' color='red'>4.下载内置模型如果有报错,可以等待一会儿再次下载</font>")
         )
 
         install_download = XLButton(
