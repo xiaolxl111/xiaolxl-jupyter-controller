@@ -150,7 +150,7 @@ def getUi(data,cmd_run,controllers):
 
     with rootOut:
         ui_constructor.add_component(
-            widgets.HTML(value="<font size='2' color='red'>1.更新或进行任何操作前请刷新对应项目</font><br><font size='2' color='red'>2.如果有网络问题可以开启学术加速</font><br><font size='2' color='red'>3.启动器请随时保持最新版本</font>")
+            widgets.HTML(value="<font size='2' color='red'>1.更新或进行任何操作前请刷新对应项目</font><br><font size='2' color='red'>2.如果有网络问题可以开启学术加速</font><br><font size='2' color='red'>3.启动器如果检测到更新可能只是更新了网络数据, 可以选择不更新, 需要更新的时候可以看加速按钮旁边的提示</font>")
         )
         ui_constructor.add_component(GitManager(get_xiaolxl_jupyter_controller_path(),"启动器", force_update=True, can_delete=False).getUi())
         ui_constructor.add_component(GitManager(get_config_path(uiConfig,"sdWebUi_dir"),"webui主程序", force_update=False, can_delete=False).getUi())
