@@ -47,29 +47,59 @@ class JSONManager:
 manager = JSONManager()
 manager.add_title("主流模型")
 
-manager.add_mod_childs("主流模型", "Momoko_e", [{
-    "downloadType": "url",
-    "url": "https://hf-mirror.com/xiaolxl/Stable-diffusion-models/resolve/main/momoko-e.ckpt",
-    "parentPath": "ckpt_dir",
-    "sonPath": "/",
-    "fileName": "momoko-e.ckpt"
-}])
-
-manager.add_mod_childs("主流模型", "res101", [
+manager.add_mod_childs("主流模型", "[Yuno779] Anything-ink (二次元)", [
 {
     "downloadType": "cg",
-    "url": "tzwm/StableDiffusion-others/res101.pth",
+    "url": "xiaolxl/stable-diffusion-models/Anything-ink.safetensors",
     "parentPath": "ckpt_dir",
     "sonPath": "/",
-    "fileName": "res101.pth"
-},
-{
-    "downloadType": "cg",
-    "url": "tzwm/StableDiffusion-others/res102.pth",
-    "parentPath": "ckpt_dir",
-    "sonPath": "/",
-    "fileName": "res102.pth"
+    "fileName": "Anything-ink.safetensors"
 }
 ])
+
+manager.add_mod_childs("主流模型", "[rqdwdw] Counterfeit-V3.0 (二次元)", [
+{
+    "downloadType": "cg",
+    "url": "xiaolxl/stable-diffusion-models/Counterfeit-V3.0_fix.safetensors",
+    "parentPath": "ckpt_dir",
+    "sonPath": "/",
+    "fileName": "Counterfeit-V3.0_fix.safetensors"
+}
+])
+
+manager.add_mod_childs("主流模型", "[newlifezfztty761] CuteYukiMix-specialchapter (二次元,特化可爱风格)", [
+{
+    "downloadType": "cg",
+    "url": "xiaolxl/stable-diffusion-models/cuteyukimixAdorable_specialchapter.safetensors",
+    "parentPath": "ckpt_dir",
+    "sonPath": "/",
+    "fileName": "cuteyukimixAdorable_specialchapter.safetensors"
+}
+])
+
+# manager.add_mod_childs("主流模型", "Momoko_e", [{
+#     "downloadType": "url",
+#     "url": "https://hf-mirror.com/xiaolxl/Stable-diffusion-models/resolve/main/momoko-e.ckpt",
+#     "parentPath": "ckpt_dir",
+#     "sonPath": "/",
+#     "fileName": "momoko-e.ckpt"
+# }])
+
+# manager.add_mod_childs("主流模型", "res101", [
+# {
+#     "downloadType": "cg",
+#     "url": "tzwm/StableDiffusion-others/res101.pth",
+#     "parentPath": "ckpt_dir",
+#     "sonPath": "/",
+#     "fileName": "res101.pth"
+# },
+# {
+#     "downloadType": "cg",
+#     "url": "tzwm/StableDiffusion-others/res102.pth",
+#     "parentPath": "ckpt_dir",
+#     "sonPath": "/",
+#     "fileName": "res102.pth"
+# }
+# ])
 
 print(manager.get_json())
