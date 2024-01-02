@@ -13,6 +13,7 @@
             "temp_dir": "/root/autodl-tmp",
             "sdWebUi_dir": "/root/stable-diffusion-webui",
             "sdWebUiExtensions_dir":"/root/stable-diffusion-webui/extensions",
+            "animatediff_dir":"/root/autodl-tmp/models/sd-webui-animatediff",
             "SdWebUi_port":"6006",
 
             "login_name":"",

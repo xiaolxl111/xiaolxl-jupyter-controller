@@ -722,6 +722,338 @@
                             "fileName": "ip-adapter_sd15_plus.pth"
                         }
                     ]
+                },
+                {
+                    "modName": "Controlnet_XL模型_fp16(25GB+)",
+                    "modChildren": [
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/t2i-adapter_diffusers_xl_depth_zoe.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "t2i-adapter_diffusers_xl_depth_zoe.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/t2i-adapter_diffusers_xl_openpose.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "t2i-adapter_diffusers_xl_openpose.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/t2i-adapter_xl_canny.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "t2i-adapter_xl_canny.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/t2i-adapter_xl_openpose.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "t2i-adapter_xl_openpose.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/thibaud_xl_openpose.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "thibaud_xl_openpose.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/.gitattributes",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": ".gitattributes"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/.gitattributes.1",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": ".gitattributes.1"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/.gitattributes.2",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": ".gitattributes.2"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/diffusers_xl_canny_full.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "diffusers_xl_canny_full.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/diffusers_xl_canny_mid.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "diffusers_xl_canny_mid.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/diffusers_xl_canny_small.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "diffusers_xl_canny_small.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/diffusers_xl_depth_full.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "diffusers_xl_depth_full.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/diffusers_xl_depth_mid.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "diffusers_xl_depth_mid.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/diffusers_xl_depth_small.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "diffusers_xl_depth_small.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/ip-adapter_xl.pth",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "ip-adapter_xl.pth"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/kohya_controllllite_xl_blur.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "kohya_controllllite_xl_blur.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/kohya_controllllite_xl_blur_anime.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "kohya_controllllite_xl_blur_anime.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/kohya_controllllite_xl_blur_anime_beta.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "kohya_controllllite_xl_blur_anime_beta.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/kohya_controllllite_xl_canny.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "kohya_controllllite_xl_canny.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/kohya_controllllite_xl_canny_anime.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "kohya_controllllite_xl_canny_anime.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/kohya_controllllite_xl_depth.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "kohya_controllllite_xl_depth.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/kohya_controllllite_xl_depth_anime.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "kohya_controllllite_xl_depth_anime.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/kohya_controllllite_xl_openpose_anime.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "kohya_controllllite_xl_openpose_anime.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/kohya_controllllite_xl_openpose_anime_v2.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "kohya_controllllite_xl_openpose_anime_v2.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/kohya_controllllite_xl_scribble_anime.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "kohya_controllllite_xl_scribble_anime.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/sai_xl_canny_128lora.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "sai_xl_canny_128lora.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/sai_xl_canny_256lora.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "sai_xl_canny_256lora.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/sai_xl_depth_128lora.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "sai_xl_depth_128lora.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/sai_xl_depth_256lora.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "sai_xl_depth_256lora.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/sai_xl_recolor_128lora.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "sai_xl_recolor_128lora.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/sai_xl_recolor_256lora.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "sai_xl_recolor_256lora.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/sai_xl_sketch_128lora.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "sai_xl_sketch_128lora.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/sai_xl_sketch_256lora.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "sai_xl_sketch_256lora.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/sargezt_xl_depth.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "sargezt_xl_depth.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/sargezt_xl_depth_faid_vidit.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "sargezt_xl_depth_faid_vidit.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/sargezt_xl_depth_zeed.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "sargezt_xl_depth_zeed.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/sargezt_xl_softedge.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "sargezt_xl_softedge.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/t2i-adapter_diffusers_xl_canny.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "t2i-adapter_diffusers_xl_canny.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/t2i-adapter_diffusers_xl_depth_midas.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "t2i-adapter_diffusers_xl_depth_midas.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/t2i-adapter_diffusers_xl_lineart.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "t2i-adapter_diffusers_xl_lineart.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/t2i-adapter_diffusers_xl_sketch.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "t2i-adapter_diffusers_xl_sketch.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/t2i-adapter_xl_sketch.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "t2i-adapter_xl_sketch.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/ControlNet_XL_fp16/thibaud_xl_openpose_256lora.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "thibaud_xl_openpose_256lora.safetensors"
+                        }
+                    ]
+                },
+                {
+                    "modName": "AnimateDiff模型",
+                    "modChildren": [
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/AnimateDiff-A1111/mm_sd15_v2.safetensors",
+                            "parentPath": "animatediff_dir",
+                            "sonPath": "/",
+                            "fileName": "mm_sd15_v2.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/AnimateDiff-A1111/mm_sd15_v3.safetensors",
+                            "parentPath": "animatediff_dir",
+                            "sonPath": "/",
+                            "fileName": "mm_sd15_v3.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/AnimateDiff-A1111/mm_sdxl_v10_beta.safetensors",
+                            "parentPath": "animatediff_dir",
+                            "sonPath": "/",
+                            "fileName": "mm_sdxl_v10_beta.safetensors"
+                        }
+                    ]
                 }
             ]
         }

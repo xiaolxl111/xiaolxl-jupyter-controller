@@ -398,6 +398,13 @@ def getUi(data,cmd_run,controllers):
         configHighSet_constructor.add_component(sdWebUiExtensionsDirInputUI.get_ui())
         componentsControl.add_component(sdWebUiExtensionsDirInputUI)
 
+        class AnimateDiffDirInputUI(InputUIBaseComponent):
+            def set_command(self, command):
+                pass
+        animateDiffDirInputUI = AnimateDiffDirInputUI("配置AnimateDiff模型目录", html_blue_text("设置AnimateDiff模型目录(不代表设置后会自动移动, 这里只是一个目录定位)"), "animatediff_dir")
+        configHighSet_constructor.add_component(animateDiffDirInputUI.get_ui())
+        componentsControl.add_component(animateDiffDirInputUI)
+
         class SdWebUiPortInputUI(InputUIBaseComponent):
             def set_command(self, command):
                 command.add_argument("--port=" + self.get_value())
