@@ -76,41 +76,44 @@ def getUi(data,cmd_run,controllers):
             return HTML(value=f"<a target='_blank' style='vertical-align: middle;padding:0 3px;background-color:#d7d7d7;word-wrap:break-word;display: table-cell; text-align:center; width:100px; height:95px; border:2px solid black' href=''>{value}</a>")
 
         def _on_refresh(self, b):
-            self._update_button(self.refresh_button, "正在检查...", "warning")
+            ui_constructor.clear_output()
+            with rootOut:
+                self._update_button(self.refresh_button, "正在检查...", "warning")
 
-            # 获取主分支名称、当前分支、当前SHA和最新SHA
-            main_branch_name = get_git_main_b_name(self.path)
-            current_branch_name = get_git_nov_b_name(self.path)
-            current_sha = get_git_now_v_sha(self.path)
-            newest_sha = get_git_newest_v_sha(self.path)
+                # 获取主分支名称、当前分支、当前SHA和最新SHA
+                main_branch_name = get_git_main_b_name(self.path)
+                current_branch_name = get_git_nov_b_name(self.path)
+                current_sha = get_git_now_v_sha(self.path)
+                newest_sha = get_git_newest_v_sha(self.path)
 
-            _now_time = get_git_now_v_time(self.path)
-            _newest_time = get_git_newest_v_time(self.path)
-            # 更新当前状态标签
-            self.current_branch_label.value = '当前版本分支: ' + current_branch_name
-            self.current_sha_label.value = '当前版本SHA: ' + current_sha
-            self.current_date_label.value = '当前版本日期: ' + _now_time
-            self.latest_date_label.value = '最新版本日期: ' + _newest_time
+                _now_time = get_git_now_v_time(self.path)
+                _newest_time = get_git_newest_v_time(self.path)
+                # 更新当前状态标签
+                self.current_branch_label.value = '当前版本分支: ' + current_branch_name
+                self.current_sha_label.value = '当前版本SHA: ' + current_sha
+                self.current_date_label.value = '当前版本日期: ' + _now_time
+                self.latest_date_label.value = '最新版本日期: ' + _newest_time
 
-            # 更新分支下拉菜单
-            all_branches = get_git_all_b_name(self.path)
-            self.branch_dropdown.options = [(branch['branch_name'], branch['branch_name']) for branch in all_branches]
-            self.branch_dropdown.value = current_branch_name
+                # 更新分支下拉菜单
+                all_branches = get_git_all_b_name(self.path)
+                self.branch_dropdown.options = [(branch['branch_name'], branch['branch_name']) for branch in all_branches]
+                self.branch_dropdown.value = current_branch_name
 
-            # 更新GitHub链接
-            repo_url = get_git_main_url(self.path)
-            self.github_link_button.value = f"<a target='_blank' style='vertical-align: middle;padding:0 3px;background-color:#d7d7d7;word-wrap:break-word;display: table-cell; text-align:center; width:100px; height:95px; border:2px solid black' href='{repo_url}'>点我访问对应git项目链接</a>"
+                # 更新GitHub链接
+                repo_url = get_git_main_url(self.path)
+                self.github_link_button.value = f"<a target='_blank' style='vertical-align: middle;padding:0 3px;background-color:#d7d7d7;word-wrap:break-word;display: table-cell; text-align:center; width:100px; height:95px; border:2px solid black' href='{repo_url}'>点我访问对应git项目链接</a>"
 
-            if _now_time != _newest_time:
-                self._update_button(self.set_version_button, "设置插件版本(可更新)", "warning")
-            else:
-                self._update_button(self.set_version_button, f'设置插件版本', "success")
-            self._update_button(self.refresh_button, f'{self.name} (点我刷新)', "info")
+                if _now_time != _newest_time:
+                    self._update_button(self.set_version_button, "设置插件版本(可更新)", "warning")
+                else:
+                    self._update_button(self.set_version_button, f'设置插件版本', "success")
+                self._update_button(self.refresh_button, f'{self.name} (点我刷新)', "info")
 
-            self.is_refreshed = True  # 标记刷新已完成
+                self.is_refreshed = True  # 标记刷新已完成
 
         def _on_set_version(self, b):
             if not self.is_refreshed:
+                ui_constructor.clear_output()
                 with rootOut:
                     print("请先刷新!")
                 return
