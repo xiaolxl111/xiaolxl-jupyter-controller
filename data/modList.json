@@ -408,6 +408,198 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "插件所需依赖/模型",
+            "mods": [
+                {
+                    "modName": "Controlnet预处理器(17GB+)",
+                    "modChildren": [
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/res101.pth",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/leres",
+                            "fileName": "res101.pth"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/latest_net_G.pth",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/leres",
+                            "fileName": "latest_net_G.pth"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/dpt_hybrid-midas-501f0c75.pt",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/midas",
+                            "fileName": "dpt_hybrid-midas-501f0c75.pt"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/ZoeD_M12_N.pt",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/zoedepth",
+                            "fileName": "ZoeD_M12_N.pt"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/scannet.pt",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/normal_bae",
+                            "fileName": "scannet.pt"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/yolox_l.onnx",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/openpose",
+                            "fileName": "yolox_l.onnx"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/rtmpose-m_simcc-ap10k_pt-aic-coco_210e-256x256-7a041aa1_20230206.onnx",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/openpose",
+                            "fileName": "rtmpose-m_simcc-ap10k_pt-aic-coco_210e-256x256-7a041aa1_20230206.onnx"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/dw-ll_ucoco_384.onnx",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/openpose",
+                            "fileName": "dw-ll_ucoco_384.onnx"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/body_pose_model.pth",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/openpose",
+                            "fileName": "body_pose_model.pth"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/hand_pose_model.pth",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/openpose",
+                            "fileName": "hand_pose_model.pth"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/facenet.pth",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/openpose",
+                            "fileName": "facenet.pth"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/mlsd_large_512_fp32.pth",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/mlsd",
+                            "fileName": "mlsd_large_512_fp32.pth"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/netG.pth",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/lineart_anime",
+                            "fileName": "netG.pth"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/erika.pth",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/manga_line",
+                            "fileName": "erika.pth"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/sk_model2.pth",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/lineart",
+                            "fileName": "sk_model2.pth"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/sk_model.pth",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/lineart",
+                            "fileName": "sk_model.pth"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/ControlNetHED.pth",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/hed",
+                            "fileName": "ControlNetHED.pth"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/table5_pidinet.pth",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/pidinet",
+                            "fileName": "table5_pidinet.pth"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/UNet.pth",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/anime_face_segment",
+                            "fileName": "UNet.pth"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/250_16_swin_l_oneformer_ade20k_160k.pth",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/oneformer",
+                            "fileName": "250_16_swin_l_oneformer_ade20k_160k.pth"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/150_16_swin_l_oneformer_coco_100ep.pth",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/oneformer",
+                            "fileName": "150_16_swin_l_oneformer_coco_100ep.pth"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/upernet_global_small.pth",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/uniformer",
+                            "fileName": "upernet_global_small.pth"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/ControlNetLama.pth",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/lama",
+                            "fileName": "ControlNetLama.pth"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/clip_g.pth",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/clip_vision",
+                            "fileName": "clip_g.pth"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/clip_vitl.pth",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/clip_vision",
+                            "fileName": "clip_vitl.pth"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/controlnet-annotator/clip_h.pth",
+                            "parentPath": "controlnet_annotator_models_path",
+                            "sonPath": "/clip_vision",
+                            "fileName": "clip_h.pth"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
