@@ -89,7 +89,7 @@ def getUi(data,cmd_run,controllers):
                     description='点击删除(注意！一定要在上方输入路径！不然会全部删除！)',
                     style={'description_width': 'initial'},
                     layout=Layout(width='400px', height='auto'),
-                    button_style='success'
+                    button_style='danger'
                 )
 
                 # Clear path button
@@ -97,7 +97,7 @@ def getUi(data,cmd_run,controllers):
                     description='点击清空路径',
                     style={'description_width': 'initial'},
                     layout=Layout(width='150px', height='auto'),
-                    button_style='danger'
+                    button_style='warning'
                 )
 
                 # Setup button actions
