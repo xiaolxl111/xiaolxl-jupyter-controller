@@ -55,4 +55,4 @@ def show(data,cmd_run,controllers):
 
     # ============================================
 
-    display(VBox([speed,version_ui]))
+    display(HBox([speed,version_ui]))
