@@ -405,6 +405,13 @@ def getUi(data,cmd_run,controllers):
         configHighSet_constructor.add_component(animateDiffDirInputUI.get_ui())
         componentsControl.add_component(animateDiffDirInputUI)
 
+        class DreamboothModelsPathInputUI(InputUIBaseComponent):
+            def set_command(self, command):
+                command.add_argument("--dreambooth-models-path=" + self.get_value())
+        dreamboothModelsPathInputUI = DreamboothModelsPathInputUI("配置dreambooth工作模型目录", html_blue_text("设置dreambooth工作模型目录"), "dreambooth_models_path")
+        configHighSet_constructor.add_component(dreamboothModelsPathInputUI.get_ui())
+        componentsControl.add_component(dreamboothModelsPathInputUI)
+
         class SdWebUiPortInputUI(InputUIBaseComponent):
             def set_command(self, command):
                 command.add_argument("--port=" + self.get_value())

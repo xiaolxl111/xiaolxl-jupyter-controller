@@ -90,7 +90,8 @@ def create_directories_from_config(ui_config):
                      "temp_dir",
                      "sdWebUi_dir", 
                      "sdWebUiExtensions_dir", 
-                     "animatediff_dir"]
+                     "animatediff_dir",
+                     "dreambooth_models_path"]
 
     run_config = _get_runConfig(ui_config)
 
