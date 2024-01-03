@@ -51,7 +51,7 @@ def getUi(data,cmd_run,controllers):
     )
 
     ui_constructor.add_component(
-        widgets.HTML(value="【推荐】整合版4.0镜像(3.1-V15)介绍视频：<font color='#0fa3ff'><a target='_blank' href=''>暂未发布</a></font>",)
+        widgets.HTML(value="【推荐】整合版4.0镜像(3.1-V15)介绍视频：<font color='#0fa3ff'><a target='_blank' href='https://www.bilibili.com/video/BV115411z7wb/'>点我观看</a></font>",)
     )
 
     ui_constructor.add_component(
