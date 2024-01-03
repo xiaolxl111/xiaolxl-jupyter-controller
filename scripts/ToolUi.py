@@ -353,8 +353,8 @@ def getUi(data,cmd_run,controllers):
             with rootOut:
                 if os.system(f'ffmpeg -version') != 0:
                     ffmpeg_download.button_start('正在安装...')
-                    cmd_run("cd /root/autodl-tmp/ && sudo apt-get update && sudo apt-get install ffmpeg -y")
-                    cmd_run("cd /root/autodl-tmp/ && sudo apt-get install ffmpeg -y && echo 安装完成")
+                    cmd_run("cd /root/autodl-tmp/ && apt-get update && apt-get install ffmpeg -y")
+                    cmd_run("cd /root/autodl-tmp/ && apt-get install ffmpeg -y && echo 安装完成")
                 if os.system(f'ffmpeg -version') == 0:
                     ffmpeg_download.button_yes_end('已成功安装ffmpeg')
                     ui_constructor.clear_output()
