@@ -340,6 +340,29 @@ def getUi(data,cmd_run,controllers):
         clear_buttom.on_click(clear_buttom_click)
         other_ui.add_component(clear_buttom)
 
+        ffmpeg_download = XLButton(
+                description='点我安装ffmpeg',
+                button_style='info',
+                icon='download',
+                layout=Layout(width='200px', height='auto')
+        )
+        if os.system(f'ffmpeg -version') == 0:
+            ffmpeg_download.button_yes_end('已成功安装ffmpeg')
+        ui_constructor.clear_output()
+        def ffmpeg_download_f(self):
+            with rootOut:
+                if os.system(f'ffmpeg -version') != 0:
+                    ffmpeg_download.button_start('正在安装...')
+                    cmd_run("cd /root/autodl-tmp/ && sudo apt-get update && sudo apt-get install ffmpeg -y")
+                    cmd_run("cd /root/autodl-tmp/ && sudo apt-get install ffmpeg -y && echo 安装完成")
+                if os.system(f'ffmpeg -version') == 0:
+                    ffmpeg_download.button_yes_end('已成功安装ffmpeg')
+                    ui_constructor.clear_output()
+                else:
+                    ffmpeg_download.button_no_end('安装ffmpeg失败，请保留错误信息并询问作者')
+        ffmpeg_download.on_click(ffmpeg_download_f)
+        other_ui.add_component(ffmpeg_download)
+
 
         #===========
 
