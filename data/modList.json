@@ -763,27 +763,6 @@
                         },
                         {
                             "downloadType": "cg",
-                            "url": "xiaolxl/ControlNet_XL_fp16/.gitattributes",
-                            "parentPath": "controlnet_dir",
-                            "sonPath": "/",
-                            "fileName": ".gitattributes"
-                        },
-                        {
-                            "downloadType": "cg",
-                            "url": "xiaolxl/ControlNet_XL_fp16/.gitattributes.1",
-                            "parentPath": "controlnet_dir",
-                            "sonPath": "/",
-                            "fileName": ".gitattributes.1"
-                        },
-                        {
-                            "downloadType": "cg",
-                            "url": "xiaolxl/ControlNet_XL_fp16/.gitattributes.2",
-                            "parentPath": "controlnet_dir",
-                            "sonPath": "/",
-                            "fileName": ".gitattributes.2"
-                        },
-                        {
-                            "downloadType": "cg",
                             "url": "xiaolxl/ControlNet_XL_fp16/diffusers_xl_canny_full.safetensors",
                             "parentPath": "controlnet_dir",
                             "sonPath": "/",
