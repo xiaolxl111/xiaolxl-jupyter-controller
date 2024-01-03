@@ -15,7 +15,7 @@ def show(data,cmd_run,controllers):
     network_version = versionController.get_version_from_json(network_version_json)
 
     # 加速按钮
-    speed = XLButton(description='点我自动学术加速', button_style='info', icon='close', layout=Layout(width='200px', height='auto'))
+    speed = XLButton(description='点我自动学术加速', button_style='info', icon='close', layout=Layout(width='auto', height='auto'))
     
     # 判断是否已经加速
     if get_is_speed():
