@@ -347,9 +347,10 @@ def getUi(data,cmd_run,controllers):
         accordion = widgets.Accordion(children=[official_help,extensions_install_ui.get_ui_no_out(),del_ui.get_ui_no_out(),file_move_copy_tool_ui.get_ui_no_out(),autodl_cg_upload_ui.get_ui_no_out(),other_ui.get_ui_no_out()])
         accordion.set_title(0, '官方帮助文档')
         accordion.set_title(1, '扩展/插件安装')
-        accordion.set_title(2, '文件/目录删除')
-        accordion.set_title(3, 'AutoDL模型文件上传器')
-        accordion.set_title(4, '其它工具')
+        accordion.set_title(2, '文件/目录 删除')
+        accordion.set_title(3, '文件/目录 移动/复制')
+        accordion.set_title(4, 'AutoDL模型文件上传器')
+        accordion.set_title(5, '其它工具')
         accordion.selected_index = None
         ui_constructor.add_component(accordion)
 
