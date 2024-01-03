@@ -150,6 +150,112 @@ def getUi(data,cmd_run,controllers):
         # 遍历数组并添加每个组件
         for component in components:
             del_ui.add_component(component)
+        
+
+        #===========
+
+
+        class FileMoveCopyUI:
+            def __init__(self):
+                self.ui_components = []
+
+                # Single choice for move or copy
+                self.move_or_copy = widgets.RadioButtons(
+                    options=['复制', '移动'],
+                    description='操作类型:',
+                    disabled=False
+                )
+                self.ui_components.append(self.move_or_copy)
+
+                # Source path input
+                self.src_input = widgets.Text(
+                    value='',
+                    placeholder='请输入源文件路径，无需添加/root/',
+                    style={'description_width': 'initial'},
+                    layout=Layout(width='1000px', height='auto'),
+                    description='源文件路径(无需添加/root/):',
+                    disabled=False
+                )
+                self.ui_components.append(self.src_input)
+
+                # Destination path input
+                self.dest_input = widgets.Text(
+                    value='',
+                    placeholder='请输入目标路径，无需添加/root/',
+                    style={'description_width': 'initial'},
+                    layout=Layout(width='1000px', height='auto'),
+                    description='目标路径(无需添加/root/):',
+                    disabled=False
+                )
+                self.ui_components.append(self.dest_input)
+
+                # Move/Copy button
+                execute_button = XLButton(
+                    description='执行操作',
+                    style={'description_width': 'initial'},
+                    layout=Layout(width='300px', height='auto'),
+                    button_style='success'
+                )
+
+                # Clear paths button
+                clear_paths_button = widgets.Button(
+                    description='清空路径',
+                    style={'description_width': 'initial'},
+                    layout=Layout(width='150px', height='auto'),
+                    button_style='warning'
+                )
+
+                # Setup button actions
+                execute_button.on_click_with_style(self.execute_button_click,"正在执行...")
+                clear_paths_button.on_click(self.clear_paths_button_click)
+
+                self.ui_components.append(HBox([execute_button, clear_paths_button]))
+
+                self.last_src_path = ""
+                self.last_dest_path = ""
+
+            def execute_button_click(self, _):
+                ui_constructor.clear_output()
+
+                src_path = "/root/" + self.src_input.value.strip()
+                dest_path = "/root/" + self.dest_input.value.strip()
+
+                if src_path == "/root/" or dest_path == "/root/":
+                    with rootOut:
+                        print(red_text("错误：源路径和目标路径不能为空！"))
+                    return
+
+                operation = "复制" if self.move_or_copy.value == '复制' else "移动"
+                confirmation_message = f"你要{operation}的路径是:\n源: {src_path}\n目标: {dest_path}\n请再次点击按钮以确认{operation}"
+
+                if self.last_src_path != src_path or self.last_dest_path != dest_path:
+                    with rootOut:
+                        print(confirmation_message)
+                    self.last_src_path, self.last_dest_path = src_path, dest_path
+                    return
+
+                command = "cp -r" if operation == "复制" else "mv"
+                with rootOut:
+                    cmd_run(f"echo 请稍等，正在{operation}! && {command} {src_path} {dest_path} && echo {operation}完成!")
+
+                self.last_src_path, self.last_dest_path = "", ""
+
+            def clear_paths_button_click(self, _):
+                self.last_src_path, self.last_dest_path = "", ""
+                self.src_input.value = ""
+                self.dest_input.value = ""
+
+            def get_ui_components(self):
+                return VBox(self.ui_components)
+
+        file_move_copy_tool_ui = UIConstructor()
+
+        # 使用示例
+        file_move_copy_tool = FileMoveCopyUI()
+        file_move_copy_ui_components = file_move_copy_tool.get_ui_components()
+
+        # 添加到UI构造器
+        file_move_copy_tool_ui.add_component(file_move_copy_ui_components)
 
 
         #===========
@@ -238,7 +344,7 @@ def getUi(data,cmd_run,controllers):
         #===========
 
     
-        accordion = widgets.Accordion(children=[official_help,extensions_install_ui.get_ui_no_out(),del_ui.get_ui_no_out(),autodl_cg_upload_ui.get_ui_no_out(),other_ui.get_ui_no_out()])
+        accordion = widgets.Accordion(children=[official_help,extensions_install_ui.get_ui_no_out(),del_ui.get_ui_no_out(),file_move_copy_tool_ui.get_ui_no_out(),autodl_cg_upload_ui.get_ui_no_out(),other_ui.get_ui_no_out()])
         accordion.set_title(0, '官方帮助文档')
         accordion.set_title(1, '扩展/插件安装')
         accordion.set_title(2, '文件/目录删除')
