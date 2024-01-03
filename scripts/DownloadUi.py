@@ -76,7 +76,9 @@ def getUi(data,cmd_run,controllers):
         )
         custom_download_constructor.add_component(output_filename_input)
 
+        # 创建/初始化目录地
         config_dirs = get_config_dirs(uiConfig)
+        create_directories_from_config(uiConfig)
         installation_location_dropdown = widgets.Dropdown(
             options=config_dirs,
             value=config_dirs[0][1],
