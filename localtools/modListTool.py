@@ -738,27 +738,6 @@ manager.add_mod_childs(a6, "Controlnet_XL模型_fp16(25GB+)", [
     },
     {
         "downloadType": "cg",
-        "url": "xiaolxl/ControlNet_XL_fp16/.gitattributes",
-        "parentPath": "controlnet_dir",
-        "sonPath": "/",
-        "fileName": ".gitattributes"
-    },
-    {
-        "downloadType": "cg",
-        "url": "xiaolxl/ControlNet_XL_fp16/.gitattributes.1",
-        "parentPath": "controlnet_dir",
-        "sonPath": "/",
-        "fileName": ".gitattributes.1"
-    },
-    {
-        "downloadType": "cg",
-        "url": "xiaolxl/ControlNet_XL_fp16/.gitattributes.2",
-        "parentPath": "controlnet_dir",
-        "sonPath": "/",
-        "fileName": ".gitattributes.2"
-    },
-    {
-        "downloadType": "cg",
         "url": "xiaolxl/ControlNet_XL_fp16/diffusers_xl_canny_full.safetensors",
         "parentPath": "controlnet_dir",
         "sonPath": "/",
@@ -1025,6 +1004,30 @@ manager.add_mod_childs(a6, "AnimateDiff模型", [
         "parentPath": "animatediff_dir",
         "sonPath": "/",
         "fileName": "mm_sdxl_v10_beta.safetensors"
+    },
+])
+
+manager.add_mod_childs(a6, "常用VAE模型", [
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/stable-diffusion-vaes/model.vae.pt",
+        "parentPath": "vae_dir",
+        "sonPath": "/",
+        "fileName": "model.vae.pt"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/stable-diffusion-vaes/sdxl_vae.safetensors",
+        "parentPath": "vae_dir",
+        "sonPath": "/",
+        "fileName": "sdxl_vae.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/stable-diffusion-vaes/vae-ft-mse-840000-ema-pruned.safetensors",
+        "parentPath": "vae_dir",
+        "sonPath": "/",
+        "fileName": "vae-ft-mse-840000-ema-pruned.safetensors"
     },
 ])
 
