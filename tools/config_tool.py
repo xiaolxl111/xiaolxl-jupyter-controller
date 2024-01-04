@@ -78,6 +78,8 @@ def get_run_configs_formatted(ui_config):
 def create_directories_from_config(ui_config):
     """
     对指定的路径key的值确认是否存在路径, 不存在则创建
+
+    如果没有找到key会从内置配置获取(防止更新失效)
     """
     # 指定要检查的 key
     keys_to_check = ["ckpt_dir", 
@@ -96,16 +98,20 @@ def create_directories_from_config(ui_config):
     run_config = _get_runConfig(ui_config)
 
     for key in keys_to_check:
-        # 检查 key 是否在配置中，并且路径是否存在
-        if key in run_config and not os.path.exists(run_config[key]):
-            # 创建不存在的目录
-            os.makedirs(run_config[key])
-            # print(f"Created directory: {run_config[key]}")
-        elif key in run_config:
-            # print(f"Directory already exists: {run_config[key]}")
+        path = run_config.get(key)
+        # 如果key不在run_config中，尝试从get_run_config_value获取
+        if path is None:
+            path = get_run_config_value(ui_config, key)
+
+        # 检查路径是否存在，并根据需要创建目录
+        if path and not os.path.exists(path):
+            os.makedirs(path)
+            # print(f"Created directory: {path}")
+        elif path:
+            # print(f"Directory already exists: {path}")
             pass
         else:
-            # print(f"Key '{key}' not found in configuration.")
+            # print(f"Key '{key}' not found in configuration or has no value.")
             pass
 
 def get_config_dirs(ui_config):
@@ -113,6 +119,7 @@ def get_config_dirs(ui_config):
     获取带中文注释的, 指定的几个路径
     
     (路径注释, 路径key)
+    如果没有找到key会从内置配置获取(防止更新失效)
     """
     def add_directory(key, display_name, path):
         custom_names[key] = display_name
@@ -139,10 +146,15 @@ def get_config_dirs(ui_config):
     for key in custom_names:
         if key in config:
             dir_path = config[key]
-            # Check if the directory exists, if not create it
-            if not os.path.exists(dir_path):
-                os.makedirs(dir_path)
-            dir_info.append((custom_names[key], key))
+        else:
+            # 如果key不在config中，则尝试通过get_run_config_value获取
+            dir_path = get_run_config_value(ui_config, key)
+            config[key] = dir_path  # 更新config字典
+
+        # Check if the directory exists, if not create it
+        if not os.path.exists(dir_path):
+            os.makedirs(dir_path)
+        dir_info.append((custom_names[key], key))
 
     return dir_info
 
