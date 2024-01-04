@@ -797,7 +797,14 @@ def getUi(data,cmd_run,controllers):
         def sd_start_fun(self):
             ui_constructor.clear_output()
             commandBuilder.clear()
+
+            haveckpt = has_files(get_config_path(uiConfig,"ckpt_dir"))
+            havevae = has_files(get_config_path(uiConfig,"vae_dir"))
+
             with rootOut:
+                if not haveckpt or not havevae:
+                    print(red_text("警告！大模型目录没有模型或VAE目录没有VAE，请在下载器里下载，或使用自己的文件，如果没有特殊需求你的本次启动将会报错！"))
+
                 commandBuilder.set_python_path(sys.executable)
                 componentsControl.set_command(commandBuilder)
                 finallyCommand = commandBuilder.build()

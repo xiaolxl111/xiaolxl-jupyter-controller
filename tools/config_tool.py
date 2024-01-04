@@ -170,6 +170,32 @@ def get_config_path(ui_config, key):
         run_configs = ui_config.get_config_value("runConfigs")
         config = run_configs.get(run_config_index, {})
         return config.get(key)
+    
+def has_files(directory_path):
+    """
+    判断指定文件夹下是否有文件
+
+    :param directory_path: 需要检查的文件夹路径
+    :return: 如果文件夹存在且至少包含一个文件，则返回True，否则返回False
+    """
+    import os
+
+    # 检查指定路径是否存在且为文件夹
+    if not os.path.exists(directory_path) or not os.path.isdir(directory_path):
+        return False
+
+    # 遍历文件夹内的内容
+    for entry in os.listdir(directory_path):
+        # 如果发现是文件，则返回True
+        if os.path.isfile(os.path.join(directory_path, entry)):
+            return True
+
+    # 如果没有找到文件，返回False
+    return False
+# 使用示例
+# result = has_files("指定的文件夹路径")
+# print(result)
+
 
 def get_xiaolxl_jupyter_controller_path():
     """
