@@ -841,6 +841,7 @@ def getUi(data,cmd_run,controllers):
 
             with rootOut:
                 if not haveckpt or not havevae:
+                    commandBuilder.add_argument("--no-download-sd-model") # 取消模型自动下载
                     print(red_text("警告! 大模型目录没有模型或VAE目录没有VAE, 请在下载器里下载, 或使用自己的文件, 如果没有特殊需求你的本次启动将会报错!"))
 
                 def is_xl_env():
