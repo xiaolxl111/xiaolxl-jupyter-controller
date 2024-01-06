@@ -1,18 +1,18 @@
 import ipywidgets as widgets
 import os
 
-from ui_scripts.tools.component_registry import *
-from ui_scripts.tools.json_config_manager import * 
-from ui_scripts.tools.print_tool import * 
-from ui_scripts.tools.json_fetcher import * 
-from ui_scripts.tools.xiaolxl_jupyter_controller_version import * 
+from xiaolxl_jupyter_controller.ui_scripts.tools.component_registry import *
+from xiaolxl_jupyter_controller.ui_scripts.tools.json_config_manager import * 
+from xiaolxl_jupyter_controller.ui_scripts.tools.print_tool import * 
+from xiaolxl_jupyter_controller.ui_scripts.tools.json_fetcher import * 
+from xiaolxl_jupyter_controller.ui_scripts.tools.xiaolxl_jupyter_controller_version import * 
 
-import ui_scripts.scripts.webui.AboutUi as AboutUi, \
-    ui_scripts.scripts.webui.DownloadUi as DownloadUi, \
-    ui_scripts.scripts.webui.SpeedUi as SpeedUi, \
-    ui_scripts.scripts.webui.UpdataUi as UpdataUi, \
-    ui_scripts.scripts.webui.ToolUi as ToolUi, \
-    ui_scripts.scripts.webui.StartUi as StartUi
+import xiaolxl_jupyter_controller.ui_scripts.scripts.webui.AboutUi as AboutUi, \
+    xiaolxl_jupyter_controller.ui_scripts.scripts.webui.DownloadUi as DownloadUi, \
+    xiaolxl_jupyter_controller.ui_scripts.scripts.webui.SpeedUi as SpeedUi, \
+    xiaolxl_jupyter_controller.ui_scripts.scripts.webui.UpdataUi as UpdataUi, \
+    xiaolxl_jupyter_controller.ui_scripts.scripts.webui.ToolUi as ToolUi, \
+    xiaolxl_jupyter_controller.ui_scripts.scripts.webui.StartUi as StartUi
 
 def show(data,cmd_run):
     uiRegistry = ComponentRegistry(debug=data['debug']) # ui注册链
