@@ -1,4 +1,4 @@
-import os, sys, subprocess
+import os, sys
 import ipywidgets as widgets
 from ipywidgets import Layout,Label,HBox,VBox,GridBox
 from traitlets import link
@@ -581,11 +581,8 @@ def getUi(data,cmd_run,controllers):
 
         class TcmallocSelectUI(SelectUIBaseComponent):
             def check_package_installed(package_name):
-                try:
-                    subprocess.run(["dpkg", "-l", package_name], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-                    return True
-                except subprocess.CalledProcessError:
-                    return False
+                status = os.system(f"dpkg -l {package_name} > /dev/null 2>&1")
+                return status == 0
     
             def set_command(self, command):
                 if self.get_value():
