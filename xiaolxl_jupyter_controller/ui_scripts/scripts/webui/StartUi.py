@@ -586,7 +586,7 @@ def getUi(data,cmd_run,controllers):
     
             def set_command(self, command):
                 if self.get_value():
-                    if self.check_package_installed():
+                    if self.check_package_installed("libgoogle-perftools-dev"):
                         os.environ['LD_PRELOAD']="libtcmalloc.so.4"
                         command.add_environment_variable("LD_PRELOAD", "libtcmalloc.so.4")
                     else:
@@ -594,7 +594,7 @@ def getUi(data,cmd_run,controllers):
                             print("正在安装tcmalloc, 请稍等...")
                         cmd_run("apt-get update && apt-get install -y libgoogle-perftools-dev")
                         cmd_run("apt-get install -y libgoogle-perftools-dev && echo 安装完成")
-                        if self.check_package_installed():
+                        if self.check_package_installed("libgoogle-perftools-dev"):
                             os.environ['LD_PRELOAD']="libtcmalloc.so.4"
                             command.add_environment_variable("LD_PRELOAD", "libtcmalloc.so.4")
                             with rootOut:
