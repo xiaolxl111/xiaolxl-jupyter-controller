@@ -3,3 +3,8 @@
 2.config_tool.py 增加初始化路径
 3.StartUi.py 增加设置位置
 4.修改版本号并提交
+
+设置新的配置：
+1.default_config.json 增加配置
+2.StartUi.py 增加设置位置
+3.修改版本号并提交

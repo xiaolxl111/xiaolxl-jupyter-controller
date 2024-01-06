@@ -1,4 +1,4 @@
-import os, sys
+import os, sys, subprocess
 import ipywidgets as widgets
 from ipywidgets import Layout,Label,HBox,VBox,GridBox
 from traitlets import link
@@ -204,6 +204,11 @@ def getUi(data,cmd_run,controllers):
 
         componentsControl = ComponentsControl() # UI配置链
         commandBuilder = CommandBuilder() # 命令配置链
+
+        printQueueManager = PrintQueueManager() # 创建输出管理
+        warnPrintQueue = PrintQueue() # 创建警告输出队列
+        printQueueManager.add_queue(warnPrintQueue) # 输出管理添加警告输出队列
+
 
 
         #===========
@@ -574,6 +579,38 @@ def getUi(data,cmd_run,controllers):
 
         startSet_constructor.add_component(widgets.HTML(value="<h4>常用参数<h4/><hr>",)) # =====================
 
+        class TcmallocSelectUI(SelectUIBaseComponent):
+            def check_package_installed(package_name):
+                try:
+                    subprocess.run(["dpkg", "-l", package_name], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                    return True
+                except subprocess.CalledProcessError:
+                    return False
+    
+            def set_command(self, command):
+                if self.get_value():
+                    if self.check_package_installed():
+                        os.environ['LD_PRELOAD']="libtcmalloc.so.4"
+                        command.add_environment_variable("LD_PRELOAD", "libtcmalloc.so.4")
+                    else:
+                        with rootOut:
+                                print("正在安装tcmalloc, 请稍等...")
+                        cmd_run("apt-get update && apt-get install -y libgoogle-perftools-dev")
+                        cmd_run("apt-get install -y libgoogle-perftools-dev && echo 安装完成")
+                        if self.check_package_installed():
+                            os.environ['LD_PRELOAD']="libtcmalloc.so.4"
+                            command.add_environment_variable("LD_PRELOAD", "libtcmalloc.so.4")
+                            with rootOut:
+                                print("安装tcmalloc完成")
+                        else:
+                            with rootOut:
+                                print("安装tcmalloc失败,请询问作者")
+                else:
+                    os.environ.pop('LD_PRELOAD', None)
+        tcmallocSelectUI = TcmallocSelectUI("使用 tcmalloc 进行内存管理", html_blue_text("可略微提升速度并大大降低 CPU 内存泄漏(第一次开启会自动进行安装)"), "use_tcmalloc")
+        componentsControl.add_component(tcmallocSelectUI)
+        startSet_constructor.add_component(tcmallocSelectUI.get_ui())
+
         class GradioShareSelectUI(SelectUIBaseComponent):
             def set_command(self, command):
                 if self.get_value():
@@ -654,6 +691,20 @@ def getUi(data,cmd_run,controllers):
         componentsControl.add_component(startUIWithoutLoadingModelsUI)
         startSet_constructor.add_component(startUIWithoutLoadingModelsUI.get_ui())
 
+        class MaxBatchCountInputUI(InputUIBaseComponent):
+            def set_command(self, command):
+                command.add_argument("--max-batch-count=" + self.get_value())
+        maxBatchCountInputUI = MaxBatchCountInputUI(
+            "最大批次数量",
+            html_blue_text("UI的最大批计数值(默认16) [--max-batch-count]"),
+            "max_batch_count")
+        componentsControl.add_component(maxBatchCountInputUI)
+        startSet_constructor.add_component(maxBatchCountInputUI.get_ui())
+
+
+        startSet_constructor.add_component(widgets.HTML(value="<h4>检查与警告<h4/><hr>",)) # =====================
+
+
         class SkipVersionCheckUI(SelectUIBaseComponent):
             def set_command(self, command):
                 if self.get_value():
@@ -693,16 +744,6 @@ def getUi(data,cmd_run,controllers):
         )
         componentsControl.add_component(closeTensorflowWarnUI)
         startSet_constructor.add_component(closeTensorflowWarnUI.get_ui())
-
-        class MaxBatchCountInputUI(InputUIBaseComponent):
-            def set_command(self, command):
-                command.add_argument("--max-batch-count=" + self.get_value())
-        maxBatchCountInputUI = MaxBatchCountInputUI(
-            "最大批次数量",
-            html_blue_text("UI的最大批计数值(默认16) [--max-batch-count]"),
-            "max_batch_count")
-        componentsControl.add_component(maxBatchCountInputUI)
-        startSet_constructor.add_component(maxBatchCountInputUI.get_ui())
 
 
         startSet_constructor.add_component(widgets.HTML(value="<h4>API相关参数<h4/><hr>",)) # =====================
