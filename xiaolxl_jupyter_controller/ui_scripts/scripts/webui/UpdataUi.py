@@ -84,10 +84,10 @@ def getUi(data,cmd_run,controllers):
                 main_branch_name = get_git_main_b_name(self.path)
                 current_branch_name = get_git_nov_b_name(self.path)
                 current_sha = get_git_now_v_sha(self.path)
-                newest_sha = get_git_newest_v_sha(self.path)
+                newest_sha = get_git_newest_v_sha(self.path,branch=current_branch_name)
 
                 _now_time = get_git_now_v_time(self.path)
-                _newest_time = get_git_newest_v_time(self.path)
+                _newest_time = get_git_newest_v_time(self.path,branch=current_branch_name)
                 # 更新当前状态标签
                 self.current_branch_label.value = '当前版本分支: ' + current_branch_name
                 self.current_sha_label.value = '当前版本SHA: ' + current_sha
