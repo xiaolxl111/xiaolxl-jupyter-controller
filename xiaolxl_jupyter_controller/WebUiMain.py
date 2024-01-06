@@ -1,18 +1,23 @@
-from component_registry import *
-from json_config_manager import * 
-from print_tool import * 
-from json_fetcher import * 
-from xiaolxl_jupyter_controller_version import * 
-
 import ipywidgets as widgets
 import os
 
-import AboutUi, DownloadUi, SpeedUi, UpdataUi, ToolUi, StartUi
+from ui_scripts.tools.component_registry import *
+from ui_scripts.tools.json_config_manager import * 
+from ui_scripts.tools.print_tool import * 
+from ui_scripts.tools.json_fetcher import * 
+from ui_scripts.tools.xiaolxl_jupyter_controller_version import * 
+
+import ui_scripts.scripts.webui.AboutUi as AboutUi, \
+    ui_scripts.scripts.webui.DownloadUi as DownloadUi, \
+    ui_scripts.scripts.webui.SpeedUi as SpeedUi, \
+    ui_scripts.scripts.webui.UpdataUi as UpdataUi, \
+    ui_scripts.scripts.webui.ToolUi as ToolUi, \
+    ui_scripts.scripts.webui.StartUi as StartUi
 
 def show(data,cmd_run):
     uiRegistry = ComponentRegistry(debug=data['debug']) # ui注册链
 
-    default_config = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'default_config.json')
+    default_config = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ui_scripts/data/webui', 'default_config.json')
     uiConfig = JsonConfigManager(data['config_file'], default_config, debug=data['debug']) # 配置链
     
     logOut = logOut = LogController(enable_output=data['debug']) # 调试输出类

@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-import subprocess
 
 def cmd_run(com):
     !{com}

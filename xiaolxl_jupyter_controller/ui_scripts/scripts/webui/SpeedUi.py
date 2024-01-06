@@ -3,9 +3,9 @@ from ipywidgets import Layout,Label, HBox, VBox
 import subprocess
 import os
 
-from ui_tool import * 
-from speed_tool import * 
-from print_tool import * 
+from ...tools.ui_tool import * 
+from ...tools.speed_tool import * 
+from ...tools.print_tool import * 
 
 def show(data,cmd_run,controllers):
     network_version_json, is_from_network = controllers['jsonFetcher'].fetch_json("https://jihulab.com/xiaolxl_pub/xiaolxl-jupyter-controller/-/raw/main/data/xiaolxl_jupyter_controller_version.json", "../data/xiaolxl_jupyter_controller_version.json")

@@ -1,9 +1,7 @@
 import signal
 import subprocess as sp
 import threading
-from IPython.display import display, HTML
-import ipywidgets as widgets
-import time,os
+import sys
 
 
 class VerboseCalledProcessError(sp.CalledProcessError):

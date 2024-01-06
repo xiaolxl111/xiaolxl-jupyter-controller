@@ -3,10 +3,10 @@ import shutil
 import ipywidgets as widgets
 from ipywidgets import Layout,Label, HBox, VBox,Button,Dropdown,Text,HTML
 
-from ui_tool import * 
-from print_tool import * 
-from config_tool import * 
-from git_tool import * 
+from ...tools.ui_tool import * 
+from ...tools.print_tool import * 
+from ...tools.config_tool import * 
+from ...tools.git_tool import * 
 
 def getUi(data,cmd_run,controllers):
     ui_constructor = UIConstructor()

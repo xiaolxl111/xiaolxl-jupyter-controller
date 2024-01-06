@@ -2,16 +2,16 @@ import os
 import ipywidgets as widgets
 from ipywidgets import Layout,Label,HBox,VBox,GridBox
 
-from ui_tool import * 
-from print_tool import * 
-from config_tool import * 
-from download_tool import * 
+from ...tools.ui_tool import * 
+from ...tools.print_tool import * 
+from ...tools.config_tool import * 
+from ...tools.download_tool import * 
 
 def getUi(data,cmd_run,controllers):
     ui_constructor = UIConstructor()
     rootOut = ui_constructor.get_output_component()
 
-    modList, _ = controllers['jsonFetcher'].fetch_json("https://jihulab.com/xiaolxl_pub/xiaolxl-jupyter-controller/-/raw/main/data/modList.json", "../data/modList.json")
+    modList, _ = controllers['jsonFetcher'].fetch_json("https://jihulab.com/xiaolxl_pub/xiaolxl-jupyter-controller/-/raw/main/data/webui/modList.json", "../data/webui/modList.json")
     logOut = controllers['logOut']
     uiConfig = controllers['uiConfig']
 
