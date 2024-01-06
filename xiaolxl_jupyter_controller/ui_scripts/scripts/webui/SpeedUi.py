@@ -8,7 +8,7 @@ from ...tools.speed_tool import *
 from ...tools.print_tool import * 
 
 def show(data,cmd_run,controllers):
-    network_version_json, is_from_network = controllers['jsonFetcher'].fetch_json("https://jihulab.com/xiaolxl_pub/xiaolxl-jupyter-controller/-/raw/main/data/xiaolxl_jupyter_controller_version.json", "../data/xiaolxl_jupyter_controller_version.json")
+    network_version_json, is_from_network = controllers['jsonFetcher'].fetch_json("https://jihulab.com/xiaolxl_pub/xiaolxl-jupyter-controller/-/raw/main/xiaolxl_jupyter_controller/ui_scripts/data/xiaolxl_jupyter_controller_version.json", "../data/xiaolxl_jupyter_controller_version.json")
     versionController = controllers['versionController']
     is_allow_network = data['jsonFetcherNetwork']
 
