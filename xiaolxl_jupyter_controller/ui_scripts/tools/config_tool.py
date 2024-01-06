@@ -210,7 +210,13 @@ def get_xiaolxl_jupyter_controller_path():
     # 获取当前目录的上一级目录
     parent_dir = os.path.dirname(current_dir)
 
-    return parent_dir
+    # 获取当前目录的上一级目录
+    parent_dir2 = os.path.dirname(parent_dir)
+
+    # 获取当前目录的上一级目录
+    parent_dir3 = os.path.dirname(parent_dir2)
+
+    return parent_dir3
     
 def generate_random_letters(length=20):
     """

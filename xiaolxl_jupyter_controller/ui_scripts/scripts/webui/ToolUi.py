@@ -2,9 +2,9 @@ import os
 import ipywidgets as widgets
 from ipywidgets import Layout,Label,HBox,VBox,GridBox
 
-from ui_tool import * 
-from print_tool import * 
-from config_tool import * 
+from ...tools.ui_tool import * 
+from ...tools.print_tool import * 
+from ...tools.config_tool import * 
 
 def getUi(data,cmd_run,controllers):
     ui_constructor = UIConstructor()
@@ -63,7 +63,7 @@ def getUi(data,cmd_run,controllers):
                 self.ui_components = []
 
                 # Image component
-                file = open(get_xiaolxl_jupyter_controller_path() + "/img/删除.png", "rb")
+                file = open(get_xiaolxl_jupyter_controller_path() + "/xiaolxl_jupyter_controller/ui_scripts/img/删除.png", "rb")
                 image = file.read()
                 del_img = widgets.Image(
                     value=image,

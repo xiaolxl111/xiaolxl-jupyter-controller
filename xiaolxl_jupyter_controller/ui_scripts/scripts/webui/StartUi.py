@@ -3,11 +3,11 @@ import ipywidgets as widgets
 from ipywidgets import Layout,Label,HBox,VBox,GridBox
 from traitlets import link
 
-from ui_tool import * 
-from print_tool import * 
-from config_tool import * 
-from speed_tool import * 
-import thread_out
+from ...tools.ui_tool import * 
+from ...tools.print_tool import * 
+from ...tools.config_tool import * 
+from ...tools.speed_tool import * 
+from ...tools import thread_out
 
 def getUi(data,cmd_run,controllers):
     ui_constructor = UIConstructor()
@@ -204,6 +204,11 @@ def getUi(data,cmd_run,controllers):
 
         componentsControl = ComponentsControl() # UI配置链
         commandBuilder = CommandBuilder() # 命令配置链
+
+        printQueueManager = PrintQueueManager() # 创建输出管理
+        warnPrintQueue = PrintQueue() # 创建警告输出队列
+        printQueueManager.add_queue(warnPrintQueue) # 输出管理添加警告输出队列
+
 
 
         #===========
@@ -574,6 +579,35 @@ def getUi(data,cmd_run,controllers):
 
         startSet_constructor.add_component(widgets.HTML(value="<h4>常用参数<h4/><hr>",)) # =====================
 
+        class TcmallocSelectUI(SelectUIBaseComponent):
+            def check_package_installed(self, package_name):
+                status = os.system(f"dpkg -l {package_name} > /dev/null 2>&1")
+                return status == 0
+    
+            def set_command(self, command):
+                if self.get_value():
+                    if self.check_package_installed("libgoogle-perftools-dev"):
+                        os.environ['LD_PRELOAD']="libtcmalloc.so.4"
+                        command.add_environment_variable("LD_PRELOAD", "libtcmalloc.so.4")
+                    else:
+                        with rootOut:
+                            print("正在安装tcmalloc, 请稍等...")
+                        cmd_run("apt-get update && apt-get install -y libgoogle-perftools-dev")
+                        cmd_run("apt-get install -y libgoogle-perftools-dev")
+                        if self.check_package_installed("libgoogle-perftools-dev"):
+                            os.environ['LD_PRELOAD']="libtcmalloc.so.4"
+                            command.add_environment_variable("LD_PRELOAD", "libtcmalloc.so.4")
+                            with rootOut:
+                                print("安装tcmalloc完成")
+                        else:
+                            with rootOut:
+                                print("安装tcmalloc失败,请询问作者")
+                else:
+                    os.environ.pop('LD_PRELOAD', None)
+        tcmallocSelectUI = TcmallocSelectUI("使用 tcmalloc 进行内存管理", html_blue_text("可略微提升速度并大大降低 CPU 内存泄漏(第一次开启会自动进行安装)"), "use_tcmalloc")
+        componentsControl.add_component(tcmallocSelectUI)
+        startSet_constructor.add_component(tcmallocSelectUI.get_ui())
+
         class GradioShareSelectUI(SelectUIBaseComponent):
             def set_command(self, command):
                 if self.get_value():
@@ -654,6 +688,20 @@ def getUi(data,cmd_run,controllers):
         componentsControl.add_component(startUIWithoutLoadingModelsUI)
         startSet_constructor.add_component(startUIWithoutLoadingModelsUI.get_ui())
 
+        class MaxBatchCountInputUI(InputUIBaseComponent):
+            def set_command(self, command):
+                command.add_argument("--max-batch-count=" + self.get_value())
+        maxBatchCountInputUI = MaxBatchCountInputUI(
+            "最大批次数量",
+            html_blue_text("UI的最大批计数值(默认16) [--max-batch-count]"),
+            "max_batch_count")
+        componentsControl.add_component(maxBatchCountInputUI)
+        startSet_constructor.add_component(maxBatchCountInputUI.get_ui())
+
+
+        startSet_constructor.add_component(widgets.HTML(value="<h4>检查与警告<h4/><hr>",)) # =====================
+
+
         class SkipVersionCheckUI(SelectUIBaseComponent):
             def set_command(self, command):
                 if self.get_value():
@@ -693,16 +741,6 @@ def getUi(data,cmd_run,controllers):
         )
         componentsControl.add_component(closeTensorflowWarnUI)
         startSet_constructor.add_component(closeTensorflowWarnUI.get_ui())
-
-        class MaxBatchCountInputUI(InputUIBaseComponent):
-            def set_command(self, command):
-                command.add_argument("--max-batch-count=" + self.get_value())
-        maxBatchCountInputUI = MaxBatchCountInputUI(
-            "最大批次数量",
-            html_blue_text("UI的最大批计数值(默认16) [--max-batch-count]"),
-            "max_batch_count")
-        componentsControl.add_component(maxBatchCountInputUI)
-        startSet_constructor.add_component(maxBatchCountInputUI.get_ui())
 
 
         startSet_constructor.add_component(widgets.HTML(value="<h4>API相关参数<h4/><hr>",)) # =====================
@@ -785,7 +823,7 @@ def getUi(data,cmd_run,controllers):
         )
         ui_constructor.add_component(start_tip)
 
-        file = open(get_xiaolxl_jupyter_controller_path() + "/img/自定义服务.png", "rb")
+        file = open(get_xiaolxl_jupyter_controller_path() + "/xiaolxl_jupyter_controller/ui_scripts/img/自定义服务.png", "rb")
         image = file.read()
         start_tip_img = widgets.Image(
             value=image,
@@ -803,7 +841,16 @@ def getUi(data,cmd_run,controllers):
 
             with rootOut:
                 if not haveckpt or not havevae:
-                    print(red_text("警告！大模型目录没有模型或VAE目录没有VAE，请在下载器里下载，或使用自己的文件，如果没有特殊需求你的本次启动将会报错！"))
+                    commandBuilder.add_argument("--no-download-sd-model") # 取消模型自动下载
+                    print(red_text("警告! 大模型目录没有模型或VAE目录没有VAE, 请在下载器里下载, 或使用自己的文件, 如果没有特殊需求你的本次启动将会报错!"))
+
+                def is_xl_env():
+                    # 获取当前 Python 解释器的路径
+                    executable_path = sys.executable
+                    # 检查路径中是否包含 'xl_env'
+                    return 'xl_env' in executable_path
+                if not is_xl_env():
+                    print(yellow_text("警告! 你选择的运行环境不是xl_env, 如果没有特殊需求你的本次启动将会报错!"))
 
                 commandBuilder.set_python_path(sys.executable)
                 componentsControl.set_command(commandBuilder)
@@ -821,9 +868,9 @@ def getUi(data,cmd_run,controllers):
                     print("")
 
                     if get_is_speed():
-                        print("如果需要学术加速，请打开右侧网址，找到对应加速命令提前运行即可：https://www.autodl.com/docs/network_turbo/")
+                        print("如果需要学术加速, 请打开右侧网址, 找到对应加速命令提前运行即可: https://www.autodl.com/docs/network_turbo/")
                     else:
-                        print("如果之前开启过学术加速需要解除，请打开右侧网址，找到对应接触命令提前运行即可：https://www.autodl.com/docs/network_turbo/")
+                        print("如果之前开启过学术加速需要解除, 请打开右侧网址, 找到对应接触命令提前运行即可: https://www.autodl.com/docs/network_turbo/")
         sd_start_button.on_click_with_style(sd_start_fun,"正在运行...")
         ui_constructor.add_component(sd_start_button)
 

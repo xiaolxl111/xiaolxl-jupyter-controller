@@ -1,7 +1,7 @@
 import ipywidgets as widgets
 
-from ui_tool import * 
-from config_tool import * 
+from ...tools.ui_tool import * 
+from ...tools.config_tool import * 
 
 def getUi(data,cmd_run,controllers):
     versionController = controllers['versionController']
@@ -24,7 +24,7 @@ def getUi(data,cmd_run,controllers):
         widgets.HTML(value="AIGC交流QQ群: 741821455")
     )
 
-    file = open(get_xiaolxl_jupyter_controller_path() + "/img/qq.jpg", "rb")
+    file = open(get_xiaolxl_jupyter_controller_path() + "/xiaolxl_jupyter_controller/ui_scripts/img/qq.jpg", "rb")
     image = file.read()
     qq_img = widgets.Image(
         value=image,

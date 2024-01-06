@@ -65,24 +65,20 @@ def get_git_now_v_sha(path):
     return full_sha
 
 # 获取当前分支最新版本SHA
-def get_git_newest_v_sha(path):
-    subprocess.run(
-        ['git', 'fetch', '--all'],
-        cwd=path
-    )
+def get_git_newest_v_sha(path, branch='master'):
+    # Fetch the latest commits from all remotes
+    subprocess.run(['git', 'fetch', '--all'], cwd=path)
     
+    # Get the latest commit SHA of the specified branch
     output = subprocess.check_output(
-        ['git', 'rev-parse', 'origin'],
+        ['git', 'rev-parse', f'origin/{branch}'],
         cwd=path
     ).strip()
 
     # Convert the output to a string
-    output = output.decode('utf-8')
-
-    # Remove the extra content
-    full_sha = output.split('/')[0]
+    sha = output.decode('utf-8')
     
-    return full_sha
+    return sha
 
 # 获取当前版本时间
 def get_git_now_v_time(path):
@@ -100,19 +96,21 @@ def get_git_now_v_time(path):
     return out_data
 
 # 获取最新版本时间
-def get_git_newest_v_time(path):
-    newest_sha = get_git_newest_v_sha(path)
+def get_git_newest_v_time(path, branch='master'):
+    # Get the newest commit SHA
+    newest_sha = get_git_newest_v_sha(path, branch)
 
+    # Get the commit date
     date = subprocess.check_output(
         ['git', 'show', '-s', '--format=%ci', newest_sha],
         cwd=path
     ).decode('utf-8').strip()
     
+    # Extract and format the date
     dates = date.split(" ")
+    out_date = dates[0] + " " + dates[1]
     
-    out_data = dates[0] + " " + dates[1]
-    
-    return out_data
+    return out_date
 
 # 切换分支与版本
 def change_git_b_and_v(path,branch_name,full_sha):

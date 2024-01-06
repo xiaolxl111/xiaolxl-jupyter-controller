@@ -26,6 +26,7 @@
 
             "sd_webui_start_method":"normal",
             "sd_webui_theme":"auto",
+            "use_tcmalloc":false,
             "gradio_share":false,
             "xformers":true,
             "disable_safe_unpickle":true,

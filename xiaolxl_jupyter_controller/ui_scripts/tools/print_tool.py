@@ -48,11 +48,64 @@ def html_red_text(text, single_line=True):
         return "<p style='color: #ff0000;'>" + text + "</p>"
     else:
         return "<span style='color: #ff0000;'>" + text + "</span>"
+    
+class PrintQueue:
+    def __init__(self):
+        # 初始化一个空队列
+        self.queue = []
+
+    def add_text(self, text):
+        """
+        向队列中添加文本
+        :param text: 要添加到队列的文本
+        """
+        self.queue.append(text)
+
+    def print_queue(self):
+        """
+        按队列顺序打印所有文本
+        """
+        while self.queue:
+            print(self.queue.pop(0))
+
+    def print_all(self):
+        self.print_queue()
+
+class PrintQueueManager:
+    def __init__(self):
+        # 初始化一个空的PrintQueue列表
+        self.queues = []
+
+    def add_queue(self, print_queue):
+        """
+        添加一个PrintQueue实例到管理器
+        :param print_queue: PrintQueue实例
+        """
+        self.queues.append(print_queue)
+
+    def print_all(self):
+        """
+        执行所有队列的打印操作
+        """
+        for queue in self.queues:
+            queue.print_all()
+
+# 使用示例
+# pq1 = PrintQueue()
+# pq1.add_text("Hello from Queue 1!")
+# pq1.add_text("Another message from Queue 1")
+# pq2 = PrintQueue()
+# pq2.add_text("Hello from Queue 2!")
+# manager = PrintQueueManager()
+# manager.add_queue(pq1)
+# manager.add_queue(pq2)
+# 打印所有队列的内容
+# manager.print_all()
+
 
 
 # 使用示例
 # logOut = LogController(enable_output=True)
 # logOut.print("这是一条消息。")  # 将打印消息
-
 # logOut.enable_output = False
 # logOut.print("这条消息不会被打印。")  # 不会打印任何东西
