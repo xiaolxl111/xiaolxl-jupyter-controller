@@ -580,7 +580,7 @@ def getUi(data,cmd_run,controllers):
         startSet_constructor.add_component(widgets.HTML(value="<h4>常用参数<h4/><hr>",)) # =====================
 
         class TcmallocSelectUI(SelectUIBaseComponent):
-            def check_package_installed(package_name):
+            def check_package_installed(self, package_name):
                 status = os.system(f"dpkg -l {package_name} > /dev/null 2>&1")
                 return status == 0
     
