@@ -805,6 +805,14 @@ def getUi(data,cmd_run,controllers):
                 if not haveckpt or not havevae:
                     print(red_text("警告! 大模型目录没有模型或VAE目录没有VAE, 请在下载器里下载, 或使用自己的文件, 如果没有特殊需求你的本次启动将会报错!"))
 
+                def is_xl_env():
+                    # 获取当前 Python 解释器的路径
+                    executable_path = sys.executable
+                    # 检查路径中是否包含 'xl_env'
+                    return 'xl_env' in executable_path
+                if not is_xl_env():
+                    print(yellow_text("警告! 你选择的运行环境不是xl_env, 如果没有特殊需求你的本次启动将会报错!"))
+
                 commandBuilder.set_python_path(sys.executable)
                 componentsControl.set_command(commandBuilder)
                 finallyCommand = commandBuilder.build()
