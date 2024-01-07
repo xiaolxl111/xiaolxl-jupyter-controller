@@ -187,3 +187,9 @@ def force_update_git_repo(path):
         ['git', 'pull'],
         cwd=path
     )
+    
+    # git clean -fd
+    subprocess.run(
+        ['git', 'clean', '-fd'],
+        cwd=path
+    )
