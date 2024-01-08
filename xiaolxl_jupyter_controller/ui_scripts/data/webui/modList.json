@@ -600,7 +600,7 @@
                     ]
                 },
                 {
-                    "modName": "Controlnet_v1_1_SD1.5模型_fp16",
+                    "modName": "Controlnet_v1_1_SD1.5模型_fp16(11GB+)",
                     "modChildren": [
                         {
                             "downloadType": "cg",
@@ -1009,7 +1009,7 @@
                     ]
                 },
                 {
-                    "modName": "AnimateDiff模型",
+                    "modName": "AnimateDiff动画模型(2GB+)",
                     "modChildren": [
                         {
                             "downloadType": "cg",
