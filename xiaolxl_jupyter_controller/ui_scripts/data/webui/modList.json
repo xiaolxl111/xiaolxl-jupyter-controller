@@ -1059,6 +1059,93 @@
                             "fileName": "vae-ft-mse-840000-ema-pruned.safetensors"
                         }
                     ]
+                },
+                {
+                    "modName": "AnimateDifV2的motionLoRA和v3AdapterLora(350MB)",
+                    "modChildren": [
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/AnimateDiff-A1111-MotionLoRA/mm_sd15_v2_lora_PanLeft.safetensors",
+                            "parentPath": "lora_dir",
+                            "sonPath": "/AnimateDiffMotionLoRA",
+                            "fileName": "mm_sd15_v2_lora_PanLeft.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/AnimateDiff-A1111-MotionLoRA/mm_sd15_v2_lora_TiltDown.safetensors",
+                            "parentPath": "lora_dir",
+                            "sonPath": "/AnimateDiffMotionLoRA",
+                            "fileName": "mm_sd15_v2_lora_TiltDown.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/AnimateDiff-A1111-MotionLoRA/mm_sd15_v2_lora_TiltUp.safetensors",
+                            "parentPath": "lora_dir",
+                            "sonPath": "/AnimateDiffMotionLoRA",
+                            "fileName": "mm_sd15_v2_lora_TiltUp.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/AnimateDiff-A1111-MotionLoRA/mm_sd15_v2_lora_PanRight.safetensors",
+                            "parentPath": "lora_dir",
+                            "sonPath": "/AnimateDiffMotionLoRA",
+                            "fileName": "mm_sd15_v2_lora_PanRight.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/AnimateDiff-A1111-MotionLoRA/mm_sd15_v2_lora_RollingClockwise.safetensors",
+                            "parentPath": "lora_dir",
+                            "sonPath": "/AnimateDiffMotionLoRA",
+                            "fileName": "mm_sd15_v2_lora_RollingClockwise.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/AnimateDiff-A1111-MotionLoRA/mm_sd15_v2_lora_RollingAnticlockwise.safetensors",
+                            "parentPath": "lora_dir",
+                            "sonPath": "/AnimateDiffMotionLoRA",
+                            "fileName": "mm_sd15_v2_lora_RollingAnticlockwise.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/AnimateDiff-A1111-MotionLoRA/mm_sd15_v2_lora_ZoomIn.safetensors",
+                            "parentPath": "lora_dir",
+                            "sonPath": "/AnimateDiffMotionLoRA",
+                            "fileName": "mm_sd15_v2_lora_ZoomIn.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/AnimateDiff-A1111-MotionLoRA/mm_sd15_v2_lora_ZoomOut.safetensors",
+                            "parentPath": "lora_dir",
+                            "sonPath": "/AnimateDiffMotionLoRA",
+                            "fileName": "mm_sd15_v2_lora_ZoomOut.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/AnimateDiff-A1111-MotionLoRA/mm_sd15_v3_adapter.safetensors",
+                            "parentPath": "lora_dir",
+                            "sonPath": "/AnimateDiffMotionLoRA",
+                            "fileName": "mm_sd15_v3_adapter.safetensors"
+                        }
+                    ]
+                },
+                {
+                    "modName": "AnimateDifV3的SparseControlNet模型(2GB)",
+                    "modChildren": [
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/AnimateDiff-A1111-ControlNetMod/mm_sd15_v3_sparsectrl_rgb.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "mm_sd15_v3_sparsectrl_rgb.safetensors"
+                        },
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/AnimateDiff-A1111-ControlNetMod/mm_sd15_v3_sparsectrl_scribble.safetensors",
+                            "parentPath": "controlnet_dir",
+                            "sonPath": "/",
+                            "fileName": "mm_sd15_v3_sparsectrl_scribble.safetensors"
+                        }
+                    ]
                 }
             ]
         }

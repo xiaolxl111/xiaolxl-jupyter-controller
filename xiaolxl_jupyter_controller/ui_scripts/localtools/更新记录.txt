@@ -1,6 +1,8 @@
 3.0.15-2024-1-8:
 1.优化了UI加载逻辑
-2.微调了插件组件的名字
+2.微调了下载器中插件依赖的文件总大小
+3.下载器增加了AnimateDifV2的motionLoRA和v3AdapterLora
+4.下载器增加了AnimateDifV3的SparseControlNet模型
 
 3.0.15-2024-1-7:
 1.调整了启动器更新时间错误问题
