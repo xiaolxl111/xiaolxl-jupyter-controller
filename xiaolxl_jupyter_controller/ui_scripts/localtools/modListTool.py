@@ -193,6 +193,16 @@ manager.add_mod_childs(a3, "[stabilityai] stable-diffusion-v1-5 (通用)", [
 a4 = "国风系列(大模型)"
 manager.add_title(a4)
 
+manager.add_mod_childs(a4, "[xiaolxl] GuoFeng4.2XL (国风/通用)", [
+{
+    "downloadType": "cg",
+    "url": "xiaolxl/GuoFengCollection/Guofeng4.2XL.safetensors",
+    "parentPath": "ckpt_dir",
+    "sonPath": "/",
+    "fileName": "Guofeng4.2XL.safetensors"
+}
+])
+
 manager.add_mod_childs(a4, "[xiaolxl] GuoFeng4.0_Real_Beta (国风/通用)", [
 {
     "downloadType": "cg",
