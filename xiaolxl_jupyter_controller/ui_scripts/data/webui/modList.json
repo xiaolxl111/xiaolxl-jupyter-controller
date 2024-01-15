@@ -105,6 +105,30 @@
             "title": "推荐模型(大模型)",
             "mods": [
                 {
+                    "modName": "[CagliostroLab] Animagine-XL-V3 (二次元)",
+                    "modChildren": [
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/stable-diffusion-models/animagineXLV3_v30.safetensors",
+                            "parentPath": "ckpt_dir",
+                            "sonPath": "/",
+                            "fileName": "animagineXLV3_v30.safetensors"
+                        }
+                    ]
+                },
+                {
+                    "modName": "[playgroundai] playground-v2-XL(13GB) (二次元)",
+                    "modChildren": [
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/stable-diffusion-models/playground-v2.safetensors",
+                            "parentPath": "ckpt_dir",
+                            "sonPath": "/",
+                            "fileName": "playground-v2.safetensors"
+                        }
+                    ]
+                },
+                {
                     "modName": "[Yuno779] Anything-V3.0 (二次元)",
                     "modChildren": [
                         {
