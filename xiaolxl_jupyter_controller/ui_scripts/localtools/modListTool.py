@@ -133,6 +133,26 @@ manager.add_mod_childs(a1, "[Aitasai] darkSushiMixMix大颗寿司Mix (2.5D/二�
 a2 = "推荐模型(大模型)"
 manager.add_title(a2)
 
+manager.add_mod_childs(a2, "[CagliostroLab] Animagine-XL-V3 (二次元)", [
+{
+    "downloadType": "cg",
+    "url": "xiaolxl/stable-diffusion-models/animagineXLV3_v30.safetensors",
+    "parentPath": "ckpt_dir",
+    "sonPath": "/",
+    "fileName": "animagineXLV3_v30.safetensors"
+}
+])
+
+manager.add_mod_childs(a2, "[playgroundai] playground-v2-XL(13GB) (二次元)", [
+{
+    "downloadType": "cg",
+    "url": "xiaolxl/stable-diffusion-models/playground-v2.safetensors",
+    "parentPath": "ckpt_dir",
+    "sonPath": "/",
+    "fileName": "playground-v2.safetensors"
+}
+])
+
 manager.add_mod_childs(a2, "[Yuno779] Anything-V3.0 (二次元)", [
 {
     "downloadType": "cg",
