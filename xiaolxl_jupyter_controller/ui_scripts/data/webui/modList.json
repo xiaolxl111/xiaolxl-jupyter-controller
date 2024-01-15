@@ -175,6 +175,18 @@
             "title": "国风系列(大模型)",
             "mods": [
                 {
+                    "modName": "[xiaolxl] GuoFeng4.2XL (国风/通用)",
+                    "modChildren": [
+                        {
+                            "downloadType": "cg",
+                            "url": "xiaolxl/GuoFengCollection/Guofeng4.2XL.safetensors",
+                            "parentPath": "ckpt_dir",
+                            "sonPath": "/",
+                            "fileName": "Guofeng4.2XL.safetensors"
+                        }
+                    ]
+                },
+                {
                     "modName": "[xiaolxl] GuoFeng4.0_Real_Beta (国风/通用)",
                     "modChildren": [
                         {
