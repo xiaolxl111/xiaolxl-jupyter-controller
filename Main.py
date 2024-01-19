@@ -21,6 +21,47 @@ ui_configs = {
     }
 }
 
+class ServerConfigReader:
+    def __init__(self, file_path):
+        self.file_path = file_path
+        self.data = {}
+        self.read_json()
+
+    def read_json(self):
+        import json
+        try:
+            with open(self.file_path, 'r', encoding='utf-8') as file:
+                self.data = json.load(file)
+        except FileNotFoundError:
+            print(f"File not found: {self.file_path}")
+        except json.JSONDecodeError:
+            print(f"Invalid JSON format in file: {self.file_path}")
+
+    def get_project_name(self):
+        return self.data.get("project_name", "Unknown")
+
+    def get_project_version(self):
+        return self.data.get("project_version", "Unknown")
+
+    def get_update_info_for_version(self, version):
+        updates = self.data.get("project_update_infor", [])
+        for update in updates:
+            if update.get("version") == version:
+                return update
+        return None
+
+    def get_all_update_info(self):
+        return self.data.get("project_update_infor", [])
+
+# Example usage
+# file_path = '../ServerConfig.json'
+# config_reader = ServerConfigReader(file_path)
+# print("Project Name:", config_reader.get_project_name())
+# print("Project Version:", config_reader.get_project_version())
+# print("All Update Information:", config_reader.get_all_update_info())
+
+
+
 def read_use_style_file():
     file_path = '../useStyle.txt'
     try:

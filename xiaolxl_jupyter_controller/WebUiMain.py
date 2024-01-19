@@ -7,17 +7,17 @@ from xiaolxl_jupyter_controller.ui_scripts.tools.print_tool import *
 from xiaolxl_jupyter_controller.ui_scripts.tools.json_fetcher import * 
 from xiaolxl_jupyter_controller.ui_scripts.tools.xiaolxl_jupyter_controller_version import * 
 
-import xiaolxl_jupyter_controller.ui_scripts.scripts.webui.AboutUi as AboutUi, \
-    xiaolxl_jupyter_controller.ui_scripts.scripts.webui.DownloadUi as DownloadUi, \
-    xiaolxl_jupyter_controller.ui_scripts.scripts.webui.SpeedUi as SpeedUi, \
-    xiaolxl_jupyter_controller.ui_scripts.scripts.webui.UpdataUi as UpdataUi, \
-    xiaolxl_jupyter_controller.ui_scripts.scripts.webui.ToolUi as ToolUi, \
-    xiaolxl_jupyter_controller.ui_scripts.scripts.webui.StartUi as StartUi
+import xiaolxl_jupyter_controller.ui_scripts.scripts.autodl_webui.AboutUi as AboutUi, \
+    xiaolxl_jupyter_controller.ui_scripts.scripts.autodl_webui.DownloadUi as DownloadUi, \
+    xiaolxl_jupyter_controller.ui_scripts.scripts.autodl_webui.SpeedUi as SpeedUi, \
+    xiaolxl_jupyter_controller.ui_scripts.scripts.autodl_webui.UpdataUi as UpdataUi, \
+    xiaolxl_jupyter_controller.ui_scripts.scripts.autodl_webui.ToolUi as ToolUi, \
+    xiaolxl_jupyter_controller.ui_scripts.scripts.autodl_webui.StartUi as StartUi
 
 def show(data,cmd_run):
     uiRegistry = ComponentRegistry(debug=data['debug']) # ui注册链
 
-    default_config = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ui_scripts/data/webui', 'default_config.json')
+    default_config = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ui_scripts/data/autodl_webui', 'default_config.json')
     uiConfig = JsonConfigManager(data['config_file'], default_config, debug=data['debug']) # 配置链
     
     logOut = logOut = LogController(enable_output=data['debug']) # 调试输出类

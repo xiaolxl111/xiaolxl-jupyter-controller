@@ -1,4 +1,26 @@
 {
     "xiaolxl_jupyter_controller_version": "3.0.16",
-    "update_time":"2024.1.8"
+    "update_time":"2024.1.8",
+    "update_info":[
+        {
+            "version":"3.0.16",
+            "update_time":"2024.1.8",
+            "update_infor":[
+                "优化了UI加载逻辑",
+                "微调了下载器中插件依赖的文件总大小",
+                "下载器增加了AnimateDifV2的motionLoRA和v3AdapterLora",
+                "下载器增加了AnimateDifV3的SparseControlNet模型"
+            ]
+        }
+    ],
+    "hot_update_info":[
+        {
+            "update_time":"2024.1.15",
+            "update_infor":[
+                "增加了Animagine-XL-V3大模型",
+                "增加了playground-v2-XL大模型",
+                "增加了GuoFeng4.2XL大模型"
+            ]
+        }
+    ]
 }
