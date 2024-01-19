@@ -1,7 +1,14 @@
 {
-    "xiaolxl_jupyter_controller_version": "3.0.16",
-    "update_time":"2024.1.8",
+    "xiaolxl_jupyter_controller_version": "3.0.17",
+    "update_time":"2024.1.19",
     "update_info":[
+        {
+            "version":"3.0.17",
+            "update_time":"2024.1.19",
+            "update_infor":[
+                "增加了登录用户名和密码位置提示"
+            ]
+        },
         {
             "version":"3.0.16",
             "update_time":"2024.1.8",
