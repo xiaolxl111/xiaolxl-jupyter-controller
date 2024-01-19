@@ -501,10 +501,14 @@ def getUi(data,cmd_run,controllers):
                 _is_open = self.get_is_open_value()
                 if _is_open == "open":
                     command.add_argument("--gradio-auth " + f"{_name}:{_pass}")
+                    with rootOut:
+                        print(yellow_text("你已开启登录功能，请在启动设置-登录隐私处查看密码和用户名"))
 
                 if _is_open == "auto":
                     if get_is_speed():
                         command.add_argument("--gradio-auth " + f"{_name}:{_pass}")
+                        with rootOut:
+                            print(yellow_text("你已开启登录功能，请在启动设置-登录隐私处查看密码和用户名"))
 
         loginSet_constructor = UIConstructor()
 
