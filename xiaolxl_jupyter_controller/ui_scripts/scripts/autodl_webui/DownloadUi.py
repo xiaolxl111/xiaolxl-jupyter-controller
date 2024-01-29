@@ -159,7 +159,8 @@ def getUi(data,cmd_run,controllers):
                     for mod_child in self.mod_children:
                         download_path = get_config_path(uiConfig, mod_child['parentPath']) + mod_child['sonPath']
                         filename = mod_child['fileName']
-                        if not check_downloaded(filename, download_path):
+                        downloadType = mod_child['downloadType']
+                        if not check_downloaded(downloadType, filename, download_path, mod_child):
                             return False
                 except TypeError:
                     with rootOut:
@@ -172,9 +173,10 @@ def getUi(data,cmd_run,controllers):
                     download_link = mod_child['url']
                     download_path = get_config_path(uiConfig, mod_child['parentPath']) + mod_child['sonPath']
                     filename = mod_child['fileName']
+                    downloadType = mod_child['downloadType']
 
                     # 检查文件是否已下载
-                    if check_downloaded(filename, download_path):
+                    if check_downloaded(downloadType, filename, download_path, mod_child):
                         print(f"正在下载第{index + 1}个文件，共{total}个")
                         print(f"文件 {filename} 已下载，跳过...")
                     else:

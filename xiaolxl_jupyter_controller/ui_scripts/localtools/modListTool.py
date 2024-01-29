@@ -606,6 +606,111 @@ manager.add_mod_childs(a6, "Controlnet预处理器(17GB+)", [
         "sonPath": "/clip_vision",
         "fileName": "clip_h.pth"
     },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/depth_anything_vitl14.pth",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/depth_anything",
+        "fileName": "depth_anything_vitl14.pth"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/graphormer_hand_state_dict.bin",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/hand_refiner/hr16/ControlNet-HandRefiner-pruned",
+        "fileName": "graphormer_hand_state_dict.bin"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/hrnetv2_w64_imagenet_pretrained.pth",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/hand_refiner/hr16/ControlNet-HandRefiner-pruned",
+        "fileName": "hrnetv2_w64_imagenet_pretrained.pth"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/densepose_r50_fpn_dl.torchscript",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/densepose",
+        "fileName": "densepose_r50_fpn_dl.torchscript"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/buffalo_l.zip",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models",
+        "fileName": "buffalo_l.zip"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/genderage.onnx",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models/buffalo_l",
+        "fileName": "genderage.onnx"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/2d106det.onnx",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models/buffalo_l",
+        "fileName": "2d106det.onnx"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/det_10g.onnx",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models/buffalo_l",
+        "fileName": "det_10g.onnx"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/1k3d68.onnx",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models/buffalo_l",
+        "fileName": "1k3d68.onnx"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/w600k_r50.onnx",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models/buffalo_l",
+        "fileName": "w600k_r50.onnx"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/1k3d68.onnx",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models/antelopev2",
+        "fileName": "1k3d68.onnx"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/2d106det.onnx",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models/antelopev2",
+        "fileName": "2d106det.onnx"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/genderage.onnx",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models/antelopev2",
+        "fileName": "genderage.onnx"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/glintr100.onnx",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models/antelopev2",
+        "fileName": "glintr100.onnx"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/scrfd_10g_bnkps.onnx",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models/antelopev2",
+        "fileName": "scrfd_10g_bnkps.onnx"
+    },
 ])
 
 manager.add_mod_childs(a6, "Controlnet_v1_1_SD1.5模型_fp16(11GB+)", [
@@ -1010,6 +1115,145 @@ manager.add_mod_childs(a6, "Controlnet_XL模型_fp16(25GB+)", [
         "parentPath": "controlnet_dir",
         "sonPath": "/",
         "fileName": "thibaud_xl_openpose_256lora.safetensors"
+    },
+])
+
+manager.add_mod_childs(a6, "Controlnet新增模型合集(20GB+)", [
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/control_sd15_depth_anything.safetensors",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "control_sd15_depth_anything.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/control_sd15_animal_openpose_fp16.pth",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "control_sd15_animal_openpose_fp16.pth"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/control_sd15_inpaint_depth_hand_fp16.safetensors",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "control_sd15_inpaint_depth_hand_fp16.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/controlnet_for_densepose.safetensors",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "controlnet_for_densepose.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/loose_controlnet.safetensors",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "loose_controlnet.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/control_instant_id_sdxl.safetensors",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "control_instant_id_sdxl.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/controlnet-sd-xl-1.0-softedge-dexined.safetensors",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "controlnet-sd-xl-1.0-softedge-dexined.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/ip-adapter_instant_id_sdxl.bin",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter_instant_id_sdxl.bin"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/ip-adapter-faceid_sd15.bin",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid_sd15.bin"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/ip-adapter-faceid-plusv2_sdxl.bin",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid-plusv2_sdxl.bin"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/ip-adapter-faceid_sdxl.bin",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid_sdxl.bin"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/ip-adapter-faceid-plus_sd15.bin",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid-plus_sd15.bin"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/ip-adapter-faceid-portrait_sd15.bin",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid-portrait_sd15.bin"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/ip-adapter-faceid-plusv2_sd15.bin",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid-plusv2_sd15.bin"
+    },
+])
+
+manager.add_mod_childs(a6, "Controlnet新增Lora合集(1GB+-)", [
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Loras_Update/ip-adapter-faceid_sd15_lora.safetensors",
+        "parentPath": "lora_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid_sd15_lora.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Loras_Update/ip-adapter-faceid_sdxl_lora.safetensors",
+        "parentPath": "lora_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid_sdxl_lora.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Loras_Update/ip-adapter-faceid-plus_sd15_lora.safetensors",
+        "parentPath": "lora_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid-plus_sd15_lora.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Loras_Update/ip-adapter-faceid-plusv2_sd15_lora.safetensors",
+        "parentPath": "lora_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid-plusv2_sd15_lora.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Loras_Update/ip-adapter-faceid-plusv2_sdxl_lora.safetensors",
+        "parentPath": "lora_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid-plusv2_sdxl_lora.safetensors"
     },
 ])
 
