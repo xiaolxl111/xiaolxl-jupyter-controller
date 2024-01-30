@@ -1,5 +1,10 @@
 import os
 
+def extract_base_filename(filename):
+    # Split the filename by '.' and take the first part
+    base_name = filename.split('.')[0]
+    return base_name
+
 def get_download_command(download_link, download_path, filename, download_method, download_type="url"):
     command = "echo 未找到下载方式，请更新启动器！"
     if download_type == "url":
@@ -47,7 +52,7 @@ def check_downloaded(downloadType, filename, download_path, mod_child):
         # cg_targz类型需要检查所有metadata中列出的文件
         for file_info in mod_child['metadata']:
             # 构建每个文件的完整路径
-            file_path = os.path.join(download_path, file_info['sonPath'], file_info['fileName'])
+            file_path = os.path.join(download_path, extract_base_filename(filename), file_info['sonPath'], file_info['fileName'])
             # 如果任何文件不存在，则返回False
             if not os.path.exists(file_path):
                 return False
