@@ -43,7 +43,18 @@ def get_download_command(download_link, download_path, filename, download_method
 
 
 def check_downloaded(downloadType, filename, download_path, mod_child):
-        # 检查文件是否已下载
+    if downloadType == "cg_targz":
+        # cg_targz类型需要检查所有metadata中列出的文件
+        for file_info in mod_child['metadata']:
+            # 构建每个文件的完整路径
+            file_path = os.path.join(download_path, file_info['sonPath'], file_info['fileName'])
+            # 如果任何文件不存在，则返回False
+            if not os.path.exists(file_path):
+                return False
+        # 如果所有文件都存在，则返回True
+        return True
+    else:
+        # 其他类型的检查方法保持不变
         file_path = os.path.join(download_path, filename)
         aria2_file = file_path + ".aria2"
         return os.path.exists(file_path) and not os.path.exists(aria2_file)
