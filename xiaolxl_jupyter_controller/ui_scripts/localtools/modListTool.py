@@ -1388,7 +1388,7 @@ manager.add_mod_childs(a6, "AnimateDifV3的SparseControlNet模型(2GB)", [
     },
 ])
 
-manager.add_mod_childs(a6, 'TAG插件反推依赖模型包', [
+manager.add_mod_childs(a6, 'TAG插件反推依赖模型包(3GB+-)', [
 {
   'downloadType': 'cg_targz',
   'url': 'xiaolxl/tagger_interrogators/interrogators.tar.gz',

@@ -1432,7 +1432,7 @@
                     ]
                 },
                 {
-                    "modName": "TAG插件反推依赖模型包",
+                    "modName": "TAG插件反推依赖模型包(3GB+-)",
                     "modChildren": [
                         {
                             "downloadType": "cg_targz",
