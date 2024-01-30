@@ -52,7 +52,7 @@ def check_downloaded(downloadType, filename, download_path, mod_child):
         # cg_targz类型需要检查所有metadata中列出的文件
         for file_info in mod_child['metadata']:
             # 构建每个文件的完整路径
-            file_path = os.path.join(download_path, extract_base_filename(filename), file_info['sonPath'], file_info['fileName'])
+            file_path = os.path.join(download_path + extract_base_filename(filename) + file_info['sonPath'], file_info['fileName'])
             # 如果任何文件不存在，则返回False
             if not os.path.exists(file_path):
                 return False
