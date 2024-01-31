@@ -8,10 +8,6 @@ def getUi(data,cmd_run,controllers):
 
     ui_constructor = UIConstructor()
 
-    ui_constructor.add_component(
-        widgets.HTML(value="<h3><font color='#A52A2A'>启动器版本：" + versionController.get_version() + " - " + versionController.get_update_time() + "</font></h3>",)
-    )
-
     versionConfig = versionController.get_data()
     network_version_json, is_from_network = controllers['jsonFetcher'].fetch_json("https://jihulab.com/xiaolxl_pub/xiaolxl-jupyter-controller/-/raw/main/xiaolxl_jupyter_controller/ui_scripts/data/xiaolxl_jupyter_controller_version.json", "../data/xiaolxl_jupyter_controller_version.json")
     network_version = versionController.get_version_from_json(network_version_json)
@@ -25,6 +21,8 @@ def getUi(data,cmd_run,controllers):
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            max-height: 300px;
+            overflow-y: auto;
         }}
         .update-header {{
             font-size: 20px;
