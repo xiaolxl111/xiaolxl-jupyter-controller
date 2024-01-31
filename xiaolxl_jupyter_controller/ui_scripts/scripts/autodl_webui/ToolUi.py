@@ -183,7 +183,7 @@ def getUi(data,cmd_run,controllers):
                     placeholder='请输入源文件路径，无需添加/root/',
                     style={'description_width': 'initial'},
                     layout=Layout(width='1000px', height='auto'),
-                    description='源文件路径(无需添加/root/):',
+                    description='请输入复制好的源文件路径(无需添加/root/):',
                     disabled=False
                 )
                 self.ui_components.append(self.src_input)
@@ -194,7 +194,7 @@ def getUi(data,cmd_run,controllers):
                     placeholder='请输入目标路径，无需添加/root/',
                     style={'description_width': 'initial'},
                     layout=Layout(width='1000px', height='auto'),
-                    description='目标路径(无需添加/root/):',
+                    description='请输入复制好的目标路径(无需添加/root/):',
                     disabled=False
                 )
                 self.ui_components.append(self.dest_input)
