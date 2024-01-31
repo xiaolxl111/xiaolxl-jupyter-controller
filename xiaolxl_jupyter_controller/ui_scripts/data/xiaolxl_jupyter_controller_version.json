@@ -1,7 +1,14 @@
 {
-    "xiaolxl_jupyter_controller_version": "3.1.0",
+    "xiaolxl_jupyter_controller_version": "3.1.1",
     "update_time":"2024.1.31",
     "update_info":[
+        {
+            "version":"3.1.1",
+            "update_time":"2024.1.31",
+            "update_infor":[
+                "优化更新信息显示"
+            ]
+        },
         {
             "version":"3.1.0",
             "update_time":"2024.1.31",
