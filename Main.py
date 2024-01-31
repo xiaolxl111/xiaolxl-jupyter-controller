@@ -54,7 +54,7 @@ def select_ui(cmd_run):
                 module_path = project_info["module"]
                 UiMain = importlib.import_module(module_path)
                 UiMain.show(data, cmd_run)
-                break
+                return
         print("没有找到你需要的UI, 请手动设置或检查项目名字与位置是否正确")
 
 def show(cmd_run):
