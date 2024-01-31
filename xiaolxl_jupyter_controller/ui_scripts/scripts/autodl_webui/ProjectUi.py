@@ -72,12 +72,12 @@ def getUi(data,cmd_run,controllers):
         </style>
         <div class="container">
             <div class="update-block">
-                <div class="update-header">当前版本：{project_config["project_version"]}{' (有新版本，请更新)' if is_version_lower else ''}</div>
+                <div class="update-header">镜像项目当前版本：{project_config["project_version"]}{' (镜像项目有新版本，请更新)' if is_version_lower else ''}</div>
                 <div>更新日期：{project_config["project_update_time"]}</div>
             </div>
 
             <div class="update-block">
-                <div class="update-header">更新信息树</div>
+                <div class="update-header">镜像项目更新信息</div>
                 <!-- 动态生成更新信息 -->
                 {"".join([f'''
                 <div class="version-info{' current-version' if info['version'] == project_config["project_version"] else ''}">
@@ -97,7 +97,7 @@ def getUi(data,cmd_run,controllers):
                 <div class="update-header">此镜像版本暂不支持显示本地镜像版本,请更新镜像后查看</div>
         </div>
         <div class="update-block">
-            <div class="update-header">更新信息树</div>
+            <div class="update-header">镜像项目更新信息</div>
             <!-- 动态生成更新信息树 -->
             {"".join([f'''
             <div class="version-info">

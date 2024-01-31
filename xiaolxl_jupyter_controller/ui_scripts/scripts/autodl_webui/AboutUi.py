@@ -49,12 +49,12 @@ def getUi(data,cmd_run,controllers):
     </style>
     <div class="container">
         <div class="update-block">
-            <div class="update-header">当前版本：{versionController.get_version()}{' (有新版本，请更新)' if is_version_lower else ''}</div>
+            <div class="update-header">启动器当前版本：{versionController.get_version()}{' (启动器有新版本，请更新)' if is_version_lower else ''}</div>
             <div>更新日期：{versionController.get_update_time()}</div>
         </div>
 
         <div class="update-block">
-            <div class="update-header">更新信息树</div>
+            <div class="update-header">启动器更新信息</div>
             <!-- 动态生成更新信息 -->
             {"".join([f'''
             <div class="version-info{' current-version' if info['version'] == versionController.get_version() else ''}">
@@ -67,7 +67,7 @@ def getUi(data,cmd_run,controllers):
         </div>
 
         <div class="hot-update-block">
-            <div class="update-header">热更新信息树</div>
+            <div class="update-header">启动器热更新信息(远程列表更新)</div>
             <!-- 动态生成热更新信息 -->
             {"".join([f'''
             <div class="version-info">
