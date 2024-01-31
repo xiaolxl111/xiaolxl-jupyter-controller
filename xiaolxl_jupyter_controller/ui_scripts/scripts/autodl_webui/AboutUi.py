@@ -49,31 +49,31 @@ def getUi(data,cmd_run,controllers):
             <div>更新日期：{versionController.get_update_time()}</div>
         </div>
 
-        <!-- 动态生成更新信息 -->
-        {"".join([f'''
         <div class="update-block">
             <div class="update-header">更新信息树</div>
+            <!-- 动态生成更新信息 -->
+            {"".join([f'''
             <div class="version-info">
                 <h3>版本 {info["version"]} - 更新时间：{info["update_time"]}</h3>
                 <div class="update-content">
                     {"<p>" + "</p><p>".join(info["update_infor"]) + "</p>"}
                 </div>
             </div>
+            ''' for info in versionConfig["update_info"]])}
         </div>
-        ''' for info in versionConfig["update_info"]])}
 
-        <!-- 动态生成热更新信息 -->
-        {"".join([f'''
         <div class="hot-update-block">
             <div class="update-header">热更新信息树</div>
+            <!-- 动态生成热更新信息 -->
+            {"".join([f'''
             <div class="version-info">
                 <h3>更新时间：{info["update_time"]}</h3>
                 <div class="update-content">
                     {"<p>" + "</p><p>".join(info["update_infor"]) + "</p>"}
                 </div>
             </div>
+            ''' for info in versionConfig["hot_update_info"]])}
         </div>
-        ''' for info in versionConfig["hot_update_info"]])}
     </div>
     """
     ui_constructor.add_component(
