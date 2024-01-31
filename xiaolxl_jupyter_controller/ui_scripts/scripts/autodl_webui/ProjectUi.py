@@ -83,7 +83,7 @@ def getUi(data,cmd_run,controllers):
                 <div class="version-info{' current-version' if info['version'] == project_config["project_version"] else ''}">
                     <h3>版本 {info["version"]} - 更新时间：{info["update_time"]}</h3>
                     <div class="update-content">
-                        {"<p>" + "</p><p>".join(info["update_infor"]) + "</p>"}
+                        {"<p>" + "</p><p>".join(f"{i + 1}. {line}" for i, line in enumerate(info["update_infor"])) + "</p>"}
                     </div>
                 </div>
                 ''' for info in project_config["project_update_infor"]])}
@@ -103,7 +103,7 @@ def getUi(data,cmd_run,controllers):
             <div class="version-info">
                 <h3>版本 {info["version"]} - 更新时间：{info["update_time"]}</h3>
                 <div class="update-content">
-                    {"<p>" + "</p><p>".join(info["update_infor"]) + "</p>"}
+                    {"<p>" + "</p><p>".join(f"{i + 1}. {line}" for i, line in enumerate(info["update_infor"])) + "</p>"}
                 </div>
             </div>
             ''' for info in network_project_config_json["project_update_infor"]])}
