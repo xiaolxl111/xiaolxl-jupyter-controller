@@ -159,6 +159,16 @@ def getUi(data,cmd_run,controllers):
             def __init__(self):
                 self.ui_components = []
 
+                file = open(get_xiaolxl_jupyter_controller_path() + "/xiaolxl_jupyter_controller/ui_scripts/img/删除.png", "rb")
+                image = file.read()
+                move_copy_img = widgets.Image(
+                    value=image,
+                    format='png',
+                    width=300,
+                    height=300
+                )
+                self.ui_components.append(move_copy_img)
+
                 # Single choice for move or copy
                 self.move_or_copy = widgets.RadioButtons(
                     options=['复制', '移动'],
