@@ -149,7 +149,7 @@ def getUi(data,cmd_run,controllers):
 
         built_in_download_constructor = UIConstructor()
 
-        # 自定义的按钮类
+        # 自定义下载按钮类
         class ModButton(XLButton):
             def __init__(self, mod_name, mod_children, **kwargs):
                 super().__init__(description=mod_name,layout=Layout(width='150px', height='auto'), **kwargs)
