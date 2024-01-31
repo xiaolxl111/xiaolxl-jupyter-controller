@@ -1,0 +1,18 @@
+{
+    "project_name":"autodl_sdwebui",
+    "project_version":"15.2",
+    "project_update_time":"2024.1.7",
+    "project_update_infor":[
+        {
+            "version":"15.2",
+            "update_time":"2024.1.7",
+            "update_infor":[
+                "调整controlnet模型数量为6",
+                "增加freeu插件(提高扩散模型样本质量)",
+                "修复了dreambooth插件无法训练的问题(目前支持sd1.5, sd2, sdxl模型的可视化Lora和大模型训练)",
+                "更新了插件和启动器到最新版本",
+                "此版本启动器在后续版本更新的时候可以不用关闭笔记本页面了！我把可能修改的变量全部移动到了代码里面，现在笔记本页面只有三行最关键代码。"
+            ]
+        }
+    ]
+}

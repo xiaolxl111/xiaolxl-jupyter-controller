@@ -29,6 +29,9 @@ class VersionController:
         self._debug_print(f"获取的版本号: {version}")
         return version
     
+    def get_data(self):
+        return self.data
+    
     def get_version_from_json(self, json_data):
         """从提供的JSON数据中获取版本号。"""
         if not isinstance(json_data, dict):

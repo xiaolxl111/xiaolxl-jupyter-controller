@@ -606,6 +606,111 @@ manager.add_mod_childs(a6, "Controlnet预处理器(17GB+)", [
         "sonPath": "/clip_vision",
         "fileName": "clip_h.pth"
     },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/depth_anything_vitl14.pth",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/depth_anything",
+        "fileName": "depth_anything_vitl14.pth"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/graphormer_hand_state_dict.bin",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/hand_refiner/hr16/ControlNet-HandRefiner-pruned",
+        "fileName": "graphormer_hand_state_dict.bin"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/hrnetv2_w64_imagenet_pretrained.pth",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/hand_refiner/hr16/ControlNet-HandRefiner-pruned",
+        "fileName": "hrnetv2_w64_imagenet_pretrained.pth"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/densepose_r50_fpn_dl.torchscript",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/densepose",
+        "fileName": "densepose_r50_fpn_dl.torchscript"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/buffalo_l.zip",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models",
+        "fileName": "buffalo_l.zip"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/genderage.onnx",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models/buffalo_l",
+        "fileName": "genderage.onnx"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/2d106det.onnx",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models/buffalo_l",
+        "fileName": "2d106det.onnx"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/det_10g.onnx",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models/buffalo_l",
+        "fileName": "det_10g.onnx"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/1k3d68.onnx",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models/buffalo_l",
+        "fileName": "1k3d68.onnx"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/w600k_r50.onnx",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models/buffalo_l",
+        "fileName": "w600k_r50.onnx"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/1k3d68.onnx",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models/antelopev2",
+        "fileName": "1k3d68.onnx"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/2d106det.onnx",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models/antelopev2",
+        "fileName": "2d106det.onnx"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/genderage.onnx",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models/antelopev2",
+        "fileName": "genderage.onnx"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/glintr100.onnx",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models/antelopev2",
+        "fileName": "glintr100.onnx"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/controlnet-annotator/scrfd_10g_bnkps.onnx",
+        "parentPath": "controlnet_annotator_models_path",
+        "sonPath": "/insightface/models/antelopev2",
+        "fileName": "scrfd_10g_bnkps.onnx"
+    },
 ])
 
 manager.add_mod_childs(a6, "Controlnet_v1_1_SD1.5模型_fp16(11GB+)", [
@@ -1013,6 +1118,145 @@ manager.add_mod_childs(a6, "Controlnet_XL模型_fp16(25GB+)", [
     },
 ])
 
+manager.add_mod_childs(a6, "Controlnet新增模型合集(20GB+)", [
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/control_sd15_depth_anything.safetensors",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "control_sd15_depth_anything.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/control_sd15_animal_openpose_fp16.pth",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "control_sd15_animal_openpose_fp16.pth"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/control_sd15_inpaint_depth_hand_fp16.safetensors",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "control_sd15_inpaint_depth_hand_fp16.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/controlnet_for_densepose.safetensors",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "controlnet_for_densepose.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/loose_controlnet.safetensors",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "loose_controlnet.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/control_instant_id_sdxl.safetensors",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "control_instant_id_sdxl.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/controlnet-sd-xl-1.0-softedge-dexined.safetensors",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "controlnet-sd-xl-1.0-softedge-dexined.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/ip-adapter_instant_id_sdxl.bin",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter_instant_id_sdxl.bin"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/ip-adapter-faceid_sd15.bin",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid_sd15.bin"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/ip-adapter-faceid-plusv2_sdxl.bin",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid-plusv2_sdxl.bin"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/ip-adapter-faceid_sdxl.bin",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid_sdxl.bin"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/ip-adapter-faceid-plus_sd15.bin",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid-plus_sd15.bin"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/ip-adapter-faceid-portrait_sd15.bin",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid-portrait_sd15.bin"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Mods_Update/ip-adapter-faceid-plusv2_sd15.bin",
+        "parentPath": "controlnet_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid-plusv2_sd15.bin"
+    },
+])
+
+manager.add_mod_childs(a6, "Controlnet新增Lora合集(1GB+-)", [
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Loras_Update/ip-adapter-faceid_sd15_lora.safetensors",
+        "parentPath": "lora_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid_sd15_lora.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Loras_Update/ip-adapter-faceid_sdxl_lora.safetensors",
+        "parentPath": "lora_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid_sdxl_lora.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Loras_Update/ip-adapter-faceid-plus_sd15_lora.safetensors",
+        "parentPath": "lora_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid-plus_sd15_lora.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Loras_Update/ip-adapter-faceid-plusv2_sd15_lora.safetensors",
+        "parentPath": "lora_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid-plusv2_sd15_lora.safetensors"
+    },
+    {
+        "downloadType": "cg",
+        "url": "xiaolxl/ControlNet_Loras_Update/ip-adapter-faceid-plusv2_sdxl_lora.safetensors",
+        "parentPath": "lora_dir",
+        "sonPath": "/",
+        "fileName": "ip-adapter-faceid-plusv2_sdxl_lora.safetensors"
+    },
+])
+
 manager.add_mod_childs(a6, "AnimateDiff动画模型(2GB+)", [
     {
         "downloadType": "cg",
@@ -1143,5 +1387,258 @@ manager.add_mod_childs(a6, "AnimateDifV3的SparseControlNet模型(2GB)", [
         "fileName": "mm_sd15_v3_sparsectrl_scribble.safetensors"
     },
 ])
+
+manager.add_mod_childs(a6, 'TAG插件反推依赖模型包(3GB+-)', [
+{
+  'downloadType': 'cg_targz',
+  'url': 'xiaolxl/tagger_interrogators/interrogators.tar.gz',
+  'parentPath': 'models_dir',
+  'sonPath': '/',
+  'fileName': 'interrogators.tar.gz',
+  'metadata': [
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-moat-tagger-v2/blobs',
+      'fileName': 'b8cef913be4c9e8d93f9f903e74271416502ce0b4b04df0ff1e2f00df488aa03'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-moat-tagger-v2/blobs',
+      'fileName': '71796801c13109547bc017d40fc6f5b89bfd9cc0'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-moat-tagger-v2/snapshots/8452cddf280b952281b6e102411c50e981cb2908',
+      'fileName': 'model.onnx'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-moat-tagger-v2/snapshots/8452cddf280b952281b6e102411c50e981cb2908',
+      'fileName': 'selected_tags.csv'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-moat-tagger-v2/refs',
+      'fileName': 'main'
+    },
+    {
+      'sonPath': '/.locks/models--SmilingWolf--wd-v1-4-moat-tagger-v2',
+      'fileName': 'b8cef913be4c9e8d93f9f903e74271416502ce0b4b04df0ff1e2f00df488aa03.lock'
+    },
+    {
+      'sonPath': '/.locks/models--SmilingWolf--wd-v1-4-moat-tagger-v2',
+      'fileName': '71796801c13109547bc017d40fc6f5b89bfd9cc0.lock'
+    },
+    {
+      'sonPath': '/.locks/models--SmilingWolf--wd-v1-4-vit-tagger-v2',
+      'fileName': '8a21cadd1f88a095094cafbffe3028c3cc3d97f4d58c54344c5994bcf48e24ac.lock'
+    },
+    {
+      'sonPath': '/.locks/models--SmilingWolf--wd-v1-4-vit-tagger-v2',
+      'fileName': '71796801c13109547bc017d40fc6f5b89bfd9cc0.lock'
+    },
+    {
+      'sonPath': '/.locks/models--SmilingWolf--wd-v1-4-vit-tagger',
+      'fileName': '22e88a3226e427998fdf669bdbd035ee7040f3229796dd66ec35b8dd90e852b5.lock'
+    },
+    {
+      'sonPath': '/.locks/models--SmilingWolf--wd-v1-4-vit-tagger',
+      'fileName': '33ab5e6f93fe352338b6837f32849e9815c3bd08.lock'
+    },
+    {
+      'sonPath': '/.locks/models--SmilingWolf--wd-v1-4-swinv2-tagger-v2',
+      'fileName': '67740df7ede9a53e50d6e29c6a5c0d6c862f1876c22545d810515bad3ae17bb1.lock'
+    },
+    {
+      'sonPath': '/.locks/models--SmilingWolf--wd-v1-4-swinv2-tagger-v2',
+      'fileName': '71796801c13109547bc017d40fc6f5b89bfd9cc0.lock'
+    },
+    {
+      'sonPath': '/.locks/models--SmilingWolf--wd-v1-4-convnextv2-tagger-v2',
+      'fileName': 'e91daa19cd9e8725125b7d70702d1560855fb687f8d8c4218eddaa821f41834a.lock'
+    },
+    {
+      'sonPath': '/.locks/models--SmilingWolf--wd-v1-4-convnextv2-tagger-v2',
+      'fileName': '71796801c13109547bc017d40fc6f5b89bfd9cc0.lock'
+    },
+    {
+      'sonPath': '/.locks/models--SmilingWolf--wd-v1-4-convnext-tagger-v2',
+      'fileName': '71f06ecb7b9df81d8f271da4d43997ea2ed363cdac29aa64fcb256c9631e656a.lock'
+    },
+    {
+      'sonPath': '/.locks/models--SmilingWolf--wd-v1-4-convnext-tagger-v2',
+      'fileName': '71796801c13109547bc017d40fc6f5b89bfd9cc0.lock'
+    },
+    {
+      'sonPath': '/.locks/models--SmilingWolf--wd-v1-4-convnext-tagger',
+      'fileName': 'b7d7c9923e0056a2def0f4418df01a1274467b3da8480f146b851289257734de.lock'
+    },
+    {
+      'sonPath': '/.locks/models--SmilingWolf--wd-v1-4-convnext-tagger',
+      'fileName': '33ab5e6f93fe352338b6837f32849e9815c3bd08.lock'
+    },
+    {
+      'sonPath': '/.locks/models--deepghs--ml-danbooru-onnx',
+      'fileName': '594c26e2cb72637c343f0492ba9d76b642e751201bcf61ff43f02ddeab3abcb9.lock'
+    },
+    {
+      'sonPath': '/.locks/models--deepghs--ml-danbooru-onnx',
+      'fileName': '70051a40fcc09a1d420d77beb78366c648d293d2.lock'
+    },
+    {
+      'sonPath': '/.locks/models--deepghs--ml-danbooru-onnx',
+      'fileName': '4ea7aa66df59632c71e036cd9eda9c89e0eaf58bcd39bf9718e63583378cba75.lock'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-vit-tagger-v2/blobs',
+      'fileName': '8a21cadd1f88a095094cafbffe3028c3cc3d97f4d58c54344c5994bcf48e24ac'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-vit-tagger-v2/blobs',
+      'fileName': '71796801c13109547bc017d40fc6f5b89bfd9cc0'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-vit-tagger-v2/snapshots/1f3f3e8ae769634e31e1ef696df11ec37493e4f2',
+      'fileName': 'model.onnx'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-vit-tagger-v2/snapshots/1f3f3e8ae769634e31e1ef696df11ec37493e4f2',
+      'fileName': 'selected_tags.csv'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-vit-tagger-v2/snapshots/1f3f3e8ae769634e31e1ef696df11ec37493e4f2/.ipynb_checkpoints',
+      'fileName': 'selected_tags-checkpoint.csv'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-vit-tagger-v2/refs',
+      'fileName': 'main'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-vit-tagger/blobs',
+      'fileName': '22e88a3226e427998fdf669bdbd035ee7040f3229796dd66ec35b8dd90e852b5'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-vit-tagger/blobs',
+      'fileName': '33ab5e6f93fe352338b6837f32849e9815c3bd08'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-vit-tagger/snapshots/213a7bd66d93407911b8217e806a95edc3593eed',
+      'fileName': 'model.onnx'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-vit-tagger/snapshots/213a7bd66d93407911b8217e806a95edc3593eed',
+      'fileName': 'selected_tags.csv'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-vit-tagger/refs',
+      'fileName': 'main'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-swinv2-tagger-v2/blobs',
+      'fileName': '67740df7ede9a53e50d6e29c6a5c0d6c862f1876c22545d810515bad3ae17bb1'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-swinv2-tagger-v2/blobs',
+      'fileName': '71796801c13109547bc017d40fc6f5b89bfd9cc0'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-swinv2-tagger-v2/snapshots/e8a736126633b7e60d0ce59930ee8b70642d7560',
+      'fileName': 'model.onnx'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-swinv2-tagger-v2/snapshots/e8a736126633b7e60d0ce59930ee8b70642d7560',
+      'fileName': 'selected_tags.csv'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-swinv2-tagger-v2/refs',
+      'fileName': 'main'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-convnextv2-tagger-v2/blobs',
+      'fileName': 'e91daa19cd9e8725125b7d70702d1560855fb687f8d8c4218eddaa821f41834a'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-convnextv2-tagger-v2/blobs',
+      'fileName': '71796801c13109547bc017d40fc6f5b89bfd9cc0'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-convnextv2-tagger-v2/snapshots/dbd4dbe553ee51feb3bc745b614fb762080e3912',
+      'fileName': 'model.onnx'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-convnextv2-tagger-v2/snapshots/dbd4dbe553ee51feb3bc745b614fb762080e3912',
+      'fileName': 'selected_tags.csv'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-convnextv2-tagger-v2/refs',
+      'fileName': 'main'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-convnext-tagger-v2/blobs',
+      'fileName': '71f06ecb7b9df81d8f271da4d43997ea2ed363cdac29aa64fcb256c9631e656a'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-convnext-tagger-v2/blobs',
+      'fileName': '71796801c13109547bc017d40fc6f5b89bfd9cc0'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-convnext-tagger-v2/snapshots/4b34d1b07bdd8e95494072648960b8a6adcbc0ff',
+      'fileName': 'model.onnx'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-convnext-tagger-v2/snapshots/4b34d1b07bdd8e95494072648960b8a6adcbc0ff',
+      'fileName': 'selected_tags.csv'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-convnext-tagger-v2/refs',
+      'fileName': 'main'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-convnext-tagger/blobs',
+      'fileName': 'b7d7c9923e0056a2def0f4418df01a1274467b3da8480f146b851289257734de'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-convnext-tagger/blobs',
+      'fileName': '33ab5e6f93fe352338b6837f32849e9815c3bd08'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-convnext-tagger/snapshots/4036ca51f1c082b0e7c4496890bbf9eadad5764a',
+      'fileName': 'model.onnx'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-convnext-tagger/snapshots/4036ca51f1c082b0e7c4496890bbf9eadad5764a',
+      'fileName': 'selected_tags.csv'
+    },
+    {
+      'sonPath': '/models--SmilingWolf--wd-v1-4-convnext-tagger/refs',
+      'fileName': 'main'
+    },
+    {
+      'sonPath': '/models--deepghs--ml-danbooru-onnx/blobs',
+      'fileName': '594c26e2cb72637c343f0492ba9d76b642e751201bcf61ff43f02ddeab3abcb9'
+    },
+    {
+      'sonPath': '/models--deepghs--ml-danbooru-onnx/blobs',
+      'fileName': '70051a40fcc09a1d420d77beb78366c648d293d2'
+    },
+    {
+      'sonPath': '/models--deepghs--ml-danbooru-onnx/blobs',
+      'fileName': '4ea7aa66df59632c71e036cd9eda9c89e0eaf58bcd39bf9718e63583378cba75'
+    },
+    {
+      'sonPath': '/models--deepghs--ml-danbooru-onnx/snapshots/60009d1a5989970203364a2b27c887e0fa2747f2',
+      'fileName': 'TResnet-D-FLq_ema_6-30000.onnx'
+    },
+    {
+      'sonPath': '/models--deepghs--ml-danbooru-onnx/snapshots/60009d1a5989970203364a2b27c887e0fa2747f2',
+      'fileName': 'classes.json'
+    },
+    {
+      'sonPath': '/models--deepghs--ml-danbooru-onnx/snapshots/60009d1a5989970203364a2b27c887e0fa2747f2',
+      'fileName': 'ml_caformer_m36_dec-5-97527.onnx'
+    },
+    {
+      'sonPath': '/models--deepghs--ml-danbooru-onnx/refs',
+      'fileName': 'main'
+    }
+  ]
+}
+  ]
+)
 
 print(manager.get_json())

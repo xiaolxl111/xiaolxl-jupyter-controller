@@ -417,6 +417,13 @@ def getUi(data,cmd_run,controllers):
         configHighSet_constructor.add_component(dreamboothModelsPathInputUI.get_ui())
         componentsControl.add_component(dreamboothModelsPathInputUI)
 
+        class ModelsPathInputUI(InputUIBaseComponent):
+            def set_command(self, command):
+                pass
+        modelsPathInputUI = ModelsPathInputUI("配置models目录", html_blue_text("设置各种模型依赖的主要models位置(不代表设置后会自动移动, 这里只是一个目录定位)"), "models_dir")
+        configHighSet_constructor.add_component(modelsPathInputUI.get_ui())
+        componentsControl.add_component(modelsPathInputUI)
+
         class SdWebUiPortInputUI(InputUIBaseComponent):
             def set_command(self, command):
                 command.add_argument("--port=" + self.get_value())

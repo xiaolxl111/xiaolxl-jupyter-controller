@@ -1,4 +1,42 @@
 {
-    "xiaolxl_jupyter_controller_version": "3.0.17",
-    "update_time":"2024.1.19"
+    "xiaolxl_jupyter_controller_version": "3.1.0",
+    "update_time":"2024.1.31",
+    "update_info":[
+        {
+            "version":"3.1.0",
+            "update_time":"2024.1.31",
+            "update_infor":[
+                "下载器controlnet预处理器增加depth_hand_refiner，depth_anything，densepose_parula (black bg & blue torso),densepose (pruple bg & purple torso),seg_anime_face,seg_ofade20k,seg_ofcoco,seg_ufade20k,ip-adapter_face_id,ip-adapter_face_id_plus,instant_id_face_embedding,instant_id_face_keypoints",
+                "下载器controlnet模型增加control_sd15_inpaint_depth_hand_fp16，control_sd15_depth_anything，controlnet_for_densepose，loose_controlnet，control_sd15_animal_openpose_fp16，InstantID的模型，controlnet-sd-xl-1.0-softedge-dexined，IP-AdapterFaceID相关模型",
+                "下载器增加tag反推插件模型下载"
+            ]
+        },
+        {
+            "version":"3.0.17",
+            "update_time":"2024.1.19",
+            "update_infor":[
+                "增加了登录用户名和密码位置提示"
+            ]
+        },
+        {
+            "version":"3.0.16",
+            "update_time":"2024.1.8",
+            "update_infor":[
+                "优化了UI加载逻辑",
+                "微调了下载器中插件依赖的文件总大小",
+                "下载器增加了AnimateDifV2的motionLoRA和v3AdapterLora",
+                "下载器增加了AnimateDifV3的SparseControlNet模型"
+            ]
+        }
+    ],
+    "hot_update_info":[
+        {
+            "update_time":"2024.1.15",
+            "update_infor":[
+                "增加了Animagine-XL-V3大模型",
+                "增加了playground-v2-XL大模型",
+                "增加了GuoFeng4.2XL大模型"
+            ]
+        }
+    ]
 }

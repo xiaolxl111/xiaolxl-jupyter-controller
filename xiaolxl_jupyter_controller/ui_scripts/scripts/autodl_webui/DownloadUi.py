@@ -11,14 +11,18 @@ def getUi(data,cmd_run,controllers):
     ui_constructor = UIConstructor()
     rootOut = ui_constructor.get_output_component()
 
-    modList, _ = controllers['jsonFetcher'].fetch_json("https://jihulab.com/xiaolxl_pub/xiaolxl-jupyter-controller/-/raw/main/xiaolxl_jupyter_controller/ui_scripts/data/webui/modList.json", "../data/webui/modList.json")
+    modList, _ = controllers['jsonFetcher'].fetch_json("https://jihulab.com/xiaolxl_pub/xiaolxl-jupyter-controller/-/raw/main/xiaolxl_jupyter_controller/ui_scripts/data/autodl_webui/modList.json", "../data/autodl_webui/modList.json")
     logOut = controllers['logOut']
     uiConfig = controllers['uiConfig']
 
     with rootOut:
 
         ui_constructor.add_component(
-            widgets.HTML(value="<font size='2' color='red'>1.下载前记得安装下载器,有问题的情况下可以尝试开启学术加速</font><br><font size='2' color='red'>2.下载前记得检查空间是否足够</font><br><font size='2' color='red'>3.模型请根据自己需要下载，不是全部需要下载</font><br><font size='2' color='red'>4.下载内置模型如果有报错,可以等待一会儿再次下载</font>")
+            widgets.HTML(value="<font size='2' color='red'>1.下载前记得安装下载器,有问题的情况下可以尝试开启学术加速</font>\
+                         <br><font size='2' color='red'>2.下载前记得检查空间是否足够</font>\
+                         <br><font size='2' color='red'>3.模型请根据自己需要下载，不是全部需要下载</font>\
+                         <br><font size='2' color='red'>4.下载内置模型如果有报错,可以等待一会儿再次下载</font>\
+                         <br><font size='2' color='red'>5.如果出现已下载文件没有显示，可能是文件有更新或者原文件被移动或改名</font>")
         )
 
         install_download = XLButton(
@@ -145,7 +149,7 @@ def getUi(data,cmd_run,controllers):
 
         built_in_download_constructor = UIConstructor()
 
-        # 自定义的按钮类
+        # 自定义下载按钮类
         class ModButton(XLButton):
             def __init__(self, mod_name, mod_children, **kwargs):
                 super().__init__(description=mod_name,layout=Layout(width='150px', height='auto'), **kwargs)
@@ -159,7 +163,8 @@ def getUi(data,cmd_run,controllers):
                     for mod_child in self.mod_children:
                         download_path = get_config_path(uiConfig, mod_child['parentPath']) + mod_child['sonPath']
                         filename = mod_child['fileName']
-                        if not check_downloaded(filename, download_path):
+                        downloadType = mod_child['downloadType']
+                        if not check_downloaded(downloadType, filename, download_path, mod_child):
                             return False
                 except TypeError:
                     with rootOut:
@@ -172,9 +177,10 @@ def getUi(data,cmd_run,controllers):
                     download_link = mod_child['url']
                     download_path = get_config_path(uiConfig, mod_child['parentPath']) + mod_child['sonPath']
                     filename = mod_child['fileName']
+                    downloadType = mod_child['downloadType']
 
                     # 检查文件是否已下载
-                    if check_downloaded(filename, download_path):
+                    if check_downloaded(downloadType, filename, download_path, mod_child):
                         print(f"正在下载第{index + 1}个文件，共{total}个")
                         print(f"文件 {filename} 已下载，跳过...")
                     else:

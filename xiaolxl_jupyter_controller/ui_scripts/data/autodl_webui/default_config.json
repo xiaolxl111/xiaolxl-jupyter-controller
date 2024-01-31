@@ -15,6 +15,7 @@
             "sdWebUiExtensions_dir":"/root/stable-diffusion-webui/extensions",
             "animatediff_dir":"/root/autodl-tmp/models/sd-webui-animatediff",
             "dreambooth_models_path":"/root/autodl-tmp/models/dreambooth",
+            "models_dir":"/root/autodl-tmp/models",
             "SdWebUi_port":"6006",
 
             "login_name":"",
