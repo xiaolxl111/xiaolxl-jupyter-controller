@@ -13,6 +13,9 @@ def getUi(data,cmd_run,controllers):
     )
 
     versionConfig = versionController.get_data()
+    network_version_json, is_from_network = controllers['jsonFetcher'].fetch_json("https://jihulab.com/xiaolxl_pub/xiaolxl-jupyter-controller/-/raw/main/xiaolxl_jupyter_controller/ui_scripts/data/xiaolxl_jupyter_controller_version.json", "../data/xiaolxl_jupyter_controller_version.json")
+    network_version = versionController.get_version_from_json(network_version_json)
+    is_version_lower = versionController.is_version_lower(network_version)
     # 创建HTML内容
     html_content = f"""
     <style>
@@ -36,6 +39,9 @@ def getUi(data,cmd_run,controllers):
             border-radius: 5px;
             margin-bottom: 10px;
         }}
+        .current-version {{
+            background-color: #add8e6;  /* 浅蓝色背景 */
+        }}
         .version-info h3 {{
             margin-top: 0;
         }}
@@ -45,7 +51,7 @@ def getUi(data,cmd_run,controllers):
     </style>
     <div class="container">
         <div class="update-block">
-            <div class="update-header">当前版本：{versionController.get_version()}</div>
+            <div class="update-header">当前版本：{versionController.get_version()}{' (有新版本，请更新)' if is_version_lower else ''}</div>
             <div>更新日期：{versionController.get_update_time()}</div>
         </div>
 
@@ -53,7 +59,7 @@ def getUi(data,cmd_run,controllers):
             <div class="update-header">更新信息树</div>
             <!-- 动态生成更新信息 -->
             {"".join([f'''
-            <div class="version-info">
+            <div class="version-info{' current-version' if info['version'] == versionController.get_version() else ''}">
                 <h3>版本 {info["version"]} - 更新时间：{info["update_time"]}</h3>
                 <div class="update-content">
                     {"<p>" + "</p><p>".join(info["update_infor"]) + "</p>"}
