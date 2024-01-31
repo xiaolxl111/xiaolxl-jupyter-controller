@@ -94,9 +94,9 @@ def getUi(data,cmd_run,controllers):
         # 创建仅包含网络更新信息树的HTML内容
         html_content = f"""
         <div class="update-block">
-            <div class="update-block">
                 <div class="update-header">此镜像版本暂不支持显示本地镜像版本,请更新镜像后查看</div>
-            </div>
+        </div>
+        <div class="update-block">
             <div class="update-header">更新信息树</div>
             <!-- 动态生成更新信息树 -->
             {"".join([f'''
