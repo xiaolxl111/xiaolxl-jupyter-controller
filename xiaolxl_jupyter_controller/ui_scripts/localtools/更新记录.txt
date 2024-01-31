@@ -1,4 +1,4 @@
-3.1.18-2024-1-31:
+3.1.0-2024-1-31:
 1.下载器controlnet预处理器增加depth_hand_refiner，depth_anything，densepose_parula (black bg & blue torso),densepose (pruple bg & purple torso),seg_anime_face,seg_ofade20k,seg_ofcoco,seg_ufade20k,ip-adapter_face_id,ip-adapter_face_id_plus,instant_id_face_embedding,instant_id_face_keypoints
 2.下载器controlnet模型增加control_sd15_inpaint_depth_hand_fp16，control_sd15_depth_anything，controlnet_for_densepose，loose_controlnet，control_sd15_animal_openpose_fp16，InstantID的模型，controlnet-sd-xl-1.0-softedge-dexined，IP-AdapterFaceID相关模型
 3.下载器增加tag反推插件模型下载
