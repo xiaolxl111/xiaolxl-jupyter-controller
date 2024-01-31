@@ -15,84 +15,66 @@ def getUi(data,cmd_run,controllers):
     versionConfig = versionController.get_data()
     # 创建HTML内容
     html_content = f"""
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>更新信息</title>
-        <style>
-            body {{
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                background-color: #f4f4f4;
-                color: #333;
-                line-height: 1.6;
-            }}
-            .container {{
-                width: 80%;
-                margin: 20px auto;
-            }}
-            .update-block, .hot-update-block {{
-                background-color: #fff;
-                margin-bottom: 20px;
-                padding: 15px;
-                border-radius: 8px;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            }}
-            .update-header {{
-                font-size: 20px;
-                margin-bottom: 10px;
-                color: #444;
-                border-bottom: 2px solid #eee;
-                padding-bottom: 10px;
-            }}
-            .version-info {{
-                background-color: #e7e7e7;
-                padding: 10px;
-                border-radius: 5px;
-                margin-bottom: 10px;
-            }}
-            .version-info h3 {{
-                margin-top: 0;
-            }}
-            .update-content {{
-                margin-left: 20px;
-            }}
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="update-block">
-                <div class="update-header">当前版本：{versionController.get_version()}</div>
-                <div>更新日期：{versionController.get_update_time()}</div>
-            </div>
-
-            <!-- 动态生成更新信息 -->
-            {"".join([f'''
-            <div class="update-block">
-                <div class="update-header">更新信息树</div>
-                <div class="version-info">
-                    <h3>版本 {info["version"]} - 更新时间：{info["update_time"]}</h3>
-                    <div class="update-content">
-                        {"<p>" + "</p><p>".join(info["update_infor"]) + "</p>"}
-                    </div>
-                </div>
-            </div>
-            ''' for info in versionConfig["update_info"]])}
-
-            <!-- 动态生成热更新信息 -->
-            {"".join([f'''
-            <div class="hot-update-block">
-                <div class="update-header">热更新信息树</div>
-                <div class="version-info">
-                    <h3>更新时间：{info["update_time"]}</h3>
-                    <div class="update-content">
-                        {"<p>" + "</p><p>".join(info["update_infor"]) + "</p>"}
-                    </div>
-                </div>
-            </div>
-            ''' for info in versionConfig["hot_update_info"]])}
+    <style>
+        .update-block, .hot-update-block {{
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }}
+        .update-header {{
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #444;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }}
+        .version-info {{
+            background-color: #e7e7e7;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }}
+        .version-info h3 {{
+            margin-top: 0;
+        }}
+        .update-content {{
+            margin-left: 20px;
+        }}
+    </style>
+    <div class="container">
+        <div class="update-block">
+            <div class="update-header">当前版本：{versionController.get_version()}</div>
+            <div>更新日期：{versionController.get_update_time()}</div>
         </div>
-    </body>
-    </html>
+
+        <!-- 动态生成更新信息 -->
+        {"".join([f'''
+        <div class="update-block">
+            <div class="update-header">更新信息树</div>
+            <div class="version-info">
+                <h3>版本 {info["version"]} - 更新时间：{info["update_time"]}</h3>
+                <div class="update-content">
+                    {"<p>" + "</p><p>".join(info["update_infor"]) + "</p>"}
+                </div>
+            </div>
+        </div>
+        ''' for info in versionConfig["update_info"]])}
+
+        <!-- 动态生成热更新信息 -->
+        {"".join([f'''
+        <div class="hot-update-block">
+            <div class="update-header">热更新信息树</div>
+            <div class="version-info">
+                <h3>更新时间：{info["update_time"]}</h3>
+                <div class="update-content">
+                    {"<p>" + "</p><p>".join(info["update_infor"]) + "</p>"}
+                </div>
+            </div>
+        </div>
+        ''' for info in versionConfig["hot_update_info"]])}
+    </div>
     """
     ui_constructor.add_component(
         widgets.HTML(value=html_content,)
