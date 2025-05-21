@@ -4,13 +4,13 @@ from ipywidgets import Layout,Label,HBox,VBox,GridBox
 from traitlets import link
 import subprocess
 
-from ...tools.compoment.ui_tool import * 
+from ...tools.component.ui_tool import * 
 from ...tools.utils.print_tool import * 
 from ...tools.utils.config_tool import * 
 from ...tools.utils.speed_tool import * 
 from ...tools.utils import thread_out
 from ...tools.utils.download_tool import * 
-from ...tools.compoment.directory_link import * 
+from ...tools.component.directory_link import * 
 
 def getUi(data,cmd_run,controllers):
     ui_constructor = UIConstructor()

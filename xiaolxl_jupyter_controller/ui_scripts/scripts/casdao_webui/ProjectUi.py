@@ -1,7 +1,7 @@
 import ipywidgets as widgets
 import json
 
-from ...tools.compoment.ui_tool import * 
+from ...tools.component.ui_tool import * 
 from ...tools.utils.config_tool import * 
 
 def getUi(data,cmd_run,controllers):

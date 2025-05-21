@@ -2,7 +2,7 @@ import os
 import ipywidgets as widgets
 from ipywidgets import Layout,Label,HBox,VBox,GridBox
 
-from ...tools.compoment.ui_tool import * 
+from ...tools.component.ui_tool import * 
 from ...tools.utils.print_tool import * 
 from ...tools.utils.config_tool import * 
 from ...tools.utils.download_tool import * 

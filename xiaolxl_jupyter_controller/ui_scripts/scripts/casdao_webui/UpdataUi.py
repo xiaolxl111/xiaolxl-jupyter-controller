@@ -3,7 +3,7 @@ import shutil
 import ipywidgets as widgets
 from ipywidgets import Layout,Label, HBox, VBox,Button,Dropdown,Text,HTML
 
-from ...tools.compoment.ui_tool import * 
+from ...tools.component.ui_tool import * 
 from ...tools.utils.print_tool import * 
 from ...tools.utils.config_tool import * 
 from ...tools.utils.git_tool import * 

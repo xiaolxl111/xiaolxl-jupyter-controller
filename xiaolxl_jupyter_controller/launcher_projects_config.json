@@ -1,0 +1,26 @@
+{
+    "autodl_comfyui": {
+        "dir": "ComfyUI",
+        "module": "xiaolxl_jupyter_controller.ComfyUiMain",
+        "default": true,
+        "config_file": "/root/autodl-tmp/comfyui_ui.json"
+    },
+    "autodl_sdwebui": {
+        "dir": "stable-diffusion-webui",
+        "module": "xiaolxl_jupyter_controller.WebUiMain",
+        "default": true,
+        "config_file": "/root/autodl-tmp/ui.json"
+    },
+    "casdao_webui": {
+        "dir": "stable-diffusion-webui",
+        "module": "xiaolxl_jupyter_controller.CasdaoWebUIMain",
+        "default": false,
+        "config_file": "/home/tom/fssd/casdao_webui.json"
+    },
+    "autodl_sdwebui_forge": {
+        "dir": "stable-diffusion-webui-forge",
+        "module": "xiaolxl_jupyter_controller.WebUiForgeMain",
+        "default": true,
+        "config_file": "/root/autodl-tmp/ui_forge.json"
+    }
+}

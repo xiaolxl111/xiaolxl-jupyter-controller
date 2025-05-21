@@ -3,7 +3,7 @@ from ipywidgets import Layout,Label, HBox, VBox
 import subprocess
 import os
 
-from ...tools.compoment.ui_tool import * 
+from ...tools.component.ui_tool import * 
 from ...tools.utils.speed_tool import * 
 from ...tools.utils.print_tool import * 
 
