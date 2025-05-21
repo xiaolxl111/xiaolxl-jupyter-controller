@@ -28,36 +28,6 @@ def getUi(data,cmd_run,controllers):
 
         #===========
 
-
-        extensions_install_ui = UIConstructor()
-
-        extensions_input = widgets.Text(
-            value='',
-            placeholder='请输入扩展插件的git链接(例如: https://jihulab.com/xiaolxl_pub/sd-webui-animatediff.git)',
-            style={'description_width': 'initial'},
-            layout=Layout(width='1000px', height='auto'),
-            description='扩展插件git链接(安装完毕后记得重启webui):',
-            disabled=False
-        )
-        extensions_install_ui.add_component(extensions_input)
-        
-        extensions_buttom = widgets.Button(
-                description='点击安装',
-                style={'description_width': 'initial'},
-                layout=Layout(width='400px', height='auto'),
-                button_style='success'
-        )
-        def extensions_buttom_click(self):
-            ui_constructor.clear_output()
-            ext_dir = get_config_path(uiConfig,"sdWebUiExtensions_dir")
-            with rootOut:
-                cmd_run("echo 请稍等，正在安装! && cd " + ext_dir + " && git clone " + extensions_input.value + " && echo 插件已安装在" + ext_dir + " && echo 安装完成!")
-        extensions_buttom.on_click(extensions_buttom_click)
-        extensions_install_ui.add_component(extensions_buttom)
-
-
-        #===========
-
         class FileDeletionUI:
             def __init__(self):
                 self.ui_components = []
@@ -373,33 +343,16 @@ def getUi(data,cmd_run,controllers):
         ffmpeg_download.on_click(ffmpeg_download_f)
         other_ui.add_component(ffmpeg_download)
 
-        cache_restore_buttom = XLButton(
-            description='还原镜像cache文件(仅限开发者使用)',
-            style={'description_width': 'initial'},
-            layout=Layout(width='300px', height='auto'),
-            button_style='primary'
-        )
-        def cache_restore_buttom_click(self):
-            ui_constructor.clear_output()
-            with rootOut:
-                cache_restore_buttom.button_start('正在移动...')
-                cmd_run("mv -b -f /root/.cache/* /root/temp/")
-                cmd_run("echo '移动完成'")
-                cache_restore_buttom.reset_button()
-        #绑定加速函数
-        cache_restore_buttom.on_click(cache_restore_buttom_click)
-        other_ui.add_component(cache_restore_buttom)
 
         #===========
 
     
-        accordion = widgets.Accordion(children=[official_help,extensions_install_ui.get_ui_no_out(),del_ui.get_ui_no_out(),file_move_copy_tool_ui.get_ui_no_out(),autodl_cg_upload_ui.get_ui_no_out(),other_ui.get_ui_no_out()])
+        accordion = widgets.Accordion(children=[official_help,del_ui.get_ui_no_out(),file_move_copy_tool_ui.get_ui_no_out(),autodl_cg_upload_ui.get_ui_no_out(),other_ui.get_ui_no_out()])
         accordion.set_title(0, '官方帮助文档')
-        accordion.set_title(1, '扩展/插件安装')
-        accordion.set_title(2, '文件/目录 删除')
-        accordion.set_title(3, '文件/目录 移动/复制')
-        accordion.set_title(4, 'AutoDL模型文件上传器')
-        accordion.set_title(5, '其它工具')
+        accordion.set_title(1, '文件/目录 删除')
+        accordion.set_title(2, '文件/目录 移动/复制')
+        accordion.set_title(3, 'AutoDL模型文件上传器')
+        accordion.set_title(4, '其它工具')
         accordion.selected_index = None
         ui_constructor.add_component(accordion)
 

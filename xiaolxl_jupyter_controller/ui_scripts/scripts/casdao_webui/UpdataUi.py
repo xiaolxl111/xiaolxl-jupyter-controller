@@ -153,7 +153,7 @@ def getUi(data,cmd_run,controllers):
 
     with rootOut:
         ui_constructor.add_component(
-            widgets.HTML(value="<font size='2' color='red'>【重要】1.更新或进行任何操作前请刷新对应项目</font><br><font size='2' color='red'>【重要|仅限v15.3以下的镜像|v15.3以上的镜像只需要更新完启动器重启内核再运行启动器即可】2.更新启动器后关闭笔记本(MainUi.ipynb)点丢弃，再次打开笔记本(MainUi.ipynb)一定记得右上角选择xl_env环境</font><br><font size='2' color='red'>3.如果有网络问题可以开启学术加速</font><br><font size='2' color='red'>4.启动器如果检测到更新可能只是更新了网络数据, 可以选择不更新, 需要更新的时候可以看加速按钮旁边的提示</font>")
+            widgets.HTML(value="<font size='2' color='red'>【重要】1.更新或进行任何操作前请刷新对应项目</font><br><font size='2' color='red'>【重要】2.更新启动器后记得重启内核再运行启动器</font><br><font size='2' color='red'>3.如果有网络问题可以开启学术加速</font><br><font size='2' color='red'>4.启动器如果检测到更新可能只是更新了网络数据, 可以选择不更新, 需要更新的时候可以看加速按钮旁边的提示</font>")
         )
         ui_constructor.add_component(GitManager(get_xiaolxl_jupyter_controller_path(),"启动器", force_update=True, can_delete=False).getUi())
         ui_constructor.add_component(GitManager(get_config_path(uiConfig,"sdWebUi_dir"),"webui主程序", force_update=False, can_delete=False).getUi())

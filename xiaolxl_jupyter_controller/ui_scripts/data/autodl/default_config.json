@@ -1,0 +1,9 @@
+{
+    "runConfigIndex":"xiaolxlDefault",
+    "runConfigs":{
+        "xiaolxlDefault": {
+            "name": "默认启动配置",
+            "temp_dir": "/root/autodl-tmp"
+        }
+    }
+}

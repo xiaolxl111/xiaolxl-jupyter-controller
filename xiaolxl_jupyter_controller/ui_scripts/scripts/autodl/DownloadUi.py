@@ -11,7 +11,6 @@ def getUi(data,cmd_run,controllers):
     ui_constructor = UIConstructor()
     rootOut = ui_constructor.get_output_component()
 
-    modList, _ = controllers['jsonFetcher'].fetch_json(data['branch'],"ui_scripts/data/autodl_webui/modList.json")
     logOut = controllers['logOut']
     uiConfig = controllers['uiConfig']
 
@@ -141,114 +140,14 @@ def getUi(data,cmd_run,controllers):
                     cmd_run(get_download_command(download_url,"/root/" + custom_download_path_input.value,output_filename_input.value,download_method_dropdown.value))
         download_button.on_click_with_style(download_click,"正在下载")
         custom_download_constructor.add_component(download_button)
-
-
-        # ============================
-
-
-        built_in_download_constructor = UIConstructor()
-
-        # 自定义下载按钮类
-        class ModButton(XLButton):
-            def __init__(self, mod_name, mod_children, **kwargs):
-                super().__init__(description=mod_name,layout=Layout(width='150px', height='auto'), **kwargs)
-                self.mod_children = mod_children
-                self.on_click(self._on_click)
-                if self.check_all_downloaded():
-                    self.button_yes_end('已下载')
-
-            def check_all_downloaded(self):
-                try:
-                    for mod_child in self.mod_children:
-                        download_path = get_config_path(uiConfig, mod_child['parentPath']) + mod_child['sonPath']
-                        filename = mod_child['fileName']
-                        downloadType = mod_child['downloadType']
-                        if not check_downloaded(downloadType, filename, download_path, mod_child):
-                            return False
-                except TypeError:
-                    with rootOut:
-                        print(red_text(f"检测到未知配置项({mod_child['parentPath']}),将会影响模型/依赖下载！请立即更新启动器！"))
-                    return False
-                return True
-
-            def download_file(self,mod_child, index, total):
-                with rootOut:
-                    download_link = mod_child['url']
-                    download_path = get_config_path(uiConfig, mod_child['parentPath']) + mod_child['sonPath']
-                    filename = mod_child['fileName']
-                    downloadType = mod_child['downloadType']
-
-                    # 检查文件是否已下载
-                    if check_downloaded(downloadType, filename, download_path, mod_child):
-                        print(f"正在下载第{index + 1}个文件，共{total}个")
-                        print(f"文件 {filename} 已下载，跳过...")
-                    else:
-                        download_command = get_download_command(download_link, download_path, filename, "more", mod_child['downloadType'])
-                        print(f"正在下载第{index + 1}个文件，共{total}个")
-                        cmd_run(download_command)
-
-            def _on_click(self, b):
-                with rootOut:
-                    self.button_start('正在下载...')
-                    ui_constructor.clear_output()
-                    total_files = len(self.mod_children)
-                    for index, child in enumerate(self.mod_children):
-                        self.download_file(child, index, total_files)
-                    if self.check_all_downloaded():
-                        self.button_yes_end('已下载')
-                    else:
-                        self.button_no_end('下载失败，点击重新下载')
-
-        for item in modList['ts']:
-            title = item['title']
-            built_in_download_constructor.add_component(widgets.HTML(value=f"<h4 style='color:blue'>{title}</h4>"))
-
-            # 存储所有标签和按钮的列表
-            components = []
-
-            for mod in item['mods']:
-                # 创建并添加标签
-                file_temp = widgets.HTML(value=f"{mod['modName']}")
-
-                # 创建并添加按钮
-                button = ModButton("点我下载", mod['modChildren'])
-
-                components.append(HBox([file_temp,button]))
-
-            # 使用 GridBox 显示标签和按钮
-            grid = widgets.GridBox(children=components, layout=widgets.Layout(
-                width='100%',
-                grid_template_columns='auto auto',
-                grid_template_rows='auto auto',
-                grid_gap='5px 10px')
-            )
-            built_in_download_constructor.add_component(grid)
-
-
-        # ============================
-
-
-        webSite_constructor = UIConstructor()
-
-        cdg_ = widgets.HTML(
-            value="<font size='4px' color='#0fa3ff'><a target='_blank' href='https://www.bilibili.com/read/cv21386117'>1.藏丹阁</a></font><br>",
-        )
-        webSite_constructor.add_component(cdg_)
         
-        web_123114514 = widgets.HTML(
-            value="<font size='4px' color='#0fa3ff'><a target='_blank' href='http://www.123114514.xyz/models'>2.123114514模型站</a></font>",
-        )
-        webSite_constructor.add_component(web_123114514)
-
 
         # ============================
 
 
-        accordion = widgets.Accordion(children=[custom_download_constructor.get_ui_no_out(),built_in_download_constructor.get_ui_no_out(),webSite_constructor.get_ui_no_out()])
+        accordion = widgets.Accordion(children=[custom_download_constructor.get_ui_no_out()])
         accordion.set_title(0, '自定义下载')
-        accordion.set_title(1, '内置模型下载')
-        accordion.set_title(2, '模型网站')
-        accordion.selected_index = None
+        accordion.selected_index = 0
         ui_constructor.add_component(accordion)
 
         # logOut.print(red_text("这是一条消息。\n") + str(modList))

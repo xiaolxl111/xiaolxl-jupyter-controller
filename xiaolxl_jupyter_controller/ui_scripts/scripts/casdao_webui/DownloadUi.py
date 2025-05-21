@@ -11,7 +11,7 @@ def getUi(data,cmd_run,controllers):
     ui_constructor = UIConstructor()
     rootOut = ui_constructor.get_output_component()
 
-    modList, _ = controllers['jsonFetcher'].fetch_json(data['branch'],"ui_scripts/data/autodl_webui/modList.json")
+    modList, _ = controllers['jsonFetcher'].fetch_json(data['branch'],"ui_scripts/data/casdao_webui/modList.json")
     logOut = controllers['logOut']
     uiConfig = controllers['uiConfig']
 
@@ -41,8 +41,8 @@ def getUi(data,cmd_run,controllers):
             with rootOut:
                 if os.system(f'aria2c -v') != 0:
                     install_download.button_start('正在安装...')
-                    cmd_run("cd /root/autodl-tmp/ && apt-get update && apt-get install aria2 -y")
-                    cmd_run("cd /root/autodl-tmp/ && apt-get install aria2 -y && echo 安装完成")
+                    cmd_run("cd /root/autodl-tmp/ && sudo apt-get update && sudo apt-get install aria2 -y")
+                    cmd_run("cd /root/autodl-tmp/ && sudo apt-get install aria2 -y && echo 安装完成")
                 if os.system(f'cg') != 0:
                     install_download.button_start('正在安装...')
                     cmd_run("cd /root/autodl-tmp/ && pip install codewithgpu")
@@ -108,7 +108,7 @@ def getUi(data,cmd_run,controllers):
 
         custom_download_path_input = widgets.Text(
             value='',
-            placeholder='请输入自定义下载路径(可选,填后上方安装位置选择无效,请勿添加/root/)[填写例子:stable-diffusion-webui/scripts]',
+            placeholder='请输入自定义下载路径(可选,填后上方安装位置选择无效,请勿添加/home/tom/)[填写例子:stable-diffusion-webui/scripts]',
             description='',
             disabled=False,
             layout=Layout(width='700px', height='auto')
@@ -138,7 +138,7 @@ def getUi(data,cmd_run,controllers):
                     download_path = get_config_path(uiConfig, installation_location_dropdown.value)
                     cmd_run(get_download_command(download_url,download_path,output_filename_input.value,download_method_dropdown.value))
                 else:
-                    cmd_run(get_download_command(download_url,"/root/" + custom_download_path_input.value,output_filename_input.value,download_method_dropdown.value))
+                    cmd_run(get_download_command(download_url,"/home/tom/" + custom_download_path_input.value,output_filename_input.value,download_method_dropdown.value))
         download_button.on_click_with_style(download_click,"正在下载")
         custom_download_constructor.add_component(download_button)
 

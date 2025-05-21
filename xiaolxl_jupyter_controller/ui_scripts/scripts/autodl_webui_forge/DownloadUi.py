@@ -11,7 +11,7 @@ def getUi(data,cmd_run,controllers):
     ui_constructor = UIConstructor()
     rootOut = ui_constructor.get_output_component()
 
-    modList, _ = controllers['jsonFetcher'].fetch_json(data['branch'],"ui_scripts/data/autodl_webui/modList.json")
+    modList, _ = controllers['jsonFetcher'].fetch_json(data['branch'],"ui_scripts/data/autodl_webui_forge/modList.json")
     logOut = controllers['logOut']
     uiConfig = controllers['uiConfig']
 

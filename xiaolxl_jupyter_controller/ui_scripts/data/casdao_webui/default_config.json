@@ -1,0 +1,71 @@
+{
+    "runConfigIndex":"xiaolxlDefault",
+    "directoryMapperItems":[
+        
+    ],
+    "runConfigs":{
+        "xiaolxlDefault": {
+            "name": "默认启动配置",
+            "ckpt_dir": "/home/tom/fssd/models/checkpoint",
+            "embeddings_dir": "/home/tom/fssd/models/embeddings",
+            "hypernetwork_dir": "/home/tom/fssd/models/hypernetwork",
+            "lora_dir": "/home/tom/fssd/models/lora",
+            "vae_dir": "/home/tom/fssd/models/vae",
+            "controlnet_dir": "/home/tom/fssd/models/controlnet",
+            "controlnet_annotator_models_path": "/home/tom/fssd/models/controlnet_annotator",
+            "temp_dir": "/home/tom/fssd",
+            "sdWebUi_dir": "/home/tom/stable-diffusion-webui",
+            "sdWebUiExtensions_dir":"/home/tom/stable-diffusion-webui/extensions",
+            "animatediff_dir":"/home/tom/fssd/models/sd-webui-animatediff",
+            "dreambooth_models_path":"/home/tom/fssd/models/dreambooth",
+            "models_dir":"/home/tom/fssd/models",
+            "codeformer_models_path": "/home/tom/fssd/models/Codeformer",
+            "gfpgan_models_path": "/home/tom/fssd/models/GFPGAN",
+            "esrgan_models_path": "/home/tom/fssd/models/ESRGAN",
+            "bsrgan_models_path": "/home/tom/fssd/models/BSRGAN",
+            "realesrgan_models_path": "/home/tom/fssd/models/RealESRGAN",
+            "scunet_models_path": "/home/tom/fssd/models/ScuNET",
+            "swinir_models_path": "/home/tom/fssd/models/SwinIR",
+            "ldsr_models_path": "/home/tom/fssd/models/LDSR",
+            "sd_webui_cache_file": "/home/tom/fssd/cache.json",
+            "SdWebUi_port":"7860",
+
+            "login_name":"",
+            "login_pass":"",
+            "open_login":"auto",
+
+            "custom_launch_arguments":"",
+            "custom_environment_variables":"",
+
+            "check_and_download_the_core":true,
+            "check_GPU":true,
+            "ignore_cmd_args_errors":true,
+            "skip_install":true,
+            "env_path":"",
+
+            "sd_webui_start_method":"normal",
+            "sd_webui_theme":"auto",
+            "use_tcmalloc":false,
+            "gradio_share":false,
+            "xformers":true,
+            "disable_safe_unpickle":true,
+            "enable_insecure_extension_access":true,
+            "disable_gradio_queue":false,
+            "disable_half_vae":true,
+            "disable_nan_check":true,
+            "start_ui_without_loading_models":false,
+            "skip_version_check":false,
+            "skip_python_version_check":false,
+            "close_tensorflow_warn":false,
+            "max_batch_count":"16",
+
+            "enable_listen":true,
+            "enable_web_ui_api":false,
+            "enable_api_log":false,
+            "only_start_api":false,
+            "cors_allow_origins":"",
+
+            "enable_hf_network":true
+        }
+    }
+}

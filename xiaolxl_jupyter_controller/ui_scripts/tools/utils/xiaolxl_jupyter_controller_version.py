@@ -1,3 +1,5 @@
+from xiaolxl_jupyter_controller import RootDir
+
 class VersionController:
     def __init__(self, debug=False):
         import json
@@ -6,8 +8,7 @@ class VersionController:
         self._debug = debug  # 新增的私有属性，用于控制调试输出
 
         # 设置JSON文件的路径
-        current_dir = os.path.dirname(__file__)
-        json_file_path = os.path.join(current_dir, '..', 'data', 'xiaolxl_jupyter_controller_version.json')
+        json_file_path = os.path.join(RootDir.get_project_root_dir(), 'xiaolxl_jupyter_controller', 'ui_scripts', 'data', 'xiaolxl_jupyter_controller_version.json')
 
         # 读取JSON文件
         try:

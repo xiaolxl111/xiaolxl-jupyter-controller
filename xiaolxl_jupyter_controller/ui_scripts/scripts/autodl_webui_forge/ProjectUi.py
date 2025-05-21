@@ -31,7 +31,7 @@ def getUi(data,cmd_run,controllers):
             return None
 
     project_config = read_project_config()
-    network_project_config_json, is_from_network = controllers['jsonFetcher'].fetch_json(data['branch'],"ui_scripts/localtools/serverconfigs/autodl_webui/ServerConfig.json")
+    network_project_config_json, is_from_network = controllers['jsonFetcher'].fetch_json(data['branch'],"ui_scripts/localtools/serverconfigs/autodl_webui_forge/ServerConfig.json")
 
     if project_config:
         is_version_lower = is_version_smaller(project_config["project_version"], network_project_config_json["project_version"])
@@ -94,7 +94,7 @@ def getUi(data,cmd_run,controllers):
         # 创建仅包含网络更新信息树的HTML内容
         html_content = f"""
         <div class="update-block">
-                <div class="update-header">此镜像版本暂不支持显示本地镜像版本,V15.3版本后查看</div>
+                <div class="update-header">此镜像版本暂不支持显示本地镜像版本</div>
         </div>
         <div class="update-block">
             <div class="update-header">镜像项目更新信息</div>

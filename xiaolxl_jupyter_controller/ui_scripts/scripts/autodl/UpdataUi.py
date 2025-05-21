@@ -36,7 +36,6 @@ def getUi(data,cmd_run,controllers):
             self.latest_date_label = self._create_label('最新版本日期: 请先刷新')
 
             self.set_version_button = self._create_button('设置插件版本', 'success', self._on_set_version)
-            self.delete_plugin_button = self._create_button('删除插件', 'danger', self._on_delete_plugin)
             self.github_link_button = self._create_html_button('请先刷新')
 
             # 构建children_components列表
@@ -137,101 +136,13 @@ def getUi(data,cmd_run,controllers):
             button.description = description
             button.button_style = button_style
 
-        def _on_delete_plugin(self, b):
-            with rootOut:
-                try:
-                    shutil.rmtree(self.path)  # 删除目录及其所有内容
-                    # 更新UI或显示成功消息
-                    logOut.print(f'插件目录 {self.path} 已成功删除')
-                    scan_and_update(self)
-                except Exception as e:
-                    # 处理异常，例如目录不存在或删除失败
-                    logOut.print(f'删除失败: {e}')
-
         def getUi(self):
             return self.main_box
 
     with rootOut:
         ui_constructor.add_component(
-            widgets.HTML(value="<font size='2' color='red'>【重要】1.更新或进行任何操作前请刷新对应项目</font><br><font size='2' color='red'>【重要|仅限v15.3以下的镜像|v15.3以上的镜像只需要更新完启动器重启内核再运行启动器即可】2.更新启动器后关闭笔记本(MainUi.ipynb)点丢弃，再次打开笔记本(MainUi.ipynb)一定记得右上角选择xl_env环境</font><br><font size='2' color='red'>3.如果有网络问题可以开启学术加速</font><br><font size='2' color='red'>4.启动器如果检测到更新可能只是更新了网络数据, 可以选择不更新, 需要更新的时候可以看加速按钮旁边的提示</font>")
+            widgets.HTML(value="<font size='2' color='red'>【重要】1.更新或进行任何操作前请刷新对应项目</font><br><font size='2' color='red'>【重要】2.更新启动器后记得重启内核再运行启动器</font><br><font size='2' color='red'>3.如果有网络问题可以开启学术加速</font><br><font size='2' color='red'>4.启动器如果检测到更新可能只是更新了网络数据, 可以选择不更新, 需要更新的时候可以看加速按钮旁边的提示</font>")
         )
         ui_constructor.add_component(GitManager(get_xiaolxl_jupyter_controller_path(),"启动器", force_update=True, can_delete=False).getUi())
-        ui_constructor.add_component(GitManager(get_config_path(uiConfig,"sdWebUi_dir"),"webui主程序", force_update=False, can_delete=False).getUi())
-
-        # =============================================================================
-
-        git_extensions = []
-        extensions_box = VBox([])
-
-        def _refresh_ui():
-            """更新UI界面"""
-            extensions_box.children = tuple(git_manager.getUi() for git_manager in git_extensions)
-
-            updata_scan.description = '扫描可更新程序与插件[设置版本前一定要先刷新！]'
-            updata_scan.button_style = 'info'
-
-        def _scan_extension_dir():
-            dir_ = get_config_path(uiConfig,"sdWebUiExtensions_dir")
-
-            files = [f for f in os.listdir(dir_) if f != '.ipynb_checkpoints']
-            extension_list = [
-                {
-                    "name": d_path[d_path.rfind('/') + 1:],
-                    "path": d_path,
-                }
-                for file_name in files
-                for d_path in [os.path.join(dir_, file_name)]
-                if os.path.isdir(d_path)
-            ]
-            return extension_list
-
-        def scan_and_update(self):
-            updata_scan.description = '正在扫描...'
-            updata_scan.button_style = 'warning'
-
-            scanned_extensions = _scan_extension_dir()
-            scanned_paths = [extension["path"] for extension in scanned_extensions]
-
-            # 添加新的插件
-            for extension in scanned_extensions:
-                if not any(git_manager.path == extension["path"] for git_manager in git_extensions):
-                    new_git_manager = GitManager(extension["path"], extension["name"])
-                    git_extensions.append(new_git_manager)
-
-            # 移除已删除的插件
-            for git_manager in git_extensions[:]:  # 使用列表副本进行迭代，以便安全删除
-                if git_manager.path not in scanned_paths:
-                    git_extensions.remove(git_manager)
-
-            _refresh_ui()
-
-        updata_scan = widgets.Button(
-            description='扫描可更新程序与插件[设置版本前一定要先刷新！]',
-            style={'description_width': 'initial'},
-            layout=Layout(width='600px', height='auto'),
-            button_style='info'
-        )
-        updata_scan.on_click(scan_and_update)
-        
-
-        scan_all_button = widgets.Button(
-            description='扫描并刷新所有插件',
-            style={'description_width': 'initial'},
-            layout=Layout(width='auto', height='auto'),
-            button_style='info'
-        )
-        def _on_scan_all_clicked(b):
-            """处理全部扫描按钮的点击事件"""
-            scan_and_update(None)  # 先扫描所有插件
-            for git_manager in git_extensions:
-                git_manager._on_refresh(None)  # 依次刷新每个插件
-        # 为全部扫描按钮绑定事件处理函数
-        scan_all_button.on_click(_on_scan_all_clicked)
-        # 将新按钮添加到 UI 构造器中
-        scan_buttons_box = HBox([updata_scan, scan_all_button])  # 用 HBox 放置两个按钮
-
-        ui_constructor.add_component(scan_buttons_box)
-        ui_constructor.add_component(extensions_box)
-
 
     return ui_constructor.get_ui()

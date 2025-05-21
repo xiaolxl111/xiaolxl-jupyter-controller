@@ -26,15 +26,10 @@ def show(data,cmd_run,controllers):
         if get_is_speed() != True:
             speed.button_start("正在自动学术加速")
 
-            
-            result = subprocess.run('bash -c "source /etc/network_turbo && env | grep proxy"', shell=True, capture_output=True, text=True)
-            output = result.stdout
-            for line in output.splitlines():
-                if '=' in line:
-                    var, value = line.split('=', 1)
-                    os.environ[var] = value
+            os.environ["http_proxy"] = "http://casdao:casdao@192.168.30.249:3128/"
+            os.environ["https_proxy"] = "http://casdao:casdao@192.168.30.249:3128/"
 
-            speed.button_yes_end("加速成功,再次点击取消 (新版加速不会显示区域)")
+            speed.button_yes_end("加速成功,再次点击取消")
         else:
             del(os.environ["http_proxy"])
             del(os.environ["https_proxy"])

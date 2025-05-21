@@ -1,7 +1,10 @@
 {
     "runConfigIndex":"xiaolxlDefault",
     "directoryMapperItems":[
-        {"/root/stable-diffusion-webui/models/Stable-diffusion": "/root/autodl-tmp/models/checkpoint"}
+        {"/root/stable-diffusion-webui-forge/models/Stable-diffusion": "/root/autodl-tmp/models/checkpoint"},
+        {"/root/stable-diffusion-webui-forge/models/ControlNetPreprocessor": "/root/autodl-tmp/models/controlnet_annotator"},
+        {"/root/stable-diffusion-webui-forge/models/svd": "/root/autodl-tmp/models/svd"},
+        {"/root/stable-diffusion-webui-forge/models/z123": "/root/autodl-tmp/models/z123"}
     ],
     "runConfigs":{
         "xiaolxlDefault": {
@@ -14,8 +17,8 @@
             "controlnet_dir": "/root/autodl-tmp/models/controlnet",
             "controlnet_annotator_models_path": "/root/autodl-tmp/models/controlnet_annotator",
             "temp_dir": "/root/autodl-tmp",
-            "sdWebUi_dir": "/root/stable-diffusion-webui",
-            "sdWebUiExtensions_dir":"/root/stable-diffusion-webui/extensions",
+            "sdWebUi_dir": "/root/stable-diffusion-webui-forge",
+            "sdWebUiExtensions_dir":"/root/stable-diffusion-webui-forge/extensions",
             "animatediff_dir":"/root/autodl-tmp/models/sd-webui-animatediff",
             "dreambooth_models_path":"/root/autodl-tmp/models/dreambooth",
             "models_dir":"/root/autodl-tmp/models",
@@ -41,7 +44,7 @@
             "check_GPU":true,
             "ignore_cmd_args_errors":true,
             "skip_install":true,
-            "env_path":"/root/miniconda3/envs/xl_env/bin:",
+            "env_path":"",
 
             "sd_webui_start_method":"normal",
             "sd_webui_theme":"auto",

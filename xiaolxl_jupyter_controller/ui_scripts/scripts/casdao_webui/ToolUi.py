@@ -17,13 +17,7 @@ def getUi(data,cmd_run,controllers):
 
         official_help = widgets.HTML(
             value="<h1>官方常用帮助文档</h1>\
-                <h3>1.<font color='#0fa3ff'><a target='_blank' href='https://www.autodl.com/docs/arc/'>压缩与解压</a></font></h3>\
-                <h3>2.<font color='#0fa3ff'><a target='_blank' href='https://www.autodl.com/docs/netdisk/'>公网网盘上传下载</a></font></h3>\
-                <h3>3.<font color='#0fa3ff'><a target='_blank' href='https://www.autodl.com/docs/migrate_instance_2/'>迁移实例(同地区)</a></font></h3>\
-                <h3>3.<font color='#0fa3ff'><a target='_blank' href='https://www.autodl.com/docs/migrate_instance/'>迁移实例(不同地区)</a></font></h3>\
-                <h3>4.<font color='#0fa3ff'><a target='_blank' href='https://www.autodl.com/docs/ssh_proxy/'>SSH远程连接(无法使用自定义服务的时候使用)</a></font></h3>\
-                <h3>5.<font color='#0fa3ff'><a target='_blank' href='https://www.autodl.com/docs/network_turbo/'>学术加速</a></font></h3>\
-                <h3>5.<font color='#0fa3ff'><a target='_blank' href='https://www.autodl.com/docs/price/'>充值与计费</a></font></h3>",
+                <h3>1.<font color='#0fa3ff'><a target='_blank' href='https://console.casdao.com:9006/#/gpu/instructions'>GPU容器云使用说明</a></font></h3>",
         )
 
         #===========
@@ -76,10 +70,10 @@ def getUi(data,cmd_run,controllers):
                 # Text input component
                 self.del_input = widgets.Text(
                     value='',
-                    placeholder='请直接粘贴，无需添加/root/',
+                    placeholder='请直接粘贴，无需添加/home/tom/',
                     style={'description_width': 'initial'},
                     layout=Layout(width='1000px', height='auto'),
-                    description='请输入复制好的文件路径(请直接粘贴，无需添加/root/):',
+                    description='请输入复制好的文件路径(请直接粘贴，无需添加/home/tom/):',
                     disabled=False
                 )
                 self.ui_components.append(self.del_input)
@@ -121,17 +115,17 @@ def getUi(data,cmd_run,controllers):
                 if self.last_path == "":
                     self.last_path = current_path
                     with rootOut:
-                        print("你要删除的路径是:\n" + "/root/" + current_path + "\n" + red_text("请再次点击删除按钮以确认删除"))
+                        print("你要删除的路径是:\n" + "/home/tom/" + current_path + "\n" + red_text("请再次点击删除按钮以确认删除"))
                     return
 
                 if current_path != self.last_path:
                     with rootOut:
-                        print("你要删除的路径是:\n" + "/root/" + current_path + "\n" + red_text("请再次点击删除按钮以确认删除"))
+                        print("你要删除的路径是:\n" + "/home/tom/" + current_path + "\n" + red_text("请再次点击删除按钮以确认删除"))
                     self.last_path = current_path  # 更新 self.last_path
                     return
                 
                 with rootOut:
-                    cmd_run("echo 请稍等，正在删除! && rm -rf /root/" + current_path + " && echo 删除完成!")
+                    cmd_run("echo 请稍等，正在删除! && rm -rf /home/tom/" + current_path + " && echo 删除完成!")
                 
                 self.last_path = ""
 
@@ -180,10 +174,10 @@ def getUi(data,cmd_run,controllers):
                 # Source path input
                 self.src_input = widgets.Text(
                     value='',
-                    placeholder='请输入源文件路径，无需添加/root/',
+                    placeholder='请输入源文件路径，无需添加/home/tom/',
                     style={'description_width': 'initial'},
                     layout=Layout(width='1000px', height='auto'),
-                    description='请输入复制好的源文件路径(无需添加/root/):',
+                    description='请输入复制好的源文件路径(无需添加/home/tom/):',
                     disabled=False
                 )
                 self.ui_components.append(self.src_input)
@@ -191,10 +185,10 @@ def getUi(data,cmd_run,controllers):
                 # Destination path input
                 self.dest_input = widgets.Text(
                     value='',
-                    placeholder='请输入目标路径，无需添加/root/',
+                    placeholder='请输入目标路径，无需添加/home/tom/',
                     style={'description_width': 'initial'},
                     layout=Layout(width='1000px', height='auto'),
-                    description='请输入复制好的目标路径(无需添加/root/):',
+                    description='请输入复制好的目标路径(无需添加/home/tom/):',
                     disabled=False
                 )
                 self.ui_components.append(self.dest_input)
@@ -227,10 +221,10 @@ def getUi(data,cmd_run,controllers):
             def execute_button_click(self, _):
                 ui_constructor.clear_output()
 
-                src_path = "/root/" + self.src_input.value.strip()
-                dest_path = "/root/" + self.dest_input.value.strip()
+                src_path = "/home/tom/" + self.src_input.value.strip()
+                dest_path = "/home/tom/" + self.dest_input.value.strip()
 
-                if src_path == "/root/" or dest_path == "/root/":
+                if src_path == "/home/tom/" or dest_path == "/home/tom/":
                     with rootOut:
                         print(red_text("错误：源路径和目标路径不能为空！"))
                     return
@@ -271,66 +265,6 @@ def getUi(data,cmd_run,controllers):
         #===========
 
 
-        autodl_cg_upload_ui = UIConstructor()
-
-        autodl_cg_upload_ui.add_component(
-            widgets.HTML(value="<font size='2' color='red'>如果你不清楚AutoDL-CG(cg upload)是什么，请勿使用</font>")
-        )
-
-        cg_upload_folder_path_input = widgets.Text(
-            value='',
-            placeholder='(例如: autodl-tmp/models)',
-            style={'description_width': 'initial'},
-            layout=Layout(width='800px', height='auto'),
-            description='请输入要上传的文件目录(会自动扫描目录下全部文件，路径不用加/root/):',
-            disabled=False
-        )
-        autodl_cg_upload_ui.add_component(cg_upload_folder_path_input)
-
-        temp_token_input = widgets.Text(
-            value='',
-            placeholder='',
-            style={'description_width': 'initial'},
-            layout=Layout(width='800px', height='auto'),
-            description='请输入临时Token',
-            disabled=False
-        )
-        autodl_cg_upload_ui.add_component(temp_token_input)
-
-        cg_upload_button = XLButton(description="开始上传", button_style='info', layout=Layout(width='150px', height='auto'))
-        autodl_cg_upload_ui.add_component(cg_upload_button)
-
-        def cg_upload_run(self):
-            ui_constructor.clear_output()
-            with rootOut:
-                folder_path = "/root/" + cg_upload_folder_path_input.value
-                temp_token = temp_token_input.value
-                
-                total_files = sum(len(files) for _, _, files in os.walk(folder_path))  
-                file_count = 0  # 用于跟踪当前文件的索引  
-                
-                for root, _, files in os.walk(folder_path):
-                    for file in files:  
-                        file_count += 1  # 增加文件计数器  
-                        
-                        # 构造完整的本地文件路径  
-                        local_file_path = os.path.join(root, file)  
-                        
-                        # 打印当前上传的文件信息  
-                        print(f"正在上传 {file_count} 个文件中的第 {total_files} 个文件: {local_file_path}")  
-                        
-                        # 构造要执行的命令  
-                        command = f'cg upload {local_file_path} --token {temp_token}'  
-                        
-                        # 执行命令  
-                        cmd_run(command)
-        
-        cg_upload_button.on_click_with_style(cg_upload_run,"正在上传..")
-
-
-        #===========
-
-
         other_ui = UIConstructor()
 
         clear_buttom = widgets.Button(
@@ -342,8 +276,6 @@ def getUi(data,cmd_run,controllers):
         def clear_buttom_click(self):
             ui_constructor.clear_output()
             with rootOut:
-                cmd_run("du -sh /root/miniconda3/pkgs/ && rm -rf /root/miniconda3/pkgs/*")
-                cmd_run("du -sh /root/.local/share/Trash && rm -rf /root/.local/share/Trash")
                 cmd_run("rm -rf ~/.cache/pip")
                 cmd_run("echo 清理完成!")
         #绑定加速函数
@@ -363,43 +295,26 @@ def getUi(data,cmd_run,controllers):
             with rootOut:
                 if os.system(f'ffmpeg -version') != 0:
                     ffmpeg_download.button_start('正在安装...')
-                    cmd_run("cd /root/autodl-tmp/ && apt-get update && apt-get install ffmpeg -y")
-                    cmd_run("cd /root/autodl-tmp/ && apt-get install ffmpeg -y && echo 安装完成")
+                    cmd_run("sudo apt-get update && sudo apt-get install ffmpeg -y")
+                    cmd_run("sudo apt-get install ffmpeg -y && echo 安装完成")
                 if os.system(f'ffmpeg -version') == 0:
                     ffmpeg_download.button_yes_end('已成功安装ffmpeg')
                     ui_constructor.clear_output()
                 else:
-                    ffmpeg_download.button_no_end('安装ffmpeg失败，请保留错误信息并询问作者')
+                    ffmpeg_download.button_no_end('安装ffmpeg失败, 请保留错误信息并询问作者')
         ffmpeg_download.on_click(ffmpeg_download_f)
         other_ui.add_component(ffmpeg_download)
 
-        cache_restore_buttom = XLButton(
-            description='还原镜像cache文件(仅限开发者使用)',
-            style={'description_width': 'initial'},
-            layout=Layout(width='300px', height='auto'),
-            button_style='primary'
-        )
-        def cache_restore_buttom_click(self):
-            ui_constructor.clear_output()
-            with rootOut:
-                cache_restore_buttom.button_start('正在移动...')
-                cmd_run("mv -b -f /root/.cache/* /root/temp/")
-                cmd_run("echo '移动完成'")
-                cache_restore_buttom.reset_button()
-        #绑定加速函数
-        cache_restore_buttom.on_click(cache_restore_buttom_click)
-        other_ui.add_component(cache_restore_buttom)
 
         #===========
 
     
-        accordion = widgets.Accordion(children=[official_help,extensions_install_ui.get_ui_no_out(),del_ui.get_ui_no_out(),file_move_copy_tool_ui.get_ui_no_out(),autodl_cg_upload_ui.get_ui_no_out(),other_ui.get_ui_no_out()])
+        accordion = widgets.Accordion(children=[official_help,extensions_install_ui.get_ui_no_out(),del_ui.get_ui_no_out(),file_move_copy_tool_ui.get_ui_no_out(),other_ui.get_ui_no_out()])
         accordion.set_title(0, '官方帮助文档')
         accordion.set_title(1, '扩展/插件安装')
         accordion.set_title(2, '文件/目录 删除')
         accordion.set_title(3, '文件/目录 移动/复制')
-        accordion.set_title(4, 'AutoDL模型文件上传器')
-        accordion.set_title(5, '其它工具')
+        accordion.set_title(4, '其它工具')
         accordion.selected_index = None
         ui_constructor.add_component(accordion)
 

@@ -522,7 +522,7 @@ def getUi(data,cmd_run,controllers):
                 self.isOpenConfigKey = "open_login"
 
                 self.tip = widgets.HTML(
-                    value="<font size='2' color='red'>设置webui是否需要登录,密码和用户名请勿出现特殊符合和空格!建议英文字母+数字</font>",
+                    value="<font size='2' color='red'>设置webui是否需要登录,密码和用户名请勿出现特殊符合和空格!建议英文字母+数字,会自动开启--share</font>",
                 )
                 
                 self.name_input = widgets.Text(
@@ -584,6 +584,10 @@ def getUi(data,cmd_run,controllers):
                     self.pass_input.value = _pass
 
                 _is_open = self.get_is_open_value()
+
+                if get_is_speed():
+                    command.add_argument("--share")
+
                 if _is_open == "open":
                     command.add_argument("--gradio-auth " + f"{_name}:{_pass}")
                     with rootOut:
@@ -671,46 +675,16 @@ def getUi(data,cmd_run,controllers):
         class CheckAndDownloadTheCoreSelectUI(SelectUIBaseComponent):
             def set_command(self, command):
                 if self.get_value():
-                    modList, _ = controllers['jsonFetcher'].fetch_json(data['branch'],"ui_scripts/data/autodl_webui/automodList.json")
-                    def download_files(modList, uiConfig, specified_type):
-                        # 获取指定类型的文件信息列表
-                        mod_children = modList.get(specified_type, {}).get("modChildren", [])
-                        total_files = len(mod_children)  # 总文件数
-                        downloaded_files = 0  # 已下载文件数
-                        for mod_child in mod_children:
-                            downloaded_files += 1  # 更新下载文件计数
-                            # 获取下载路径
-                            download_path = get_config_path(uiConfig, mod_child['parentPath']) + mod_child['sonPath']
-                            # 检查文件是否已下载
-                            if not check_downloaded(mod_child['downloadType'], mod_child['fileName'], download_path, mod_child):
-                                # 打印当前下载进度
-                                with rootOut:
-                                    print(f"正在下载第{downloaded_files}个文件, 总共有{total_files}个文件")
-                                # 获取下载命令
-                                download_command = get_download_command(
-                                    mod_child['url'], 
-                                    download_path, 
-                                    mod_child['fileName'], 
-                                    "more", 
-                                    mod_child['downloadType']
-                                )
-                                # 执行下载命令
-                                with rootOut:
-                                    cmd_run(download_command)
                     with rootOut:
                         haveckpt = has_mods_files(get_config_path(uiConfig,"ckpt_dir"))
                         if not haveckpt:
-                            print("正在自动下载模型:")
-                            download_files(modList, uiConfig, "mod")
-                            print("模型下载完成")
+                            print("正在自动载入核心依赖(大约需要几分钟):")
+                            cmd_run("sudo cp -r /home/tom/fshare/models/xiaolxl/models /home/tom/fssd/")
                         havevae = has_vae_files(get_config_path(uiConfig,"vae_dir"))
                         if not havevae:
-                            print("正在自动下载vae:")
-                            download_files(modList, uiConfig, "vae")
-                            print("vae下载完成")
-                        print("正在自动下载核心依赖:")
-                        download_files(modList, uiConfig, "core")
-                        print("核心依赖下载完成")
+                            print("正在自动载入核心依赖(大约需要几分钟):")
+                            cmd_run("sudo cp -r /home/tom/fshare/models/xiaolxl/models /home/tom/fssd/")
+                        print("核心依赖载入完成")
                 else:
                     with rootOut:
                         haveckpt = has_files(get_config_path(uiConfig,"ckpt_dir"))
@@ -777,8 +751,8 @@ def getUi(data,cmd_run,controllers):
                     else:
                         with rootOut:
                             print("正在安装tcmalloc, 请稍等...")
-                        cmd_run("apt-get update && apt-get install -y libgoogle-perftools-dev")
-                        cmd_run("apt-get install -y libgoogle-perftools-dev")
+                        cmd_run("sudo apt-get update && sudo apt-get install -y libgoogle-perftools-dev")
+                        cmd_run("sudo apt-get install -y libgoogle-perftools-dev")
                         if self.check_package_installed("libgoogle-perftools-dev"):
                             os.environ['LD_PRELOAD']="libtcmalloc.so.4"
                             command.add_environment_variable("LD_PRELOAD", "libtcmalloc.so.4")
@@ -930,6 +904,17 @@ def getUi(data,cmd_run,controllers):
 
         startSet_constructor.add_component(widgets.HTML(value="<h4>API相关参数<h4/><hr>",)) # =====================
 
+        class EnableListenUI(SelectUIBaseComponent):
+            def set_command(self, command):
+                if self.get_value():
+                    command.add_argument("--listen")
+        enableListenUI = EnableListenUI(
+            "启用监听功能",
+            html_blue_text("启用监听功能 [--listen]"),
+            "enable_listen"
+        )
+        componentsControl.add_component(enableListenUI)
+        startSet_constructor.add_component(enableListenUI.get_ui())
 
         class EnableWebUIApiUI(SelectUIBaseComponent):
             def set_command(self, command):
@@ -1004,15 +989,17 @@ def getUi(data,cmd_run,controllers):
         #===========
 
         start_tip = widgets.HTML(
-            value="<p>启动完毕后通过自定义服务打开网站</p><p><font color='#0fa3ff'><a href='https://www.autodl.com/console/instance/list' target='_blank'>点击此处打开服务器列表</a><font/></p><p></p>",
+            value="<p>启动完毕后通过应用服务打开网站</p>",
         )
         ui_constructor.add_component(start_tip)
 
-        file = open(get_xiaolxl_jupyter_controller_path() + "/xiaolxl_jupyter_controller/ui_scripts/img/自定义服务.png", "rb")
+        file = open(get_xiaolxl_jupyter_controller_path() + "/xiaolxl_jupyter_controller/ui_scripts/img/应用服务.png", "rb")
         image = file.read()
         start_tip_img = widgets.Image(
             value=image,
-            format='png'
+            format='png',
+            width=600,
+            height=300,
         )
         ui_constructor.add_component(start_tip_img)
 
@@ -1029,22 +1016,6 @@ def getUi(data,cmd_run,controllers):
                     return
 
             with rootOut:
-                def is_xl_env():
-                    # 获取当前 Python 解释器的路径
-                    executable_path_result = subprocess.run(["python", "-c", "import sys; print(sys.executable)"], capture_output=True, text=True)
-                    executable_path = executable_path_result.stdout.strip()
-                    # 检查路径中是否包含 'xl_env'
-                    return 'xl_env' in executable_path
-                if not is_xl_env():
-                    print(yellow_text("警告! 你选择的运行环境不是xl_env, 如果没有特殊需求你的本次启动将会报错!"))
-
-                havetemp = has_files("/root/temp")
-                if havetemp:
-                    print("发现你是第一次运行, 正在初始化镜像依赖")
-                    cmd_run("mkdir /root/.cache")
-                    cmd_run("mv -b -f /root/temp/* /root/.cache/")
-                    cmd_run("echo '移动完成'")
-
                 commandBuilder.set_python_path("python") # 新版启动器环境已用环境变量切换，无需手动指定
                 componentsControl.set_command(commandBuilder)
                 finallyCommand = commandBuilder.build()
@@ -1061,9 +1032,9 @@ def getUi(data,cmd_run,controllers):
                     print("")
 
                     if get_is_speed():
-                        print("如果需要学术加速, 请打开右侧网址, 找到对应加速命令提前运行即可: https://www.autodl.com/docs/network_turbo/")
+                        print("如果需要学术加速, 手动输入对应命令即可")
                     else:
-                        print("如果之前开启过学术加速需要解除, 请打开右侧网址, 找到对应接触命令提前运行即可: https://www.autodl.com/docs/network_turbo/")
+                        print("如果之前开启过学术加速需要解除, 请手动输入unset http_proxy && unset https_proxy命令")
         sd_start_button.on_click_with_style(sd_start_fun,"正在运行...")
         ui_constructor.add_component(sd_start_button)
 

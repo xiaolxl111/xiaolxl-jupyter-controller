@@ -143,7 +143,7 @@ manager.add_mod_childs(a2, "[CagliostroLab] Animagine-XL-V3 (二次元)", [
 }
 ])
 
-manager.add_mod_childs(a2, "[playgroundai] playground-v2-XL(13GB) (二次元)", [
+manager.add_mod_childs(a2, "[playgroundai] playground-v2-XL(13GB) (通用)", [
 {
     "downloadType": "cg",
     "url": "xiaolxl/stable-diffusion-models/playground-v2.safetensors",

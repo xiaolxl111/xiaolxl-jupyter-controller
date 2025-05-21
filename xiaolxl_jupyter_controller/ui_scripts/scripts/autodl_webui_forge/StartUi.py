@@ -671,7 +671,7 @@ def getUi(data,cmd_run,controllers):
         class CheckAndDownloadTheCoreSelectUI(SelectUIBaseComponent):
             def set_command(self, command):
                 if self.get_value():
-                    modList, _ = controllers['jsonFetcher'].fetch_json(data['branch'],"ui_scripts/data/autodl_webui/automodList.json")
+                    modList, _ = controllers['jsonFetcher'].fetch_json(data['branch'],"ui_scripts/data/autodl_webui_forge/automodList.json")
                     def download_files(modList, uiConfig, specified_type):
                         # 获取指定类型的文件信息列表
                         mod_children = modList.get(specified_type, {}).get("modChildren", [])
@@ -1029,14 +1029,14 @@ def getUi(data,cmd_run,controllers):
                     return
 
             with rootOut:
-                def is_xl_env():
-                    # 获取当前 Python 解释器的路径
-                    executable_path_result = subprocess.run(["python", "-c", "import sys; print(sys.executable)"], capture_output=True, text=True)
-                    executable_path = executable_path_result.stdout.strip()
-                    # 检查路径中是否包含 'xl_env'
-                    return 'xl_env' in executable_path
-                if not is_xl_env():
-                    print(yellow_text("警告! 你选择的运行环境不是xl_env, 如果没有特殊需求你的本次启动将会报错!"))
+                # def is_xl_env():
+                #     # 获取当前 Python 解释器的路径
+                #     executable_path_result = subprocess.run(["python", "-c", "import sys; print(sys.executable)"], capture_output=True, text=True)
+                #     executable_path = executable_path_result.stdout.strip()
+                #     # 检查路径中是否包含 'xl_env'
+                #     return 'xl_env' in executable_path
+                # if not is_xl_env():
+                #     print(yellow_text("警告! 你选择的运行环境不是xl_env, 如果没有特殊需求你的本次启动将会报错!"))
 
                 havetemp = has_files("/root/temp")
                 if havetemp:
